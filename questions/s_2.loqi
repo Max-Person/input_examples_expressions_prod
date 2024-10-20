@@ -1,0 +1,142 @@
+//! font || ! text || ! len
+
+//-----------------------OBJECT SECTION-----------------------
+//------------------------------------------------------------
+
+obj element_op__0__1 : not {
+	state = state:unevaluated ;
+	evaluatesTo = true;
+
+	has(token_op__0__1) ;
+} [
+	EN.localizedName = "operator ! at position 1" ;
+	RU.localizedName = "оператор ! на позиции 1" ;
+]
+
+obj element_op__0__4 : not {
+	state = state:unevaluated ;
+
+	has(token_op__0__4) ;
+} [
+	EN.localizedName = "operator ! at position 4" ;
+	RU.localizedName = "оператор ! на позиции 4" ;
+]
+
+obj element_op__0__7 : not {
+	state = state:unevaluated ;
+
+	has(token_op__0__7) ;
+} [
+	EN.localizedName = "operator ! at position 7" ;
+	RU.localizedName = "оператор ! на позиции 7" ;
+]
+
+obj element_op__0__2 : operand {
+	state = state:evaluated ;
+
+	has(token_op__0__2) ;
+} [
+	EN.localizedName = "variable font at position 2" ;
+	RU.localizedName = "операнд font на позиции 2" ;
+]
+
+obj element_op__0__5 : operand {
+	state = state:evaluated ;
+
+	has(token_op__0__5) ;
+} [
+	EN.localizedName = "variable text at position 5" ;
+	RU.localizedName = "операнд text на позиции 5" ;
+]
+
+obj element_op__0__8 : operand {
+	state = state:evaluated ;
+
+	has(token_op__0__8) ;
+} [
+	EN.localizedName = "variable len at position 8" ;
+	RU.localizedName = "операнд len на позиции 8" ;
+]
+
+var X = 
+obj element_op__0__3 : or {
+	state = state:unevaluated ;
+	evaluatesTo = false;
+
+	has(token_op__0__3) ;
+} [
+	EN.localizedName = "operator || at position 3" ;
+	RU.localizedName = "оператор || на позиции 3" ;
+]
+
+obj element_op__0__6 : or {
+	state = state:unevaluated ;
+
+	has(token_op__0__6) ;
+} [
+	EN.localizedName = "operator || at position 6" ;
+	RU.localizedName = "оператор || на позиции 6" ;
+]
+
+obj token_op__0__1 : token {
+
+	directlyLeftOf(token_op__0__2) ;
+} [
+	EN.localizedName = "operator ! at position 1" ;
+	RU.localizedName = "оператор ! на позиции 1" ;
+]
+
+obj token_op__0__2 : token {
+
+	directlyLeftOf(token_op__0__3) ;
+} [
+	EN.localizedName = "variable font at position 2" ;
+	RU.localizedName = "операнд font на позиции 2" ;
+]
+
+var X1 = 
+obj token_op__0__3 : token {
+
+	directlyLeftOf(token_op__0__4) ;
+} [
+	EN.localizedName = "operator || at position 3" ;
+	RU.localizedName = "оператор || на позиции 3" ;
+]
+
+obj token_op__0__4 : token {
+
+	directlyLeftOf(token_op__0__5) ;
+} [
+	EN.localizedName = "operator ! at position 4" ;
+	RU.localizedName = "оператор ! на позиции 4" ;
+]
+
+obj token_op__0__5 : token {
+
+	directlyLeftOf(token_op__0__6) ;
+} [
+	EN.localizedName = "variable text at position 5" ;
+	RU.localizedName = "операнд text на позиции 5" ;
+]
+
+obj token_op__0__6 : token {
+
+	directlyLeftOf(token_op__0__7) ;
+} [
+	EN.localizedName = "operator || at position 6" ;
+	RU.localizedName = "оператор || на позиции 6" ;
+]
+
+obj token_op__0__7 : token {
+
+	directlyLeftOf(token_op__0__8) ;
+} [
+	EN.localizedName = "operator ! at position 7" ;
+	RU.localizedName = "оператор ! на позиции 7" ;
+]
+
+obj token_op__0__8 : token [
+	EN.localizedName = "variable len at position 8" ;
+	RU.localizedName = "операнд len на позиции 8" ;
+]
+

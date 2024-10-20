@@ -1,0 +1,127 @@
+//! captured && capture == - 1
+
+//-----------------------OBJECT SECTION-----------------------
+//------------------------------------------------------------
+
+obj element_op__0__1 : not {
+	state = state:unevaluated ;
+
+	evaluatesTo = false;
+
+	has(token_op__0__1) ;
+} [
+	EN.localizedName = "operator ! at position 1" ;
+	RU.localizedName = "оператор ! на позиции 1" ;
+]
+
+obj element_op__0__2 : operand {
+	state = state:evaluated ;
+
+	has(token_op__0__2) ;
+} [
+	EN.localizedName = "variable captured at position 2" ;
+	RU.localizedName = "операнд captured на позиции 2" ;
+]
+
+var X = 
+obj element_op__0__3 : and {
+	state = state:unevaluated ;
+
+	has(token_op__0__3) ;
+} [
+	EN.localizedName = "operator && at position 3" ;
+	RU.localizedName = "оператор && на позиции 3" ;
+]
+
+obj element_op__0__4 : operand {
+	state = state:evaluated ;
+
+	has(token_op__0__4) ;
+} [
+	EN.localizedName = "variable capture at position 4" ;
+	RU.localizedName = "операнд capture на позиции 4" ;
+]
+
+obj element_op__0__5 : equal {
+	state = state:unevaluated ;
+
+	has(token_op__0__5) ;
+} [
+	EN.localizedName = "operator == at position 5" ;
+	RU.localizedName = "оператор == на позиции 5" ;
+]
+
+obj element_op__0__6 : unaryMinus {
+	state = state:unevaluated ;
+
+	has(token_op__0__6) ;
+} [
+	EN.localizedName = "operator - at position 6" ;
+	RU.localizedName = "оператор - на позиции 6" ;
+]
+
+obj element_op__0__7 : operand {
+	state = state:evaluated ;
+
+	has(token_op__0__7) ;
+} [
+	EN.localizedName = "variable 1 at position 7" ;
+	RU.localizedName = "операнд 1 на позиции 7" ;
+]
+
+
+
+obj token_op__0__1 : token {
+
+	directlyLeftOf(token_op__0__2) ;
+} [
+	EN.localizedName = "operator ! at position 1" ;
+	RU.localizedName = "оператор ! на позиции 1" ;
+]
+
+obj token_op__0__2 : token {
+
+	directlyLeftOf(token_op__0__3) ;
+} [
+	EN.localizedName = "variable captured at position 2" ;
+	RU.localizedName = "операнд captured на позиции 2" ;
+]
+
+var X1 = 
+obj token_op__0__3 : token {
+
+	directlyLeftOf(token_op__0__4) ;
+} [
+	EN.localizedName = "operator && at position 3" ;
+	RU.localizedName = "оператор && на позиции 3" ;
+]
+
+obj token_op__0__4 : token {
+
+	directlyLeftOf(token_op__0__5) ;
+} [
+	EN.localizedName = "variable capture at position 4" ;
+	RU.localizedName = "операнд capture на позиции 4" ;
+]
+
+obj token_op__0__5 : token {
+
+	directlyLeftOf(token_op__0__6) ;
+} [
+	EN.localizedName = "operator == at position 5" ;
+	RU.localizedName = "оператор == на позиции 5" ;
+]
+
+obj token_op__0__6 : token {
+
+	directlyLeftOf(token_op__0__7) ;
+} [
+	EN.localizedName = "operator - at position 6" ;
+	RU.localizedName = "оператор - на позиции 6" ;
+]
+
+obj token_op__0__7 : token [
+	EN.localizedName = "variable 1 at position 7" ;
+	RU.localizedName = "операнд 1 на позиции 7" ;
+]
+

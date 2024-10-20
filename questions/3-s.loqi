@@ -1,0 +1,188 @@
+//-----------------------OBJECT SECTION-----------------------
+//------------------------------------------------------------
+
+obj element_division_1 : division {
+	state = state:used ;
+
+	has(token_division_1) ;
+	isOperandOf(element_plus_2) ;
+} [
+	RU.localizedName = "оператор / на позиции 10" ;
+]
+
+obj element_multiplication_1 : multiplication {
+	state = state:used ;
+
+	has(token_multiplication_1) ;
+	isOperandOf(element_plus_1) ;
+} [
+	RU.localizedName = "оператор * на позиции 2" ;
+]
+
+obj element_A_1 : operand {
+	state = state:used ;
+
+	has(token_A_1) ;
+} [
+	RU.localizedName = "операнд A на позиции 3" ;
+]
+
+obj element_B_1 : operand {
+	state = state:used ;
+
+	has(token_B_1) ;
+} [
+	RU.localizedName = "операнд B на позиции 5" ;
+]
+
+obj element_C_1 : operand {
+	state = state:used ;
+
+	has(token_C_1) ;
+	isOperandOf(element_plus_1) ;
+} [
+	RU.localizedName = "операнд C на позиции 7" ;
+]
+
+obj element_D_1 : operand {
+	state = state:used ;
+
+	has(token_D_1) ;
+	isOperandOf(element_division_1) ;
+} [
+	RU.localizedName = "операнд D на позиции 9" ;
+]
+
+obj element_K_1 : operand {
+	state = state:used ;
+
+	has(token_K_1) ;
+	isOperandOf(element_division_1) ;
+} [
+	RU.localizedName = "операнд K на позиции 11" ;
+]
+
+obj element_X_1 : operand {
+	state = state:used ;
+
+	has(token_X_1) ;
+	isOperandOf(element_multiplication_1) ;
+} [
+	RU.localizedName = "операнд X на позиции 1" ;
+]
+
+var X = 
+obj element_plus_1 : plus {
+	state = state:used ;
+
+	has(token_plus_1) ;
+	isOperandOf(element_plus_2) ;
+} [
+	RU.localizedName = "оператор + на позиции 6" ;
+]
+
+obj element_plus_2 : plus {
+	state = state:evaluated ;
+
+	has(token_plus_2) ;
+} [
+	RU.localizedName = "оператор + на позиции 8" ;
+]
+
+obj element_power_1 : power {
+	state = state:used ;
+
+	has(token_power_1) ;
+	isOperandOf(element_multiplication_1) ;
+} [
+	RU.localizedName = "оператор ^ на позиции 4" ;
+]
+
+obj token_A_1 : token {
+
+	belongsTo(element_A_1) ;
+	directlyLeftOf(token_power_1) ;
+} [
+	RU.localizedName = "A на позиции 3" ;
+]
+
+obj token_B_1 : token {
+
+	belongsTo(element_B_1) ;
+	directlyLeftOf(token_plus_1) ;
+} [
+	RU.localizedName = "B на позиции 5" ;
+]
+
+obj token_C_1 : token {
+
+	belongsTo(element_C_1) ;
+	directlyLeftOf(token_plus_2) ;
+} [
+	RU.localizedName = "C на позиции 7" ;
+]
+
+obj token_D_1 : token {
+
+	belongsTo(element_D_1) ;
+	directlyLeftOf(token_division_1) ;
+} [
+	RU.localizedName = "D на позиции 9" ;
+]
+
+obj token_K_1 : token {
+
+	belongsTo(element_K_1) ;
+} [
+	RU.localizedName = "K на позиции 11" ;
+]
+
+obj token_X_1 : token {
+
+	belongsTo(element_X_1) ;
+	directlyLeftOf(token_multiplication_1) ;
+} [
+	RU.localizedName = "X на позиции 1" ;
+]
+
+obj token_division_1 : token {
+
+	belongsTo(element_division_1) ;
+	directlyLeftOf(token_K_1) ;
+} [
+	RU.localizedName = "/ на позиции 10" ;
+]
+
+obj token_multiplication_1 : token {
+
+	belongsTo(element_multiplication_1) ;
+	directlyLeftOf(token_A_1) ;
+} [
+	RU.localizedName = "* на позиции 2" ;
+]
+
+var X1 = 
+obj token_plus_1 : token {
+
+	belongsTo(element_plus_1) ;
+	directlyLeftOf(token_C_1) ;
+} [
+	RU.localizedName = "+ на позиции 6" ;
+]
+
+obj token_plus_2 : token {
+
+	belongsTo(element_plus_2) ;
+	directlyLeftOf(token_D_1) ;
+} [
+	RU.localizedName = "+ на позиции 8" ;
+]
+
+obj token_power_1 : token {
+
+	belongsTo(element_power_1) ;
+	directlyLeftOf(token_B_1) ;
+} [
+	RU.localizedName = "^ на позиции 4" ;
+]
+
