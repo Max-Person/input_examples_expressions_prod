@@ -1,0 +1,166 @@
+//-----------------------OBJECT SECTION-----------------------
+//------------------------------------------------------------
+
+obj element_op__0__1 : operand {
+	state = state:evaluated ;
+	evaluatesTo = true ;
+
+	has(token_op__0__1) ;
+	isOperandOf(element_op__0__2) ;
+	isLeftOperandOf(element_op__0__2) ;
+} [
+	RU.localizedName = "операнд _Char_value на позиции 1" ;
+	EN.localizedName = "variable _Char_value at position 1" ;
+]
+
+obj element_op__0__4 : operand {
+	state = state:evaluated ;
+	evaluatesTo = true ;
+
+	has(token_op__0__4) ;
+	isOperandOf(element_op__0__3) ;
+	isRightOperandOf(element_op__0__3) ;
+} [
+	RU.localizedName = "операнд 1 на позиции 4" ;
+	EN.localizedName = "variable 1 at position 4" ;
+]
+
+obj element_op__0__6 : operand {
+	state = state:evaluated ;
+	evaluatesTo = true ;
+
+	has(token_op__0__6) ;
+	isOperandOf(element_op__0__7) ;
+	isLeftOperandOf(element_op__0__7) ;
+} [
+	RU.localizedName = "операнд _Char_value на позиции 6" ;
+	EN.localizedName = "variable _Char_value at position 6" ;
+]
+
+obj element_op__0__8 : operand {
+	state = state:evaluated ;
+	evaluatesTo = true ;
+
+	has(token_op__0__8) ;
+	isOperandOf(element_op__0__7) ;
+	isRightOperandOf(element_op__0__7) ;
+} [
+	RU.localizedName = "операнд 255 на позиции 8" ;
+	EN.localizedName = "variable 255 at position 8" ;
+]
+
+obj element_op__0__5 : `operator_&&` {
+	state = state:unevaluated ;
+	evaluatesTo = false ;
+
+	has(token_op__0__5) ;
+} [
+	RU.localizedName = "оператор && на позиции 5" ;
+	EN.localizedName = "operator && at position 5" ;
+]
+
+obj element_op__0__7 : `operator_<=` {
+	evaluatesTo = true ;
+	state = state:omitted ;
+
+	has(token_op__0__7) ;
+	isOperandOf(element_op__0__5) ;
+	isRightOperandOf(element_op__0__5) ;
+} [
+	RU.localizedName = "оператор <= на позиции 7" ;
+	EN.localizedName = "operator <= at position 7" ;
+]
+
+obj element_op__0__2 : `operator_>=` {
+	state = state:unevaluated ;
+	evaluatesTo = false ;
+
+	has(token_op__0__2) ;
+	isOperandOf(element_op__0__5) ;
+	isLeftOperandOf(element_op__0__5) ;
+} [
+	RU.localizedName = "оператор >= на позиции 2" ;
+	EN.localizedName = "operator >= at position 2" ;
+]
+
+obj element_op__0__3 : `operator_unary_-` {
+	state = state:unevaluated ;
+	evaluatesTo = true ;
+
+	has(token_op__0__3) ;
+	isOperandOf(element_op__0__2) ;
+	isRightOperandOf(element_op__0__2) ;
+} [
+	RU.localizedName = "оператор - на позиции 3" ;
+	EN.localizedName = "operator - at position 3" ;
+]
+
+obj token_op__0__1 : token {
+
+	directlyLeftOf(token_op__0__2) ;
+} [
+	index = 0 ;
+	RU.localizedName = "операнд _Char_value на позиции 1" ;
+	EN.localizedName = "variable _Char_value at position 1" ;
+]
+
+obj token_op__0__2 : token {
+
+	directlyLeftOf(token_op__0__3) ;
+} [
+	index = 1 ;
+	RU.localizedName = "оператор >= на позиции 2" ;
+	EN.localizedName = "operator >= at position 2" ;
+]
+
+obj token_op__0__3 : token {
+
+	directlyLeftOf(token_op__0__4) ;
+} [
+	index = 2 ;
+	RU.localizedName = "оператор - на позиции 3" ;
+	EN.localizedName = "operator - at position 3" ;
+]
+
+obj token_op__0__4 : token {
+
+	directlyLeftOf(token_op__0__5) ;
+} [
+	index = 3 ;
+	RU.localizedName = "операнд 1 на позиции 4" ;
+	EN.localizedName = "variable 1 at position 4" ;
+]
+
+obj token_op__0__5 : token {
+
+	directlyLeftOf(token_op__0__6) ;
+} [
+	index = 4 ;
+	RU.localizedName = "оператор && на позиции 5" ;
+	EN.localizedName = "operator && at position 5" ;
+]
+
+obj token_op__0__6 : token {
+
+	directlyLeftOf(token_op__0__7) ;
+} [
+	index = 5 ;
+	RU.localizedName = "операнд _Char_value на позиции 6" ;
+	EN.localizedName = "variable _Char_value at position 6" ;
+]
+
+obj token_op__0__7 : token {
+
+	directlyLeftOf(token_op__0__8) ;
+} [
+	index = 6 ;
+	RU.localizedName = "оператор <= на позиции 7" ;
+	EN.localizedName = "operator <= at position 7" ;
+]
+
+obj token_op__0__8 : token [
+	index = 7 ;
+	RU.localizedName = "операнд 255 на позиции 8" ;
+	EN.localizedName = "variable 255 at position 8" ;
+]
+

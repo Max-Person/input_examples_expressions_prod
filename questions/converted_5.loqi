@@ -1,0 +1,162 @@
+//-----------------------OBJECT SECTION-----------------------
+//------------------------------------------------------------
+
+obj element_op__0__1 : operand {
+	state = state:evaluated ;
+	evaluatesTo = true ;
+
+	has(token_op__0__1) ;
+} [
+	RU.localizedName = "операнд stbi__flip_vertically_on_write на позиции 1" ;
+	EN.localizedName = "variable stbi__flip_vertically_on_write at position 1" ;
+]
+
+obj element_op__0__3 : operand {
+	state = state:evaluated ;
+	evaluatesTo = true ;
+
+	has(token_op__0__3) ;
+} [
+	RU.localizedName = "операнд height на позиции 3" ;
+	EN.localizedName = "variable height at position 3" ;
+]
+
+obj element_op__0__5 : operand {
+	state = state:evaluated ;
+	evaluatesTo = true ;
+
+	has(token_op__0__5) ;
+} [
+	RU.localizedName = "операнд 1 на позиции 5" ;
+	EN.localizedName = "variable 1 at position 5" ;
+]
+
+obj element_op__0__7 : operand {
+	state = state:evaluated ;
+	evaluatesTo = true ;
+
+	has(token_op__0__7) ;
+} [
+	RU.localizedName = "операнд y на позиции 7" ;
+	EN.localizedName = "variable y at position 7" ;
+]
+
+obj element_op__0__9 : operand {
+	state = state:evaluated ;
+	evaluatesTo = true ;
+
+	has(token_op__0__9) ;
+} [
+	RU.localizedName = "операнд y на позиции 9" ;
+	EN.localizedName = "variable y at position 9" ;
+]
+
+obj element_op__0__2 : `operator_?` {
+	state = state:unevaluated ;
+	evaluatesTo = true ;
+
+	has(token_op__0__2) ;
+	has(token_op__0__8) ;
+} [
+	RU.localizedName = "оператор ? на позиции 2" ;
+	EN.localizedName = "operator ? at position 2" ;
+]
+
+obj element_op__0__4 : `operator_binary_-` {
+	state = state:unevaluated ;
+	evaluatesTo = true ;
+
+	has(token_op__0__4) ;
+} [
+	RU.localizedName = "оператор - на позиции 4" ;
+	EN.localizedName = "operator - at position 4" ;
+]
+
+obj element_op__0__6 : `operator_binary_-` {
+	state = state:unevaluated ;
+	evaluatesTo = true ;
+
+	has(token_op__0__6) ;
+} [
+	RU.localizedName = "оператор - на позиции 6" ;
+	EN.localizedName = "operator - at position 6" ;
+]
+
+obj token_op__0__1 : token {
+
+	directlyLeftOf(token_op__0__2) ;
+} [
+	index = 0 ;
+	RU.localizedName = "операнд stbi__flip_vertically_on_write на позиции 1" ;
+	EN.localizedName = "variable stbi__flip_vertically_on_write at position 1" ;
+]
+
+obj token_op__0__2 : token {
+
+	directlyLeftOf(token_op__0__3) ;
+} [
+	index = 1 ;
+	RU.localizedName = "оператор ? на позиции 2" ;
+	EN.localizedName = "operator ? at position 2" ;
+]
+
+obj token_op__0__3 : token {
+
+	directlyLeftOf(token_op__0__4) ;
+} [
+	index = 2 ;
+	RU.localizedName = "операнд height на позиции 3" ;
+	EN.localizedName = "variable height at position 3" ;
+]
+
+obj token_op__0__4 : token {
+
+	directlyLeftOf(token_op__0__5) ;
+} [
+	index = 3 ;
+	RU.localizedName = "оператор - на позиции 4" ;
+	EN.localizedName = "operator - at position 4" ;
+]
+
+obj token_op__0__5 : token {
+
+	directlyLeftOf(token_op__0__6) ;
+} [
+	index = 4 ;
+	RU.localizedName = "операнд 1 на позиции 5" ;
+	EN.localizedName = "variable 1 at position 5" ;
+]
+
+obj token_op__0__6 : token {
+
+	directlyLeftOf(token_op__0__7) ;
+} [
+	index = 5 ;
+	RU.localizedName = "оператор - на позиции 6" ;
+	EN.localizedName = "operator - at position 6" ;
+]
+
+obj token_op__0__7 : token {
+
+	directlyLeftOf(token_op__0__8) ;
+} [
+	index = 6 ;
+	RU.localizedName = "операнд y на позиции 7" ;
+	EN.localizedName = "variable y at position 7" ;
+]
+
+obj token_op__0__8 : token {
+
+	directlyLeftOf(token_op__0__9) ;
+} [
+	index = 7 ;
+	RU.localizedName = "оператор : на позиции 8" ;
+	EN.localizedName = "operator : at position 8" ;
+]
+
+obj token_op__0__9 : token [
+	index = 8 ;
+	RU.localizedName = "операнд y на позиции 9" ;
+	EN.localizedName = "variable y at position 9" ;
+]
+
