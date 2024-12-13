@@ -742,6 +742,40 @@ class operator_subscript : operator {
 	isComplex = true ;
 ]
 
+class operator_function_call : operator {
+ 	arity = arity:binary ;
+ 	place = place:infix ;
+ 	precedence = 2 ;
+ 	associativity = associativity:left ;
+ 	needsLeftOperand = false ;
+ 	needsRightOperand = false ;
+ 	needsInnerOperand = true ;
+ 	countOfTokens = 2 ;
+ } [
+ 	text = "(" ;
+ 	token2text = ")";
+ 	RU.localizedName = "вызов функции" ;
+ 	EN.localizedName = "function call" ;
+ 	isComplex = true ;
+ ]
+
+class operator_method_call : operator {
+    arity = arity:binary ;
+    place = place:infix ;
+    precedence = 2 ;
+    associativity = associativity:left ;
+    needsLeftOperand = true ;
+    needsRightOperand = false ;
+    needsInnerOperand = true ;
+    countOfTokens = 2 ;
+} [
+    text = "(" ;
+    token2text = ")";
+    RU.localizedName = "вызов метода" ;
+    EN.localizedName = "method call" ;
+    isComplex = true ;
+]
+
 class operator_throw : operator {
 
 	arity = arity:unary ;

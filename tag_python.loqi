@@ -463,6 +463,23 @@ class operator_subscript : operator {
 	isComplex = true ;
 ]
 
+class operator_call : operator {
+	arity = arity:binary ;
+	place = place:infix ;
+	precedence = 2 ;
+	associativity = associativity:left ;
+	needsLeftOperand = true ;
+	needsRightOperand = false ;
+	needsInnerOperand = true ;
+	countOfTokens = 2 ;
+} [
+	text = "(" ;
+	token2text = ")";
+	RU.localizedName = "вызов функции" ;
+	EN.localizedName = "function call" ;
+	isComplex = true ;
+]
+
 class `operator_unary_+` : operator {
 
 	arity = arity:unary ;

@@ -1912,49 +1912,47 @@
                                     <DecisionTreeVar name="X" />
                                     <Property name="needsInnerOperand" />
                                 </GetPropertyValue>
-                                <With varName="c">
-                                    <GetByCondition varName="c">
+                                <ForAllQuantifier varName="c" type="operand">
+                                    <LogicalAnd>
                                         <LogicalAnd>
-                                            <LogicalAnd>
-                                                <CheckClass>
-                                                    <Variable name="c" />
-                                                    <Class name="operand" />
-                                                </CheckClass>
-                                                <CheckRelationship>
-                                                    <Relationship name="isBetween" />
-                                                    <Variable name="c" />
-                                                    <DecisionTreeVar name="X1" />
-                                                    <GetByCondition varName="x2">
+                                            <CheckClass>
+                                                <Variable name="c" />
+                                                <Class name="operand" />
+                                            </CheckClass>
+                                            <CheckRelationship>
+                                                <Relationship name="isBetween" />
+                                                <Variable name="c" />
+                                                <DecisionTreeVar name="X1" />
+                                                <GetByCondition varName="x2">
+                                                    <LogicalAnd>
                                                         <LogicalAnd>
-                                                            <LogicalAnd>
-                                                                <CheckClass>
-                                                                    <Variable name="x2" />
-                                                                    <Class name="token" />
-                                                                </CheckClass>
-                                                                <CheckRelationship>
-                                                                    <Relationship name="belongsTo" />
-                                                                    <Variable name="x2" />
-                                                                    <DecisionTreeVar name="X" />
-                                                                </CheckRelationship>
-                                                            </LogicalAnd>
-                                                            <CheckRelationship>
-                                                                <Relationship name="rightOf" />
+                                                            <CheckClass>
                                                                 <Variable name="x2" />
-                                                                <DecisionTreeVar name="X1" />
+                                                                <Class name="token" />
+                                                            </CheckClass>
+                                                            <CheckRelationship>
+                                                                <Relationship name="belongsTo" />
+                                                                <Variable name="x2" />
+                                                                <DecisionTreeVar name="X" />
                                                             </CheckRelationship>
                                                         </LogicalAnd>
-                                                    </GetByCondition>
-                                                </CheckRelationship>
-                                            </LogicalAnd>
-                                            <Compare operator="EQUAL">
-                                                <GetPropertyValue>
-                                                    <Variable name="c" />
-                                                    <Property name="state" />
-                                                </GetPropertyValue>
-                                                <Enum owner="state" value="evaluated" />
-                                            </Compare>
+                                                        <CheckRelationship>
+                                                            <Relationship name="rightOf" />
+                                                            <Variable name="x2" />
+                                                            <DecisionTreeVar name="X1" />
+                                                        </CheckRelationship>
+                                                    </LogicalAnd>
+                                                </GetByCondition>
+                                            </CheckRelationship>
                                         </LogicalAnd>
-                                    </GetByCondition>
+                                        <Compare operator="EQUAL">
+                                            <GetPropertyValue>
+                                                <Variable name="c" />
+                                                <Property name="state" />
+                                            </GetPropertyValue>
+                                            <Enum owner="state" value="evaluated" />
+                                        </Compare>
+                                    </LogicalAnd>
                                     <Block>
                                         <AddRelationshipLink>
                                             <Relationship name="isOperandOf" />
@@ -1972,7 +1970,7 @@
                                             <Enum owner="state" value="used"/>
                                         </AssignToProperty>
                                     </Block>
-                                </With>
+                                </ForAllQuantifier>
                             </IfThen>
                             <IfThen>
                                 <GetPropertyValue>

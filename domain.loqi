@@ -85,7 +85,6 @@ enum state {
 
 class element {
 	class prop countOfTokens: int[1,2] ;
-	obj prop state: state ;
 
 	rel has(token) : {1 -> *} ;
 
@@ -114,6 +113,7 @@ class token {
 
 class operand : element {
 	
+	obj prop state: state ;
 	obj prop evaluatesTo : bool; //!b4 нужно только для логическх операций
 
 	//b4
@@ -121,7 +121,7 @@ class operand : element {
 	rel isOperatorTo(operand) : opposite to isOperandOf ;
 	rel isInOperandOf(operand) : transitive to isOperandOf;
 	rel isLeftOperandOf(operator) : {1->1};
-	rel isCenterOperandOf(operator) : {1->1};
+	rel isCenterOperandOf(operator) : {*->1};
 	rel isRightOperandOf(operator) : {1->1};
 
 	countOfTokens = 1 ;
@@ -138,6 +138,14 @@ class parenthesis : element {
 	token2text = ")";
 	RU.localizedName = "скобки" ;
 	EN.localizedName = "parenthesis" ;
+]
+
+class separator : element {
+
+	countOfTokens = 1 ;
+} [
+	RU.localizedName = "разделитель" ;
+	EN.localizedName = "separator" ;
 ]
 
 class operator : operand {

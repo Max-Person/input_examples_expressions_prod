@@ -2575,7 +2575,7 @@
                 </CycleAggregationNode>
             </ThoughtBranch>
             <Outcome value="true">
-                <BranchResultNode value="true"> <!-- A, B, C становятся операндами и т.д.-->
+                <BranchResultNode value="true"> <!-- X вычисляется, A, B, C становятся использованными-->
                     <Expression>
                         <Block>
                             <AssignToProperty>
