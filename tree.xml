@@ -2631,8 +2631,13 @@
                                     <Enum owner="state" value="used"/>
                                 </AssignToProperty>
                             </IfThen>
-                            <IfThen>
-                                <ExistenceQuantifier varName="c" type="operand">
+                            <ForAllQuantifier varName="c" type="operand">
+                                <LogicalAnd>
+                                    <CheckRelationship>
+                                        <Relationship name="hasCenterOperand" />
+                                        <DecisionTreeVar name="X" />
+                                        <Variable name="c" />
+                                    </CheckRelationship>
                                     <Compare operator="NOT_EQUAL">
                                         <GetPropertyValue>
                                             <Variable name="c" />
@@ -2640,21 +2645,13 @@
                                         </GetPropertyValue>
                                         <Enum owner="state" value="omitted" />
                                     </Compare>
-                                    <CheckRelationship>
-                                        <Relationship name="hasCenterOperand" />
-                                        <DecisionTreeVar name="X" />
-                                        <Variable name="c" />
-                                    </CheckRelationship>
-                                </ExistenceQuantifier>
+                                </LogicalAnd>
                                 <AssignToProperty>
-                                    <GetByRelationship varName="c">
-                                        <DecisionTreeVar name="X" />
-                                        <Relationship name="hasCenterOperand" />
-                                    </GetByRelationship>
+                                    <Variable name="c" />
                                     <Property name="state" />
-                                    <Enum owner="state" value="used"/>
+                                    <Enum owner="state" value="used" />
                                 </AssignToProperty>
-                            </IfThen>
+                            </ForAllQuantifier>
                         </Block>
                     </Expression>
                     <!-- <Expression>

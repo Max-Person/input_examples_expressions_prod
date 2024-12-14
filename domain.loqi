@@ -87,6 +87,7 @@ class element {
 	class prop countOfTokens: int[1,2] ;
 
 	rel has(token) : {1 -> *} ;
+	obj prop state: state ;
 
 	// rel isInside(element) ;
 	// rel surrounds(element) ;
@@ -113,7 +114,6 @@ class token {
 
 class operand : element {
 	
-	obj prop state: state ;
 	obj prop evaluatesTo : bool; //!b4 нужно только для логическх операций
 
 	//b4
