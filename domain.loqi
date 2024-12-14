@@ -193,10 +193,30 @@ enum ExpectedValue { //b4
 	EN.localizedName = "value" ;
 ]
 
+enum OperandPosition {
+	left[
+		RU.localizedName = "левый" ;
+		EN.localizedName = "left" ;
+	],
+	right [
+		RU.localizedName = "правый" ;
+		EN.localizedName = "right" ;
+	],
+	center[
+		RU.localizedName = "центральный" ;
+		EN.localizedName = "center" ;
+	],
+}[
+	RU.localizedName = "положение операнда" ;
+	EN.localizedName = "operand position" ;
+]
+
 
 class StrictOrderOperator : operator { //b4
-	class prop requiredLeftValForRight : ExpectedValue;
-	class prop requiredLeftValForCenter : ExpectedValue;
+	class prop requiredFirstValForRight : ExpectedValue = ExpectedValue:any;
+	class prop requiredFirstValForCenter : ExpectedValue = ExpectedValue:any;
+	class prop requiredFirstValForLeft : ExpectedValue = ExpectedValue:any;
+	class prop firstOperandPosition : OperandPosition;
 	
 	hasStrictOperandOrder = true;
 }

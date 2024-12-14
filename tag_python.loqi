@@ -333,8 +333,8 @@ class operator_and : StrictOrderOperator {
 	countOfTokens = 1 ;
 
 	isAnd = true;
-	requiredLeftValForRight = ExpectedValue:`true` ;
-	requiredLeftValForCenter = ExpectedValue:any ;
+	firstOperandPosition = OperandPosition:left;
+	requiredFirstValForRight = ExpectedValue:`true` ;
 } [
 	text = "and" ;
 	RU.localizedName = "оператор and" ;
@@ -359,22 +359,27 @@ class operator_await : operator {
 
 
 
-// class operator_if : StrictOrderOperator {
+class operator_if : StrictOrderOperator {
 
-// 	arity = arity:ternary ;
-// 	place = place:infix ;
-// 	precedence = 16 ;
-// 	associativity = associativity:left ;
-// 	needsLeftOperand = true ;
-// 	needsRightOperand = true ;
-// 	needsInnerOperand = true ;
-// 	countOfTokens = 2 ;
-// } [
-// 	text = "if" ;
-// 	token2text = "else";
-// 	RU.localizedName = "оператор if" ;
-// 	EN.localizedName = "operator if" ;
-// ]
+	arity = arity:ternary ;
+	place = place:infix ;
+	precedence = 16 ;
+	associativity = associativity:left ;
+	needsLeftOperand = true ;
+	needsRightOperand = true ;
+	needsInnerOperand = true ;
+	countOfTokens = 2 ;
+
+	isTConditional = true;
+	firstOperandPosition = OperandPosition:center;
+	requiredFirstValForLeft = ExpectedValue:`true` ;
+	requiredFirstValForRight = ExpectedValue:`false` ;
+} [
+	text = "if" ;
+	token2text = "else";
+	RU.localizedName = "оператор if" ;
+	EN.localizedName = "operator if" ;
+]
 
 class operator_in : operator {
 
@@ -437,8 +442,8 @@ class operator_or : StrictOrderOperator {
 	countOfTokens = 1 ;
 
 	isOr = true;
-	requiredLeftValForRight = ExpectedValue:`false` ;
-	requiredLeftValForCenter = ExpectedValue:any ;
+	firstOperandPosition = OperandPosition:left;
+	requiredFirstValForRight = ExpectedValue:`false` ;
 } [
 	text = "or" ;
 	RU.localizedName = "оператор or" ;

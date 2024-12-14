@@ -1,0 +1,244 @@
+//python
+//a - b + c if condition else x - y + z
+
+//-----------------------OBJECT SECTION-----------------------
+//------------------------------------------------------------
+
+obj element_op_0 : operand {
+	state = state:evaluated ;
+	evaluatesTo = true ;
+
+	has(token_0) ;
+} [
+	RU.localizedName = "операнд a на позиции 1" ;
+	EN.localizedName = "variable a at position 1" ;
+]
+
+obj element_op_1 : `operator_-` {
+	state = state:unevaluated ;
+	evaluatesTo = true ;
+
+	has(token_1) ;
+} [
+	RU.localizedName = "оператор - на позиции 2" ;
+	EN.localizedName = "operator - at position 2" ;
+]
+
+obj element_op_2 : operand {
+	state = state:evaluated ;
+	evaluatesTo = true ;
+
+	has(token_2) ;
+} [
+	RU.localizedName = "операнд b на позиции 3" ;
+	EN.localizedName = "variable b at position 3" ;
+]
+
+obj element_op_3 : `operator_+` {
+	state = state:unevaluated ;
+	evaluatesTo = true ;
+
+	has(token_3) ;
+} [
+	RU.localizedName = "оператор + на позиции 4" ;
+	EN.localizedName = "operator + at position 4" ;
+]
+
+obj element_op_4 : operand {
+	state = state:evaluated ;
+	evaluatesTo = true ;
+
+	has(token_4) ;
+} [
+	RU.localizedName = "операнд c на позиции 5" ;
+	EN.localizedName = "variable c at position 5" ;
+]
+
+var X = 
+obj element_op_5 : operator_if {
+	state = state:unevaluated ;
+	evaluatesTo = false ;
+
+	has(token_5) ;
+	has(token_7) ;
+} [
+	RU.localizedName = "оператор if на позиции 6" ;
+	EN.localizedName = "operator if at position 6" ;
+]
+
+obj element_op_6 : operand {
+	state = state:evaluated ;
+	evaluatesTo = true ;
+
+	has(token_6) ;
+} [
+	RU.localizedName = "операнд condition на позиции 7" ;
+	EN.localizedName = "variable condition at position 7" ;
+]
+
+obj element_op_8 : operand {
+	state = state:evaluated ;
+	evaluatesTo = true ;
+
+	has(token_8) ;
+} [
+	RU.localizedName = "операнд x на позиции 9" ;
+	EN.localizedName = "variable x at position 9" ;
+]
+
+obj element_op_9 : `operator_-` {
+	state = state:unevaluated ;
+	evaluatesTo = true ;
+
+	has(token_9) ;
+} [
+	RU.localizedName = "оператор - на позиции 10" ;
+	EN.localizedName = "operator - at position 10" ;
+]
+
+obj element_op_10 : operand {
+	state = state:evaluated ;
+	evaluatesTo = true ;
+
+	has(token_10) ;
+} [
+	RU.localizedName = "операнд y на позиции 11" ;
+	EN.localizedName = "variable y at position 11" ;
+]
+
+obj element_op_11 : `operator_+` {
+	state = state:unevaluated ;
+	evaluatesTo = true ;
+
+	has(token_11) ;
+} [
+	RU.localizedName = "оператор + на позиции 12" ;
+	EN.localizedName = "operator + at position 12" ;
+]
+
+obj element_op_12 : operand {
+	state = state:evaluated ;
+	evaluatesTo = true ;
+
+	has(token_12) ;
+} [
+	RU.localizedName = "операнд z на позиции 13" ;
+	EN.localizedName = "variable z at position 13" ;
+]
+
+obj token_0 : token {
+
+	directlyLeftOf(token_1) ;
+} [
+	index = 0 ;
+	RU.localizedName = "операнд a на позиции 1" ;
+	EN.localizedName = "variable a at position 1" ;
+]
+
+obj token_1 : token {
+
+	directlyLeftOf(token_2) ;
+} [
+	index = 1 ;
+	RU.localizedName = "оператор - на позиции 2" ;
+	EN.localizedName = "operator - at position 2" ;
+]
+
+obj token_2 : token {
+
+	directlyLeftOf(token_3) ;
+} [
+	index = 2 ;
+	RU.localizedName = "операнд b на позиции 3" ;
+	EN.localizedName = "variable b at position 3" ;
+]
+
+obj token_3 : token {
+
+	directlyLeftOf(token_4) ;
+} [
+	index = 3 ;
+	RU.localizedName = "оператор + на позиции 4" ;
+	EN.localizedName = "operator + at position 4" ;
+]
+
+obj token_4 : token {
+
+	directlyLeftOf(token_5) ;
+} [
+	index = 4 ;
+	RU.localizedName = "операнд c на позиции 5" ;
+	EN.localizedName = "variable c at position 5" ;
+]
+
+var X1 = 
+obj token_5 : token {
+
+	directlyLeftOf(token_6) ;
+} [
+	index = 5 ;
+	RU.localizedName = "оператор if на позиции 6" ;
+	EN.localizedName = "operator if at position 6" ;
+]
+
+obj token_6 : token {
+
+	directlyLeftOf(token_7) ;
+} [
+	index = 6 ;
+	RU.localizedName = "операнд condition на позиции 7" ;
+	EN.localizedName = "variable condition at position 7" ;
+]
+
+obj token_7 : token {
+
+	directlyLeftOf(token_8) ;
+} [
+	index = 7 ;
+	RU.localizedName = "оператор else на позиции 8" ;
+	EN.localizedName = "operator else at position 8" ;
+]
+
+obj token_8 : token {
+
+	directlyLeftOf(token_9) ;
+} [
+	index = 8 ;
+	RU.localizedName = "операнд x на позиции 9" ;
+	EN.localizedName = "variable x at position 9" ;
+]
+
+obj token_9 : token {
+
+	directlyLeftOf(token_10) ;
+} [
+	index = 9 ;
+	RU.localizedName = "оператор - на позиции 10" ;
+	EN.localizedName = "operator - at position 10" ;
+]
+
+obj token_10 : token {
+
+	directlyLeftOf(token_11) ;
+} [
+	index = 10 ;
+	RU.localizedName = "операнд y на позиции 11" ;
+	EN.localizedName = "variable y at position 11" ;
+]
+
+obj token_11 : token {
+
+	directlyLeftOf(token_12) ;
+} [
+	index = 11 ;
+	RU.localizedName = "оператор + на позиции 12" ;
+	EN.localizedName = "operator + at position 12" ;
+]
+
+obj token_12 : token [
+	index = 12 ;
+	RU.localizedName = "операнд z на позиции 13" ;
+	EN.localizedName = "variable z at position 13" ;
+]
+
+
