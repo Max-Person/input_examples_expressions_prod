@@ -1511,7 +1511,7 @@
                                                     name="isBetween" />
                                                 <DecisionTreeVar name="X" />
                                                 <DecisionTreeVar name="Z1" />
-                                                <DecisionTreeVar name="Z2" />
+                                                <Variable name="z2" />
                                             </CheckRelationship>
                                         </ExistenceQuantifier>
                                     </Expression>
