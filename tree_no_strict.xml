@@ -1944,154 +1944,160 @@
                                     <DecisionTreeVar name="X" />
                                     <Property name="needsLeftOperand" />
                                 </GetPropertyValue>
-                                <With varName="a">
-                                    <GetExtreme varName="a" extremeVarName="a_ex">
-                                        <LogicalNot>
-                                            <ExistenceQuantifier varName="a">
-                                                <LogicalAnd>
+                                <ForAllQuantifier varName="a_" type="operand">
+                                    <Compare operator="EQUAL">
+                                        <Variable name="a_"/>
+                                        <GetExtreme varName="a" extremeVarName="a_ex">
+                                            <LogicalNot>
+                                                <ExistenceQuantifier varName="a">
                                                     <LogicalAnd>
-                                                        <CheckClass>
-                                                            <Variable name="a" />
-                                                            <Class name="operand" />
-                                                        </CheckClass>
-                                                        <Compare operator="EQUAL">
-                                                            <GetPropertyValue>
+                                                        <LogicalAnd>
+                                                            <CheckClass>
                                                                 <Variable name="a" />
-                                                                <Property name="state" />
-                                                            </GetPropertyValue>
-                                                            <Enum owner="state" value="evaluated" />
-                                                        </Compare>
+                                                                <Class name="operand" />
+                                                            </CheckClass>
+                                                            <Compare operator="EQUAL">
+                                                                <GetPropertyValue>
+                                                                    <Variable name="a" />
+                                                                    <Property name="state" />
+                                                                </GetPropertyValue>
+                                                                <Enum owner="state" value="evaluated" />
+                                                            </Compare>
+                                                        </LogicalAnd>
+                                                        <CheckRelationship>
+                                                            <Relationship name="leftOf" />
+                                                            <Variable name="a" />
+                                                            <DecisionTreeVar name="X" />
+                                                        </CheckRelationship>
                                                     </LogicalAnd>
                                                     <CheckRelationship>
-                                                        <Relationship name="leftOf" />
+                                                        <Relationship name="isBetween" />
                                                         <Variable name="a" />
+                                                        <Variable name="a_ex" />
                                                         <DecisionTreeVar name="X" />
                                                     </CheckRelationship>
+                                                </ExistenceQuantifier>
+                                            </LogicalNot>
+                                            <LogicalAnd>
+                                                <LogicalAnd>
+                                                    <CheckClass>
+                                                        <Variable name="a" />
+                                                        <Class name="operand" />
+                                                    </CheckClass>
+                                                    <Compare operator="EQUAL">
+                                                        <GetPropertyValue>
+                                                            <Variable name="a" />
+                                                            <Property name="state" />
+                                                        </GetPropertyValue>
+                                                        <Enum owner="state" value="evaluated" />
+                                                    </Compare>
                                                 </LogicalAnd>
                                                 <CheckRelationship>
-                                                    <Relationship name="isBetween" />
+                                                    <Relationship name="leftOf" />
                                                     <Variable name="a" />
-                                                    <Variable name="a_ex" />
                                                     <DecisionTreeVar name="X" />
                                                 </CheckRelationship>
-                                            </ExistenceQuantifier>
-                                        </LogicalNot>
-                                        <LogicalAnd>
-                                            <LogicalAnd>
-                                                <CheckClass>
-                                                    <Variable name="a" />
-                                                    <Class name="operand" />
-                                                </CheckClass>
-                                                <Compare operator="EQUAL">
-                                                    <GetPropertyValue>
-                                                        <Variable name="a" />
-                                                        <Property name="state" />
-                                                    </GetPropertyValue>
-                                                    <Enum owner="state" value="evaluated" />
-                                                </Compare>
                                             </LogicalAnd>
-                                            <CheckRelationship>
-                                                <Relationship name="leftOf" />
-                                                <Variable name="a" />
-                                                <DecisionTreeVar name="X" />
-                                            </CheckRelationship>
-                                        </LogicalAnd>
-                                    </GetExtreme>
+                                        </GetExtreme>
+                                    </Compare>
                                     <Block>
                                         <AddRelationshipLink>
                                             <Relationship name="isOperandOf" />
-                                            <Variable name="a" />
+                                            <Variable name="a_" />
                                             <DecisionTreeVar name="X" />
                                         </AddRelationshipLink>
                                         <AddRelationshipLink>
                                             <Relationship name="isLeftOperandOf" />
-                                            <Variable name="a" />
+                                            <Variable name="a_" />
                                             <DecisionTreeVar name="X" />
                                         </AddRelationshipLink>
                                         <AssignToProperty>
-                                            <Variable name="a" />
+                                            <Variable name="a_" />
                                             <Property name="state" />
                                             <Enum owner="state" value="used"/>
                                         </AssignToProperty>
                                     </Block>
-                                </With>
+                                </ForAllQuantifier>
                             </IfThen>
                             <IfThen>
                                 <GetPropertyValue>
                                     <DecisionTreeVar name="X" />
                                     <Property name="needsRightOperand" />
                                 </GetPropertyValue>
-                                <With varName = "b">
-                                    <GetExtreme varName="b" extremeVarName="b_ex">
-                                        <LogicalNot>
-                                            <ExistenceQuantifier varName="b">
-                                                <LogicalAnd>
+                                <ForAllQuantifier varName="b_" type="operand">
+                                    <Compare operator="EQUAL">
+                                        <Variable name="b_"/>
+                                        <GetExtreme varName="b" extremeVarName="b_ex">
+                                            <LogicalNot>
+                                                <ExistenceQuantifier varName="b">
                                                     <LogicalAnd>
-                                                        <CheckClass>
-                                                            <Variable name="b" />
-                                                            <Class name="operand" />
-                                                        </CheckClass>
-                                                        <Compare operator="EQUAL">
-                                                            <GetPropertyValue>
-                                                                <Variable name="b" />
-                                                                <Property name="state" />
-                                                            </GetPropertyValue>
-                                                            <Enum owner="state" value="evaluated" />
-                                                        </Compare>
+                                                        <LogicalAnd>
+                                                            <CheckClass>
+                                                                <Variable name="b"/>
+                                                                <Class name="operand"/>
+                                                            </CheckClass>
+                                                            <Compare operator="EQUAL">
+                                                                <GetPropertyValue>
+                                                                    <Variable name="b"/>
+                                                                    <Property name="state"/>
+                                                                </GetPropertyValue>
+                                                                <Enum owner="state" value="evaluated"/>
+                                                            </Compare>
+                                                        </LogicalAnd>
+                                                        <CheckRelationship>
+                                                            <Relationship name="rightOf"/>
+                                                            <Variable name="b"/>
+                                                            <DecisionTreeVar name="X"/>
+                                                        </CheckRelationship>
                                                     </LogicalAnd>
                                                     <CheckRelationship>
-                                                        <Relationship name="rightOf" />
-                                                        <Variable name="b" />
-                                                        <DecisionTreeVar name="X" />
+                                                        <Relationship name="isBetween"/>
+                                                        <Variable name="b"/>
+                                                        <Variable name="b_ex"/>
+                                                        <DecisionTreeVar name="X"/>
                                                     </CheckRelationship>
+                                                </ExistenceQuantifier>
+                                            </LogicalNot>
+                                            <LogicalAnd>
+                                                <LogicalAnd>
+                                                    <CheckClass>
+                                                        <Variable name="b"/>
+                                                        <Class name="operand"/>
+                                                    </CheckClass>
+                                                    <Compare operator="EQUAL">
+                                                        <GetPropertyValue>
+                                                            <Variable name="b"/>
+                                                            <Property name="state"/>
+                                                        </GetPropertyValue>
+                                                        <Enum owner="state" value="evaluated"/>
+                                                    </Compare>
                                                 </LogicalAnd>
                                                 <CheckRelationship>
-                                                    <Relationship name="isBetween" />
-                                                    <Variable name="b" />
-                                                    <Variable name="b_ex" />
-                                                    <DecisionTreeVar name="X" />
+                                                    <Relationship name="rightOf"/>
+                                                    <Variable name="b"/>
+                                                    <DecisionTreeVar name="X"/>
                                                 </CheckRelationship>
-                                            </ExistenceQuantifier>
-                                        </LogicalNot>
-                                        <LogicalAnd>
-                                            <LogicalAnd>
-                                                <CheckClass>
-                                                    <Variable name="b" />
-                                                    <Class name="operand" />
-                                                </CheckClass>
-                                                <Compare operator="EQUAL">
-                                                    <GetPropertyValue>
-                                                        <Variable name="b" />
-                                                        <Property name="state" />
-                                                    </GetPropertyValue>
-                                                    <Enum owner="state" value="evaluated" />
-                                                </Compare>
                                             </LogicalAnd>
-                                            <CheckRelationship>
-                                                <Relationship name="rightOf" />
-                                                <Variable name="b" />
-                                                <DecisionTreeVar name="X" />
-                                            </CheckRelationship>
-                                        </LogicalAnd>
-                                    </GetExtreme>
+                                        </GetExtreme>
+                                    </Compare>
                                     <Block>
                                         <AddRelationshipLink>
                                             <Relationship name="isOperandOf" />
-                                            <Variable name="b" />
+                                            <Variable name="b_" />
                                             <DecisionTreeVar name="X" />
                                         </AddRelationshipLink>
                                         <AddRelationshipLink>
                                             <Relationship name="isRightOperandOf" />
-                                            <Variable name="b" />
+                                            <Variable name="b_" />
                                             <DecisionTreeVar name="X" />
                                         </AddRelationshipLink>
                                         <AssignToProperty>
-                                            <Variable name="b" />
+                                            <Variable name="b_" />
                                             <Property name="state" />
                                             <Enum owner="state" value="used"/>
                                         </AssignToProperty>
                                     </Block>
-                                </With>
+                                </ForAllQuantifier>
                             </IfThen>
                             <AssignToProperty>
                                 <DecisionTreeVar name="X" />
