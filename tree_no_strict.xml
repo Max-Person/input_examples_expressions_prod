@@ -2149,28 +2149,16 @@
                                 <AssignToProperty>
                                     <DecisionTreeVar name="X" />
                                     <Property name="evaluatesTo" />
-                                    <LogicalAnd>
+                                    <ForAllQuantifier varName="x_op" type="operand">
+                                        <CheckRelationship relationshipName="isOperandOf">
+                                            <Variable name="x_op"/>
+                                            <DecisionTreeVar name="X" />
+                                        </CheckRelationship>
                                         <GetPropertyValue>
-                                            <GetByRelationship varName="a">
-                                                <DecisionTreeVar name="X" />
-                                                <Relationship name="hasOperand" />
-                                                <ParamsValues>
-                                                    <Enum owner="OperandPlacement" value="left"/>
-                                                </ParamsValues>
-                                            </GetByRelationship>
+                                            <Variable name="x_op"/>
                                             <Property name="evaluatesTo" />
                                         </GetPropertyValue>
-                                        <GetPropertyValue>
-                                            <GetByRelationship varName="b">
-                                                <DecisionTreeVar name="X" />
-                                                <Relationship name="hasOperand" />
-                                                <ParamsValues>
-                                                    <Enum owner="OperandPlacement" value="right"/>
-                                                </ParamsValues>
-                                            </GetByRelationship>
-                                            <Property name="evaluatesTo" />
-                                        </GetPropertyValue>
-                                    </LogicalAnd>
+                                    </ForAllQuantifier>
                                 </AssignToProperty>
                             </IfThen>
 
@@ -2182,28 +2170,16 @@
                                 <AssignToProperty>
                                     <DecisionTreeVar name="X" />
                                     <Property name="evaluatesTo" />
-                                    <LogicalOr>
+                                    <ExistenceQuantifier varName="x_op" type="operand">
+                                        <CheckRelationship relationshipName="isOperandOf">
+                                            <Variable name="x_op"/>
+                                            <DecisionTreeVar name="X" />
+                                        </CheckRelationship>
                                         <GetPropertyValue>
-                                            <GetByRelationship varName="a">
-                                                <DecisionTreeVar name="X" />
-                                                <Relationship name="hasOperand" />
-                                                <ParamsValues>
-                                                    <Enum owner="OperandPlacement" value="left"/>
-                                                </ParamsValues>
-                                            </GetByRelationship>
+                                            <Variable name="x_op"/>
                                             <Property name="evaluatesTo" />
                                         </GetPropertyValue>
-                                        <GetPropertyValue>
-                                            <GetByRelationship varName="b">
-                                                <DecisionTreeVar name="X" />
-                                                <Relationship name="hasOperand" />
-                                                <ParamsValues>
-                                                    <Enum owner="OperandPlacement" value="right"/>
-                                                </ParamsValues>
-                                            </GetByRelationship>
-                                            <Property name="evaluatesTo" />
-                                        </GetPropertyValue>
-                                    </LogicalOr>
+                                    </ExistenceQuantifier>
                                 </AssignToProperty>
                             </IfThen>
 
