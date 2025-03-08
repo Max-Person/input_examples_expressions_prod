@@ -260,15 +260,20 @@
 <!--                                                <LogicalNot>-->
 <!--                                                    <GetPropertyValue>-->
 <!--                                                        <DecisionTreeVar name="X" />-->
-<!--                                                        <Property name="needsLeftOperand" />-->
+<!--                                                        <Property name="needsOperand" />-->
+<!--                                                        <ParamsValues>-->
+<!--                                                            <Enum owner="OperandPlacement" value="left"/>-->
+<!--                                                        </ParamsValues>-->
 <!--                                                    </GetPropertyValue>-->
 <!--                                                </LogicalNot>-->
 <!--                                                <LogicalNot>-->
 <!--                                                    <Compare operator="EQUAL">-->
 <!--                                                        <GetPropertyValue>-->
-<!--                                                            <GetByRelationship varName="t">-->
+<!--                                                            <GetByRelationship relationshipName="hasOperand">-->
 <!--                                                                <DecisionTreeVar name="X" />-->
-<!--                                                                <Relationship name="hasLeftOperand" />-->
+<!--                                                                <ParamsValues>-->
+<!--                                                                    <Enum owner="OperandPlacement" value="left"/>-->
+<!--                                                                </ParamsValues>-->
 <!--                                                            </GetByRelationship>-->
 <!--                                                            <Property name="state" />-->
 <!--                                                        </GetPropertyValue>-->
@@ -354,7 +359,10 @@
                     <Expression>
                         <GetPropertyValue>
                             <DecisionTreeVar name="X" />
-                            <Property name="needsLeftOperand" />
+                            <Property name="needsOperand" />
+                            <ParamsValues>
+                                <Enum owner="OperandPlacement" value="left"/>
+                            </ParamsValues>
                         </GetPropertyValue>
                     </Expression>
                     <Outcome value="false"
@@ -1005,8 +1013,10 @@
                                                             <Expression>
                                                                 <GetPropertyValue>
                                                                     <DecisionTreeVar name="X" />
-                                                                    <Property
-                                                                            name="needsRightOperand" />
+                                                                    <Property name="needsOperand" />
+                                                                    <ParamsValues>
+                                                                        <Enum owner="OperandPlacement" value="right"/>
+                                                                    </ParamsValues>
                                                                 </GetPropertyValue>
                                                             </Expression>
                                                             <Outcome value="false"
@@ -1124,7 +1134,10 @@
                     <Expression>
                         <GetPropertyValue>
                             <DecisionTreeVar name="X" />
-                            <Property name="needsRightOperand" />
+                            <Property name="needsOperand" />
+                            <ParamsValues>
+                                <Enum owner="OperandPlacement" value="right"/>
+                            </ParamsValues>
                         </GetPropertyValue>
                     </Expression>
                     <Outcome value="false"
@@ -1769,8 +1782,10 @@
                                                             <Expression>
                                                                 <GetPropertyValue>
                                                                     <DecisionTreeVar name="X" />
-                                                                    <Property
-                                                                            name="needsLeftOperand" />
+                                                                    <Property name="needsOperand" />
+                                                                    <ParamsValues>
+                                                                        <Enum owner="OperandPlacement" value="left"/>
+                                                                    </ParamsValues>
                                                                 </GetPropertyValue>
                                                             </Expression>
                                                             <Outcome value="false"
@@ -1877,7 +1892,10 @@
                             <IfThen>
                                 <GetPropertyValue>
                                     <DecisionTreeVar name="X" />
-                                    <Property name="needsInnerOperand" />
+                                    <Property name="needsOperand" />
+                                    <ParamsValues>
+                                        <Enum owner="OperandPlacement" value="center"/>
+                                    </ParamsValues>
                                 </GetPropertyValue>
                                 <ForAllQuantifier varName="c" type="operand">
                                     <LogicalAnd>
@@ -1921,15 +1939,12 @@
                                         </Compare>
                                     </LogicalAnd>
                                     <Block>
-                                        <AddRelationshipLink>
-                                            <Relationship name="isOperandOf" />
+                                        <AddRelationshipLink relationshipName="isOperandOf">
                                             <Variable name="c" />
                                             <DecisionTreeVar name="X" />
-                                        </AddRelationshipLink>
-                                        <AddRelationshipLink>
-                                            <Relationship name="isCenterOperandOf" />
-                                            <Variable name="c" />
-                                            <DecisionTreeVar name="X" />
+                                            <ParamsValues>
+                                                <Enum owner="OperandPlacement" value="center"/>
+                                            </ParamsValues>
                                         </AddRelationshipLink>
                                         <AssignToProperty>
                                             <Variable name="c" />
@@ -1942,7 +1957,10 @@
                             <IfThen>
                                 <GetPropertyValue>
                                     <DecisionTreeVar name="X" />
-                                    <Property name="needsLeftOperand" />
+                                    <Property name="needsOperand" />
+                                    <ParamsValues>
+                                        <Enum owner="OperandPlacement" value="left"/>
+                                    </ParamsValues>
                                 </GetPropertyValue>
                                 <ForAllQuantifier varName="a_" type="operand">
                                     <Compare operator="EQUAL">
@@ -2001,15 +2019,12 @@
                                         </GetExtreme>
                                     </Compare>
                                     <Block>
-                                        <AddRelationshipLink>
-                                            <Relationship name="isOperandOf" />
+                                        <AddRelationshipLink relationshipName="isOperandOf">
                                             <Variable name="a_" />
                                             <DecisionTreeVar name="X" />
-                                        </AddRelationshipLink>
-                                        <AddRelationshipLink>
-                                            <Relationship name="isLeftOperandOf" />
-                                            <Variable name="a_" />
-                                            <DecisionTreeVar name="X" />
+                                            <ParamsValues>
+                                                <Enum owner="OperandPlacement" value="left"/>
+                                            </ParamsValues>
                                         </AddRelationshipLink>
                                         <AssignToProperty>
                                             <Variable name="a_" />
@@ -2022,7 +2037,10 @@
                             <IfThen>
                                 <GetPropertyValue>
                                     <DecisionTreeVar name="X" />
-                                    <Property name="needsRightOperand" />
+                                    <Property name="needsOperand" />
+                                    <ParamsValues>
+                                        <Enum owner="OperandPlacement" value="right"/>
+                                    </ParamsValues>
                                 </GetPropertyValue>
                                 <ForAllQuantifier varName="b_" type="operand">
                                     <Compare operator="EQUAL">
@@ -2081,15 +2099,12 @@
                                         </GetExtreme>
                                     </Compare>
                                     <Block>
-                                        <AddRelationshipLink>
-                                            <Relationship name="isOperandOf" />
+                                        <AddRelationshipLink relationshipName="isOperandOf">
                                             <Variable name="b_" />
                                             <DecisionTreeVar name="X" />
-                                        </AddRelationshipLink>
-                                        <AddRelationshipLink>
-                                            <Relationship name="isRightOperandOf" />
-                                            <Variable name="b_" />
-                                            <DecisionTreeVar name="X" />
+                                            <ParamsValues>
+                                                <Enum owner="OperandPlacement" value="right"/>
+                                            </ParamsValues>
                                         </AddRelationshipLink>
                                         <AssignToProperty>
                                             <Variable name="b_" />
@@ -2118,7 +2133,7 @@
                                         <GetPropertyValue>
                                             <GetByRelationship varName="b">
                                                 <DecisionTreeVar name="X" />
-                                                <Relationship name="hasRightOperand" />
+                                                <Relationship name="hasOperand" />
                                             </GetByRelationship>
                                             <Property name="evaluatesTo" />
                                         </GetPropertyValue>
@@ -2138,14 +2153,20 @@
                                         <GetPropertyValue>
                                             <GetByRelationship varName="a">
                                                 <DecisionTreeVar name="X" />
-                                                <Relationship name="hasLeftOperand" />
+                                                <Relationship name="hasOperand" />
+                                                <ParamsValues>
+                                                    <Enum owner="OperandPlacement" value="left"/>
+                                                </ParamsValues>
                                             </GetByRelationship>
                                             <Property name="evaluatesTo" />
                                         </GetPropertyValue>
                                         <GetPropertyValue>
                                             <GetByRelationship varName="b">
                                                 <DecisionTreeVar name="X" />
-                                                <Relationship name="hasRightOperand" />
+                                                <Relationship name="hasOperand" />
+                                                <ParamsValues>
+                                                    <Enum owner="OperandPlacement" value="right"/>
+                                                </ParamsValues>
                                             </GetByRelationship>
                                             <Property name="evaluatesTo" />
                                         </GetPropertyValue>
@@ -2165,14 +2186,20 @@
                                         <GetPropertyValue>
                                             <GetByRelationship varName="a">
                                                 <DecisionTreeVar name="X" />
-                                                <Relationship name="hasLeftOperand" />
+                                                <Relationship name="hasOperand" />
+                                                <ParamsValues>
+                                                    <Enum owner="OperandPlacement" value="left"/>
+                                                </ParamsValues>
                                             </GetByRelationship>
                                             <Property name="evaluatesTo" />
                                         </GetPropertyValue>
                                         <GetPropertyValue>
                                             <GetByRelationship varName="b">
                                                 <DecisionTreeVar name="X" />
-                                                <Relationship name="hasRightOperand" />
+                                                <Relationship name="hasOperand" />
+                                                <ParamsValues>
+                                                    <Enum owner="OperandPlacement" value="right"/>
+                                                </ParamsValues>
                                             </GetByRelationship>
                                             <Property name="evaluatesTo" />
                                         </GetPropertyValue>
@@ -2191,7 +2218,10 @@
                                     <GetPropertyValue>
                                         <GetByRelationship varName="b">
                                             <DecisionTreeVar name="X" />
-                                            <Relationship name="hasRightOperand" />
+                                            <Relationship name="hasOperand" />
+                                            <ParamsValues>
+                                                <Enum owner="OperandPlacement" value="right"/>
+                                            </ParamsValues>
                                         </GetByRelationship>
                                         <Property name="evaluatesTo" />
                                     </GetPropertyValue>
@@ -2203,162 +2233,46 @@
                                     <DecisionTreeVar name="X" />
                                     <Property name="isTConditional" />
                                 </GetPropertyValue>
-                                <AssignToProperty>
+                                <AssignToProperty propertyName="evaluatesTo">
                                     <DecisionTreeVar name="X" />
-                                    <Property name="evaluatesTo" />
-                                    <IfThen>
-                                        <IfThen>
-                                            <Compare operator="EQUAL">
-                                                <GetPropertyValue>
-                                                    <Cast><DecisionTreeVar name="X" /><Class name="StrictOrderOperator" /></Cast>
-                                                    <Property
-                                                        name="firstOperandPosition" />
-                                                </GetPropertyValue>
-                                                <Enum
-                                                    owner="OperandPosition"
-                                                    value="left" />
-                                            </Compare>
-                                            <GetPropertyValue>
-                                                <GetByRelationship
-                                                    varName="">
-                                                    <DecisionTreeVar
-                                                        name="X" />
-                                                    <Relationship
-                                                        name="hasLeftOperand" />
-                                                </GetByRelationship>
-                                                <Property name="evaluatesTo" />
-                                            </GetPropertyValue>
-                                            <IfThen>
-                                                <Compare operator="EQUAL">
-                                                    <GetPropertyValue>
-                                                    <Cast><DecisionTreeVar name="X" /><Class name="StrictOrderOperator" /></Cast>
-                                                        <Property
-                                                            name="firstOperandPosition" />
-                                                    </GetPropertyValue>
-                                                    <Enum
-                                                        owner="OperandPosition"
-                                                        value="right" />
-                                                </Compare>
-                                                <GetPropertyValue>
-                                                    <GetByRelationship
-                                                        varName="">
-                                                        <DecisionTreeVar
-                                                            name="X" />
-                                                        <Relationship
-                                                            name="hasRightOperand" />
-                                                    </GetByRelationship>
-                                                    <Property name="evaluatesTo" />
-                                                </GetPropertyValue>
-                                                <GetPropertyValue>
-                                                    <GetByCondition
-                                                        type="operand"
-                                                        varName="c">
-                                                        <CheckRelationship>
-                                                            <Relationship
-                                                                name="hasCenterOperand" />
-                                                            <DecisionTreeVar
-                                                                name="X" />
-                                                            <Variable name="c" />
-                                                        </CheckRelationship>
-                                                    </GetByCondition>
-                                                    <Property
-                                                        name="evaluatesTo" />
-                                                </GetPropertyValue>
-                                            </IfThen>
-                                        </IfThen>
-                                        <IfThen>
-                                            <Compare operator="EQUAL">
-                                                <GetPropertyValue>
-                                                    <Cast><DecisionTreeVar name="X" /><Class name="StrictOrderOperator" /></Cast>
-                                                    <Property name="requiredFirstValForLeft" />
-                                                </GetPropertyValue>
-                                                <Enum owner="ExpectedValue" value="true" />
-                                            </Compare>
-                                            <GetPropertyValue>
-                                                <GetByRelationship varName="">
+                                    <GetPropertyValue propertyName="evaluatesTo">
+                                        <GetByCondition varName="x_op" type="operand">
+                                            <LogicalAnd>
+                                                <CheckRelationship relationshipName="hasOperand">
                                                     <DecisionTreeVar name="X" />
-                                                    <Relationship name="hasLeftOperand" />
-                                                </GetByRelationship>
-                                                <Property name="evaluatesTo" />
-                                            </GetPropertyValue>
-                                            <IfThen>
-                                                <Compare operator="EQUAL">
-                                                    <GetPropertyValue>
-                                                    <Cast><DecisionTreeVar name="X" /><Class name="StrictOrderOperator" /></Cast>
-                                                        <Property name="requiredFirstValForRight" />
+                                                    <Variable name="x_op"/>
+                                                </CheckRelationship>
+                                                <Compare operator="EQ">
+                                                    <GetPropertyValue propertyName="requiredFirstOperandValueToEvaluate">
+                                                        <Cast><DecisionTreeVar name="X" /><Class name="StrictOrderOperator" /></Cast>
+                                                        <ParamsValues>
+                                                            <GetRelationshipParamValue relationshipName="hasOperand" paramName="placement">
+                                                                <DecisionTreeVar name="X" />
+                                                                <Variable name="x_op"/>
+                                                            </GetRelationshipParamValue>
+                                                        </ParamsValues>
                                                     </GetPropertyValue>
-                                                    <Enum owner="ExpectedValue" value="true" />
+                                                    <IfThen>
+                                                        <GetPropertyValue>
+                                                            <GetByRelationship>
+                                                                <DecisionTreeVar name="X" />
+                                                                <Relationship name="hasOperand" />
+                                                                <ParamsValues>
+                                                                    <GetPropertyValue>
+                                                                        <Cast><DecisionTreeVar name="X" /><Class name="StrictOrderOperator" /></Cast>
+                                                                        <Property name="firstOperandPlacement" />
+                                                                    </GetPropertyValue>
+                                                                </ParamsValues>
+                                                            </GetByRelationship>
+                                                            <Property name="evaluatesTo" />
+                                                        </GetPropertyValue>
+                                                        <Enum owner="ExpectedValue" value="true" />
+                                                        <Enum owner="ExpectedValue" value="false" />
+                                                    </IfThen>
                                                 </Compare>
-                                                <GetPropertyValue>
-                                                    <GetByRelationship varName="">
-                                                        <DecisionTreeVar name="X" />
-                                                        <Relationship name="hasRightOperand" />
-                                                    </GetByRelationship>
-                                                    <Property name="evaluatesTo" />
-                                                </GetPropertyValue>
-                                                <GetPropertyValue>
-                                                    <GetByCondition
-                                                        type="operand"
-                                                        varName="c">
-                                                        <CheckRelationship>
-                                                            <Relationship
-                                                                name="hasCenterOperand" />
-                                                            <DecisionTreeVar
-                                                                name="X" />
-                                                            <Variable name="c" />
-                                                        </CheckRelationship>
-                                                    </GetByCondition>
-                                                    <Property name="evaluatesTo" />
-                                                </GetPropertyValue>
-                                            </IfThen>
-                                        </IfThen>
-                                        <IfThen>
-                                            <Compare operator="EQUAL">
-                                                <GetPropertyValue>
-                                                    <Cast><DecisionTreeVar name="X" /><Class name="StrictOrderOperator" /></Cast>
-                                                    <Property name="requiredFirstValForLeft" />
-                                                </GetPropertyValue>
-                                                <Enum owner="ExpectedValue" value="false" />
-                                            </Compare>
-                                            <GetPropertyValue>
-                                                <GetByRelationship varName="">
-                                                    <DecisionTreeVar name="X" />
-                                                    <Relationship name="hasLeftOperand" />
-                                                </GetByRelationship>
-                                                <Property name="evaluatesTo" />
-                                            </GetPropertyValue>
-                                            <IfThen>
-                                                <Compare operator="EQUAL">
-                                                    <GetPropertyValue>
-                                                    <Cast><DecisionTreeVar name="X" /><Class name="StrictOrderOperator" /></Cast>
-                                                        <Property name="requiredFirstValForRight" />
-                                                    </GetPropertyValue>
-                                                    <Enum owner="ExpectedValue" value="false" />
-                                                </Compare>
-                                                <GetPropertyValue>
-                                                    <GetByRelationship varName="">
-                                                        <DecisionTreeVar name="X" />
-                                                        <Relationship name="hasRightOperand" />
-                                                    </GetByRelationship>
-                                                    <Property name="evaluatesTo" />
-                                                </GetPropertyValue>
-                                                <GetPropertyValue>
-                                                    <GetByCondition
-                                                        type="operand"
-                                                        varName="c">
-                                                        <CheckRelationship>
-                                                            <Relationship
-                                                                name="hasCenterOperand" />
-                                                            <DecisionTreeVar
-                                                                name="X" />
-                                                            <Variable name="c" />
-                                                        </CheckRelationship>
-                                                    </GetByCondition>
-                                                    <Property name="evaluatesTo" />
-                                                </GetPropertyValue>
-                                            </IfThen>
-                                        </IfThen>
-                                    </IfThen>
+                                            </LogicalAnd>
+                                        </GetByCondition>
+                                    </GetPropertyValue>
                                 </AssignToProperty>
                             </IfThen>
                         </Block>

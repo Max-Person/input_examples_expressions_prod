@@ -6,8 +6,7 @@ obj element_op__0__1 : operand {
 	evaluatesTo = true ;
 
 	has(token_op__0__1) ;
-	isOperandOf(element_op__0__2) ;
-	isLeftOperandOf(element_op__0__2) ;
+	isOperandOf<placement = OperandPlacement:left>(element_op__0__2) ;
 } [
 	index = 0 ;
 	RU.localizedName = "операнд a на позиции 1" ;
@@ -19,8 +18,7 @@ obj element_op__0__11 : operand {
 	evaluatesTo = true ;
 
 	has(token_op__0__11) ;
-	isOperandOf(element_op__0__10) ;
-	isRightOperandOf(element_op__0__10) ;
+	isOperandOf<placement = OperandPlacement:right>(element_op__0__10) ;
 } [
 	index = 10 ;
 	RU.localizedName = "операнд b на позиции 11" ;
@@ -32,8 +30,7 @@ obj element_op__0__15 : operand {
 	evaluatesTo = true ;
 
 	has(token_op__0__15) ;
-	isOperandOf(element_op__0__14) ;
-	isCenterOperandOf(element_op__0__14) ;
+	isOperandOf<placement = OperandPlacement:center>(element_op__0__14) ;
 } [
 	index = 14 ;
 	RU.localizedName = "оператор c на позиции 15" ;
@@ -45,8 +42,7 @@ obj element_op__0__17 : operand {
 	evaluatesTo = true ;
 
 	has(token_op__0__17) ;
-	isOperandOf(element_op__0__14) ;
-	isCenterOperandOf(element_op__0__14) ;
+	isOperandOf<placement = OperandPlacement:center>(element_op__0__14) ;
 } [
 	index = 16 ;
 	RU.localizedName = "операнд d на позиции 17" ;
@@ -58,8 +54,7 @@ obj element_op__0__3 : operand {
 	evaluatesTo = true ;
 
 	has(token_op__0__3) ;
-	isOperandOf(element_op__0__4) ;
-	isLeftOperandOf(element_op__0__4) ;
+	isOperandOf<placement = OperandPlacement:left>(element_op__0__4) ;
 } [
 	index = 2 ;
 	RU.localizedName = "операнд obj на позиции 3" ;
@@ -71,8 +66,7 @@ obj element_op__0__5 : operand {
 	evaluatesTo = true ;
 
 	has(token_op__0__5) ;
-	isOperandOf(element_op__0__6) ;
-	isLeftOperandOf(element_op__0__6) ;
+	isOperandOf<placement = OperandPlacement:left>(element_op__0__6) ;
 } [
 	index = 4 ;
 	RU.localizedName = "оператор x на позиции 5" ;
@@ -84,8 +78,7 @@ obj element_op__0__7 : operand {
 	evaluatesTo = true ;
 
 	has(token_op__0__7) ;
-	isOperandOf(element_op__0__6) ;
-	isRightOperandOf(element_op__0__6) ;
+	isOperandOf<placement = OperandPlacement:right>(element_op__0__6) ;
 } [
 	index = 6 ;
 	RU.localizedName = "операнд y на позиции 7" ;
@@ -97,8 +90,7 @@ obj element_op__0__9 : operand {
 	evaluatesTo = true ;
 
 	has(token_op__0__9) ;
-	isOperandOf(element_op__0__10) ;
-	isLeftOperandOf(element_op__0__10) ;
+	isOperandOf<placement = OperandPlacement:left>(element_op__0__10) ;
 } [
 	index = 8 ;
 	RU.localizedName = "операнд a на позиции 9" ;
@@ -110,8 +102,7 @@ obj element_op__0__6 : `operator_binary_*` {
 	evaluatesTo = true ;
 
 	has(token_op__0__6) ;
-	isOperandOf(element_op__0__4) ;
-	isCenterOperandOf(element_op__0__4) ;
+	isOperandOf<placement = OperandPlacement:center>(element_op__0__4) ;
 } [
 	index = 5 ;
 	RU.localizedName = "оператор * на позиции 6" ;
@@ -123,8 +114,7 @@ obj element_op__0__10 : `operator_binary_+` {
 	evaluatesTo = true ;
 
 	has(token_op__0__10) ;
-	isOperandOf(element_op__0__4) ;
-	isCenterOperandOf(element_op__0__4) ;
+	isOperandOf<placement = OperandPlacement:center>(element_op__0__4) ;
 } [
 	index = 9 ;
 	RU.localizedName = "оператор + на позиции 10" ;
@@ -147,8 +137,7 @@ obj element_op__0__2 : `operator_binary_+` {
 	evaluatesTo = true ;
 
 	has(token_op__0__2) ;
-	isOperandOf(element_op__0__13) ;
-	isLeftOperandOf(element_op__0__13) ;
+	isOperandOf<placement = OperandPlacement:left>(element_op__0__13) ;
 } [
 	index = 1 ;
 	RU.localizedName = "оператор + на позиции 2" ;
@@ -161,8 +150,7 @@ obj element_op__0__14 : operator_function_call {
 
 	has(token_op__0__14) ;
 	has(token_op__0__18) ;
-	isOperandOf(element_op__0__13) ;
-	isRightOperandOf(element_op__0__13) ;
+	isOperandOf<placement = OperandPlacement:right>(element_op__0__13) ;
 } [
 	index = 13 ;
 	RU.localizedName = "оператор func( на позиции 14" ;
@@ -175,8 +163,7 @@ obj element_op__0__4 : operator_method_call {
 
 	has(token_op__0__4) ;
 	has(token_op__0__12) ;
-	isOperandOf(element_op__0__2) ;
-	isRightOperandOf(element_op__0__2) ;
+	isOperandOf<placement = OperandPlacement:right>(element_op__0__2) ;
 } [
 	index = 3 ;
 	RU.localizedName = "оператор .method( на позиции 4" ;

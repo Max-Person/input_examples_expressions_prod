@@ -6,8 +6,7 @@ obj element_op__0__1 : operand {
 	evaluatesTo = true ;
 
 	has(token_op__0__1) ;
-	isOperandOf(element_op__0__2) ;
-	isLeftOperandOf(element_op__0__2) ;
+	isOperandOf<placement = OperandPlacement:left>(element_op__0__2) ;
 } [
 	RU.localizedName = "операнд 0 на позиции 1" ;
 	EN.localizedName = "variable 0 at position 1" ;
@@ -18,8 +17,7 @@ obj element_op__0__3 : operand {
 	evaluatesTo = true ;
 
 	has(token_op__0__3) ;
-	isOperandOf(element_op__0__2) ;
-	isRightOperandOf(element_op__0__2) ;
+	isOperandOf<placement = OperandPlacement:right>(element_op__0__2) ;
 } [
 	RU.localizedName = "операнд result на позиции 3" ;
 	EN.localizedName = "variable result at position 3" ;
@@ -30,8 +28,7 @@ obj element_op__0__5 : operand {
 	evaluatesTo = true ;
 
 	has(token_op__0__5) ;
-	isOperandOf(element_op__0__6) ;
-	isLeftOperandOf(element_op__0__6) ;
+	isOperandOf<placement = OperandPlacement:left>(element_op__0__6) ;
 } [
 	RU.localizedName = "операнд 0 на позиции 5" ;
 	EN.localizedName = "variable 0 at position 5" ;
@@ -42,8 +39,7 @@ obj element_op__0__7 : operand {
 	evaluatesTo = true ;
 
 	has(token_op__0__7) ;
-	isOperandOf(element_op__0__6) ;
-	isRightOperandOf(element_op__0__6) ;
+	isOperandOf<placement = OperandPlacement:right>(element_op__0__6) ;
 } [
 	RU.localizedName = "операнд sig на позиции 7" ;
 	EN.localizedName = "variable sig at position 7" ;
@@ -54,8 +50,7 @@ obj element_op__0__6 : `operator_!=` {
 	evaluatesTo = true ;
 
 	has(token_op__0__6) ;
-	isOperandOf(element_op__0__4) ;
-	isRightOperandOf(element_op__0__4) ;
+	isOperandOf<placement = OperandPlacement:right>(element_op__0__4) ;
 } [
 	RU.localizedName = "оператор != на позиции 6" ;
 	EN.localizedName = "operator != at position 6" ;
@@ -76,8 +71,7 @@ obj element_op__0__2 : `operator_==` {
 	evaluatesTo = true ;
 
 	has(token_op__0__2) ;
-	isOperandOf(element_op__0__4) ;
-	isLeftOperandOf(element_op__0__4) ;
+	isOperandOf<placement = OperandPlacement:left>(element_op__0__4) ;
 } [
 	RU.localizedName = "оператор == на позиции 2" ;
 	EN.localizedName = "operator == at position 2" ;

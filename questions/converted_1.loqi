@@ -1,6 +1,8 @@
 //-----------------------OBJECT SECTION-----------------------
 //------------------------------------------------------------
 
+// _Char_value >= - 1 && _Char_value <= 255
+
 obj element_op__0__1 : operand {
 	state = state:evaluated ;
 	evaluatesTo = true ;

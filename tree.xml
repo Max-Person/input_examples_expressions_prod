@@ -257,15 +257,20 @@
                                                 <LogicalNot>
                                                     <GetPropertyValue>
                                                         <DecisionTreeVar name="X" />
-                                                        <Property name="needsLeftOperand" />
+                                                        <Property name="needsOperand" />
+                                                        <ParamsValues>
+                                                            <Enum owner="OperandPlacement" value="left"/>
+                                                        </ParamsValues>
                                                     </GetPropertyValue>
                                                 </LogicalNot>
                                                 <LogicalNot>
                                                     <Compare operator="EQUAL">
                                                         <GetPropertyValue>
-                                                            <GetByRelationship varName="t">
+                                                            <GetByRelationship relationshipName="hasOperand">
                                                                 <DecisionTreeVar name="X" />
-                                                                <Relationship name="hasLeftOperand" />
+                                                                <ParamsValues>
+                                                                    <Enum owner="OperandPlacement" value="left"/>
+                                                                </ParamsValues>
                                                             </GetByRelationship>
                                                             <Property name="state" />
                                                         </GetPropertyValue>
@@ -351,7 +356,10 @@
                     <Expression>
                         <GetPropertyValue>
                             <DecisionTreeVar name="X" />
-                            <Property name="needsLeftOperand" />
+                            <Property name="needsOperand" />
+                            <ParamsValues>
+                                <Enum owner="OperandPlacement" value="left"/>
+                            </ParamsValues>
                         </GetPropertyValue>
                     </Expression>
                     <Outcome value="false"
@@ -1002,8 +1010,10 @@
                                                             <Expression>
                                                                 <GetPropertyValue>
                                                                     <DecisionTreeVar name="X" />
-                                                                    <Property
-                                                                        name="needsRightOperand" />
+                                                                    <Property name="needsOperand" />
+                                                                    <ParamsValues>
+                                                                        <Enum owner="OperandPlacement" value="right"/>
+                                                                    </ParamsValues>
                                                                 </GetPropertyValue>
                                                             </Expression>
                                                             <Outcome value="false"
@@ -1121,7 +1131,10 @@
                     <Expression>
                         <GetPropertyValue>
                             <DecisionTreeVar name="X" />
-                            <Property name="needsRightOperand" />
+                            <Property name="needsOperand" />
+                            <ParamsValues>
+                                <Enum owner="OperandPlacement" value="left"/>
+                            </ParamsValues>
                         </GetPropertyValue>
                     </Expression>
                     <Outcome value="false"
@@ -1766,8 +1779,10 @@
                                                             <Expression>
                                                                 <GetPropertyValue>
                                                                     <DecisionTreeVar name="X" />
-                                                                    <Property
-                                                                        name="needsLeftOperand" />
+                                                                    <Property name="needsOperand" />
+                                                                    <ParamsValues>
+                                                                        <Enum owner="OperandPlacement" value="left"/>
+                                                                    </ParamsValues>
                                                                 </GetPropertyValue>
                                                             </Expression>
                                                             <Outcome value="false"
@@ -1948,97 +1963,15 @@
                                 <QuestionNode _alias="X в его первом операнде"
                                     type="bool" isSwitch="false">
                                     <Expression>
-                                        <LogicalOr>
-                                            <LogicalOr>
-                                                <LogicalAnd>
-                                                    <Compare operator="EQUAL">
-                                                        <GetPropertyValue>
-                                                            <DecisionTreeVar name="T" />
-                                                            <Property name="firstOperandPosition" />
-                                                        </GetPropertyValue>
-                                                        <Enum owner="OperandPosition" value="left" />
-                                                    </Compare>
-                                                    <LogicalOr>
-                                                        <CheckRelationship>
-                                                            <Relationship name="isLeftOperandOf" />
-                                                            <DecisionTreeVar name="X" />
-                                                            <DecisionTreeVar name="T" />
-                                                        </CheckRelationship>
-                                                        <ExistenceQuantifier varName="l"
-                                                            type="operator">
-                                                            <CheckRelationship>
-                                                                <Relationship name="isLeftOperandOf" />
-                                                                <Variable name="l" />
-                                                                <DecisionTreeVar name="T" />
-                                                            </CheckRelationship>
-                                                            <CheckRelationship>
-                                                                <Relationship name="isInOperandOf" />
-                                                                <DecisionTreeVar name="X" />
-                                                                <Variable name="l" />
-                                                            </CheckRelationship>
-                                                        </ExistenceQuantifier>
-                                                    </LogicalOr>
-                                                </LogicalAnd>
-                                                <LogicalAnd>
-                                                    <Compare operator="EQUAL">
-                                                        <GetPropertyValue>
-                                                            <DecisionTreeVar name="T" />
-                                                            <Property name="firstOperandPosition" />
-                                                        </GetPropertyValue>
-                                                        <Enum owner="OperandPosition" value="center" />
-                                                    </Compare>
-                                                    <LogicalOr>
-                                                        <CheckRelationship>
-                                                            <Relationship name="isCenterOperandOf" />
-                                                            <DecisionTreeVar name="X" />
-                                                            <DecisionTreeVar name="T" />
-                                                        </CheckRelationship>
-                                                        <ExistenceQuantifier varName="c"
-                                                            type="operator">
-                                                            <CheckRelationship>
-                                                                <Relationship
-                                                                    name="isCenterOperandOf" />
-                                                                <Variable name="c" />
-                                                                <DecisionTreeVar name="T" />
-                                                            </CheckRelationship>
-                                                            <CheckRelationship>
-                                                                <Relationship name="isInOperandOf" />
-                                                                <DecisionTreeVar name="X" />
-                                                                <Variable name="c" />
-                                                            </CheckRelationship>
-                                                        </ExistenceQuantifier>
-                                                    </LogicalOr>
-                                                </LogicalAnd>
-                                            </LogicalOr>
-                                            <LogicalAnd>
-                                                <Compare operator="EQUAL">
-                                                    <GetPropertyValue>
-                                                        <DecisionTreeVar name="T" />
-                                                        <Property name="firstOperandPosition" />
-                                                    </GetPropertyValue>
-                                                    <Enum owner="OperandPosition" value="right" />
-                                                </Compare>
-                                                <LogicalOr>
-                                                    <CheckRelationship>
-                                                        <Relationship name="isRightOperandOf" />
-                                                        <DecisionTreeVar name="X" />
-                                                        <DecisionTreeVar name="T" />
-                                                    </CheckRelationship>
-                                                    <ExistenceQuantifier varName="r" type="operator">
-                                                        <CheckRelationship>
-                                                            <Relationship name="isRightOperandOf" />
-                                                            <Variable name="r" />
-                                                            <DecisionTreeVar name="T" />
-                                                        </CheckRelationship>
-                                                        <CheckRelationship>
-                                                            <Relationship name="isInOperandOf" />
-                                                            <DecisionTreeVar name="X" />
-                                                            <Variable name="r" />
-                                                        </CheckRelationship>
-                                                    </ExistenceQuantifier>
-                                                </LogicalOr>
-                                            </LogicalAnd>
-                                        </LogicalOr>
+                                        <CheckRelationship relationshipName="isInOperandOf">
+                                            <DecisionTreeVar name="X" />
+                                            <DecisionTreeVar name="T" />
+                                            <ParamsValues>
+                                                <GetPropertyValue propertyName="firstOperandPlacement">
+                                                    <DecisionTreeVar name="T" />
+                                                </GetPropertyValue>
+                                            </ParamsValues>
+                                        </CheckRelationship>
                                     </Expression>
                                     <Outcome value="True">
                                         <BranchResultNode value="true"
@@ -2072,123 +2005,15 @@
                                                             </GetPropertyValue>
                                                             <Enum owner="state" value="unevaluated" />
                                                         </Compare>
-                                                        <LogicalOr>
-                                                            <LogicalOr>
-                                                                <LogicalAnd>
-                                                                    <Compare operator="EQUAL">
-                                                                        <GetPropertyValue>
-                                                                            <DecisionTreeVar
-                                                                                name="T" />
-                                                                            <Property
-                                                                                name="firstOperandPosition" />
-                                                                        </GetPropertyValue>
-                                                                        <Enum
-                                                                            owner="OperandPosition"
-                                                                            value="left" />
-                                                                    </Compare>
-                                                                    <LogicalOr>
-                                                                        <CheckRelationship>
-                                                                            <Relationship
-                                                                                name="isLeftOperandOf" />
-                                                                            <Variable name="u" />
-                                                                            <DecisionTreeVar
-                                                                                name="T" />
-                                                                        </CheckRelationship>
-                                                                        <ExistenceQuantifier
-                                                                            varName="l"
-                                                                            type="operator">
-                                                                            <CheckRelationship>
-                                                                                <Relationship
-                                                                                    name="isLeftOperandOf" />
-                                                                                <Variable name="l" />
-                                                                                <DecisionTreeVar
-                                                                                    name="T" />
-                                                                            </CheckRelationship>
-                                                                            <CheckRelationship>
-                                                                                <Relationship
-                                                                                    name="isInOperandOf" />
-                                                                                <Variable name="u" />
-                                                                                <Variable name="l" />
-                                                                            </CheckRelationship>
-                                                                        </ExistenceQuantifier>
-                                                                    </LogicalOr>
-                                                                </LogicalAnd>
-                                                                <LogicalAnd>
-                                                                    <Compare operator="EQUAL">
-                                                                        <GetPropertyValue>
-                                                                            <DecisionTreeVar
-                                                                                name="T" />
-                                                                            <Property
-                                                                                name="firstOperandPosition" />
-                                                                        </GetPropertyValue>
-                                                                        <Enum
-                                                                            owner="OperandPosition"
-                                                                            value="center" />
-                                                                    </Compare>
-                                                                    <LogicalOr>
-                                                                        <CheckRelationship>
-                                                                            <Relationship
-                                                                                name="isCenterOperandOf" />
-                                                                            <Variable name="u" />
-                                                                            <DecisionTreeVar
-                                                                                name="T" />
-                                                                        </CheckRelationship>
-                                                                        <ExistenceQuantifier
-                                                                            varName="c"
-                                                                            type="operator">
-                                                                            <CheckRelationship>
-                                                                                <Relationship
-                                                                                    name="isCenterOperandOf" />
-                                                                                <Variable name="c" />
-                                                                                <DecisionTreeVar
-                                                                                    name="T" />
-                                                                            </CheckRelationship>
-                                                                            <CheckRelationship>
-                                                                                <Relationship
-                                                                                    name="isInOperandOf" />
-                                                                                <Variable name="u" />
-                                                                                <Variable name="c" />
-                                                                            </CheckRelationship>
-                                                                        </ExistenceQuantifier>
-                                                                    </LogicalOr>
-                                                                </LogicalAnd>
-                                                            </LogicalOr>
-                                                            <LogicalAnd>
-                                                                <Compare operator="EQUAL">
-                                                                    <GetPropertyValue>
-                                                                        <DecisionTreeVar name="T" />
-                                                                        <Property
-                                                                            name="firstOperandPosition" />
-                                                                    </GetPropertyValue>
-                                                                    <Enum owner="OperandPosition"
-                                                                        value="right" />
-                                                                </Compare>
-                                                                <LogicalOr>
-                                                                    <CheckRelationship>
-                                                                        <Relationship
-                                                                            name="isRightOperandOf" />
-                                                                        <Variable name="u" />
-                                                                        <DecisionTreeVar name="T" />
-                                                                    </CheckRelationship>
-                                                                    <ExistenceQuantifier varName="r"
-                                                                        type="operator">
-                                                                        <CheckRelationship>
-                                                                            <Relationship
-                                                                                name="isRightOperandOf" />
-                                                                            <Variable name="r" />
-                                                                            <DecisionTreeVar
-                                                                                name="T" />
-                                                                        </CheckRelationship>
-                                                                        <CheckRelationship>
-                                                                            <Relationship
-                                                                                name="isInOperandOf" />
-                                                                            <Variable name="u" />
-                                                                            <Variable name="r" />
-                                                                        </CheckRelationship>
-                                                                    </ExistenceQuantifier>
-                                                                </LogicalOr>
-                                                            </LogicalAnd>
-                                                        </LogicalOr>
+                                                        <CheckRelationship relationshipName="isInOperandOf">
+                                                            <Variable name="u" />
+                                                            <DecisionTreeVar name="T" />
+                                                            <ParamsValues>
+                                                                <GetPropertyValue propertyName="firstOperandPlacement">
+                                                                    <DecisionTreeVar name="T" />
+                                                                </GetPropertyValue>
+                                                            </ParamsValues>
+                                                        </CheckRelationship>
                                                     </LogicalAnd>
                                                 </ExistenceQuantifier>
                                             </Expression>
@@ -2231,127 +2056,18 @@
                                                     _EN_endingCause="Because ${class('T','и')} does not involve the omission of its operands"
                                                 >
                                                     <Expression>
-                                                        <LogicalOr>
-                                                            <LogicalOr>
-                                                                <LogicalAnd>
-                                                                    <Compare operator="NOT_EQUAL">
-                                                                        <GetPropertyValue>
-                                                                            <DecisionTreeVar
-                                                                                name="T" />
-                                                                            <Property
-                                                                                name="requiredFirstValForLeft" />
-                                                                        </GetPropertyValue>
-                                                                        <Enum owner="ExpectedValue"
-                                                                            value="any" />
-                                                                    </Compare>
-                                                                    <LogicalOr>
-                                                                        <CheckRelationship>
-                                                                            <Relationship
-                                                                                name="isLeftOperandOf" />
-                                                                            <DecisionTreeVar
-                                                                                name="X" />
-                                                                            <DecisionTreeVar
-                                                                                name="T" />
-                                                                        </CheckRelationship>
-                                                                        <ExistenceQuantifier
-                                                                            type="operator"
-                                                                            varName="l">
-                                                                            <CheckRelationship>
-                                                                                <Relationship
-                                                                                    name="isLeftOperandOf" />
-                                                                                <Variable name="l" />
-                                                                                <DecisionTreeVar
-                                                                                    name="T" />
-                                                                            </CheckRelationship>
-                                                                            <CheckRelationship>
-                                                                                <Relationship
-                                                                                    name="isInOperandOf" />
-                                                                                <DecisionTreeVar
-                                                                                    name="X" />
-                                                                                <Variable name="l" />
-                                                                            </CheckRelationship>
-                                                                        </ExistenceQuantifier>
-                                                                    </LogicalOr>
-                                                                </LogicalAnd>
-                                                                <LogicalAnd>
-                                                                    <Compare operator="NOT_EQUAL">
-                                                                        <GetPropertyValue>
-                                                                            <DecisionTreeVar
-                                                                                name="T" />
-                                                                            <Property
-                                                                                name="requiredFirstValForCenter" />
-                                                                        </GetPropertyValue>
-                                                                        <Enum owner="ExpectedValue"
-                                                                            value="any" />
-                                                                    </Compare>
-                                                                    <LogicalOr>
-                                                                        <CheckRelationship>
-                                                                            <Relationship
-                                                                                name="isCenterOperandOf" />
-                                                                            <DecisionTreeVar
-                                                                                name="X" />
-                                                                            <DecisionTreeVar
-                                                                                name="T" />
-                                                                        </CheckRelationship>
-                                                                        <ExistenceQuantifier
-                                                                            type="operator"
-                                                                            varName="c">
-                                                                            <CheckRelationship>
-                                                                                <Relationship
-                                                                                    name="isCenterOperandOf" />
-                                                                                <Variable name="c" />
-                                                                                <DecisionTreeVar
-                                                                                    name="T" />
-                                                                            </CheckRelationship>
-                                                                            <CheckRelationship>
-                                                                                <Relationship
-                                                                                    name="isInOperandOf" />
-                                                                                <DecisionTreeVar
-                                                                                    name="X" />
-                                                                                <Variable name="c" />
-                                                                            </CheckRelationship>
-                                                                        </ExistenceQuantifier>
-                                                                    </LogicalOr>
-                                                                </LogicalAnd>
-                                                            </LogicalOr>
-                                                            <LogicalAnd>
-                                                                <Compare operator="NOT_EQUAL">
-                                                                    <GetPropertyValue>
-                                                                        <DecisionTreeVar name="T" />
-                                                                        <Property
-                                                                            name="requiredFirstValForRight" />
-                                                                    </GetPropertyValue>
-                                                                    <Enum owner="ExpectedValue"
-                                                                        value="any" />
-                                                                </Compare>
-                                                                <LogicalOr>
-                                                                    <CheckRelationship>
-                                                                        <Relationship
-                                                                            name="isRightOperandOf" />
+                                                        <Compare operator="NEQ">
+                                                            <GetPropertyValue propertyName="requiredFirstOperandValueToEvaluate">
+                                                                <DecisionTreeVar name="T" />
+                                                                <ParamsValues>
+                                                                    <GetRelationshipParamValue relationshipName="isInOperandOf" paramName="placement">
                                                                         <DecisionTreeVar name="X" />
                                                                         <DecisionTreeVar name="T" />
-                                                                    </CheckRelationship>
-                                                                    <ExistenceQuantifier
-                                                                        type="operator"
-                                                                        varName="r">
-                                                                        <CheckRelationship>
-                                                                            <Relationship
-                                                                                name="isRightOperandOf" />
-                                                                            <Variable name="r" />
-                                                                            <DecisionTreeVar
-                                                                                name="T" />
-                                                                        </CheckRelationship>
-                                                                        <CheckRelationship>
-                                                                            <Relationship
-                                                                                name="isInOperandOf" />
-                                                                            <DecisionTreeVar
-                                                                                name="X" />
-                                                                            <Variable name="r" />
-                                                                        </CheckRelationship>
-                                                                    </ExistenceQuantifier>
-                                                                </LogicalOr>
-                                                            </LogicalAnd>
-                                                        </LogicalOr>
+                                                                    </GetRelationshipParamValue>
+                                                                </ParamsValues>
+                                                            </GetPropertyValue>
+                                                            <Enum owner="ExpectedValue" value="any" />
+                                                        </Compare>
                                                     </Expression>
                                                     <Outcome value="False"
                                                         _RU_explanation="Это неверно. Хотя ${class('T','и')} и задает строгий порядок своих операндов, он не подразумевает их пропуска."
@@ -2392,142 +2108,18 @@
                                                                 _EN_question="What value should the left operand of ${class('T','п')} have in order for its right operand to be evaluated?"
                                                             >
                                                                 <Expression>
-                                                                    <LogicalOr>
-                                                                        <LogicalOr>
-                                                                            <LogicalAnd>
-                                                                                <Compare
-                                                                                    operator="EQUAL">
-                                                                                    <GetPropertyValue>
-                                                                                        <DecisionTreeVar
-                                                                                            name="T" />
-                                                                                        <Property
-                                                                                            name="requiredFirstValForLeft" />
-                                                                                    </GetPropertyValue>
-                                                                                    <Enum
-                                                                                        owner="ExpectedValue"
-                                                                                        value="true" />
-                                                                                </Compare>
-                                                                                <LogicalOr>
-                                                                                    <CheckRelationship>
-                                                                                        <Relationship
-                                                                                            name="isLeftOperandOf" />
-                                                                                        <DecisionTreeVar
-                                                                                            name="X" />
-                                                                                        <DecisionTreeVar
-                                                                                            name="T" />
-                                                                                    </CheckRelationship>
-                                                                                    <ExistenceQuantifier
-                                                                                        type="operator"
-                                                                                        varName="l">
-                                                                                        <CheckRelationship>
-                                                                                            <Relationship
-                                                                                                name="isLeftOperandOf" />
-                                                                                            <Variable
-                                                                                                name="l" />
-                                                                                            <DecisionTreeVar
-                                                                                                name="T" />
-                                                                                        </CheckRelationship>
-                                                                                        <CheckRelationship>
-                                                                                            <Relationship
-                                                                                                name="isInOperandOf" />
-                                                                                            <DecisionTreeVar
-                                                                                                name="X" />
-                                                                                            <Variable
-                                                                                                name="l" />
-                                                                                        </CheckRelationship>
-                                                                                    </ExistenceQuantifier>
-                                                                                </LogicalOr>
-                                                                            </LogicalAnd>
-                                                                            <LogicalAnd>
-                                                                                <Compare
-                                                                                    operator="EQUAL">
-                                                                                    <GetPropertyValue>
-                                                                                        <DecisionTreeVar
-                                                                                            name="T" />
-                                                                                        <Property
-                                                                                            name="requiredFirstValForCenter" />
-                                                                                    </GetPropertyValue>
-                                                                                    <Enum
-                                                                                        owner="ExpectedValue"
-                                                                                        value="true" />
-                                                                                </Compare>
-                                                                                <LogicalOr>
-                                                                                    <CheckRelationship>
-                                                                                        <Relationship
-                                                                                            name="isCenterOperandOf" />
-                                                                                        <DecisionTreeVar
-                                                                                            name="X" />
-                                                                                        <DecisionTreeVar
-                                                                                            name="T" />
-                                                                                    </CheckRelationship>
-                                                                                    <ExistenceQuantifier
-                                                                                        type="operator"
-                                                                                        varName="c">
-                                                                                        <CheckRelationship>
-                                                                                            <Relationship
-                                                                                                name="isCenterOperandOf" />
-                                                                                            <Variable
-                                                                                                name="c" />
-                                                                                            <DecisionTreeVar
-                                                                                                name="T" />
-                                                                                        </CheckRelationship>
-                                                                                        <CheckRelationship>
-                                                                                            <Relationship
-                                                                                                name="isInOperandOf" />
-                                                                                            <DecisionTreeVar
-                                                                                                name="X" />
-                                                                                            <Variable
-                                                                                                name="c" />
-                                                                                        </CheckRelationship>
-                                                                                    </ExistenceQuantifier>
-                                                                                </LogicalOr>
-                                                                            </LogicalAnd>
-                                                                        </LogicalOr>
-                                                                        <LogicalAnd>
-                                                                            <Compare
-                                                                                operator="EQUAL">
-                                                                                <GetPropertyValue>
-                                                                                    <DecisionTreeVar
-                                                                                        name="T" />
-                                                                                    <Property
-                                                                                        name="requiredFirstValForRight" />
-                                                                                </GetPropertyValue>
-                                                                                <Enum
-                                                                                    owner="ExpectedValue"
-                                                                                    value="true" />
-                                                                            </Compare>
-                                                                            <LogicalOr>
-                                                                                <CheckRelationship>
-                                                                                    <Relationship
-                                                                                        name="isRightOperandOf" />
-                                                                                    <DecisionTreeVar
-                                                                                        name="X" />
-                                                                                    <DecisionTreeVar
-                                                                                        name="T" />
-                                                                                </CheckRelationship>
-                                                                                <ExistenceQuantifier
-                                                                                    type="operator"
-                                                                                    varName="r">
-                                                                                    <CheckRelationship>
-                                                                                        <Relationship
-                                                                                            name="isRightOperandOf" />
-                                                                                        <Variable
-                                                                                            name="r" />
-                                                                                        <DecisionTreeVar
-                                                                                            name="T" />
-                                                                                    </CheckRelationship>
-                                                                                    <CheckRelationship>
-                                                                                        <Relationship
-                                                                                            name="isInOperandOf" />
-                                                                                        <DecisionTreeVar
-                                                                                            name="X" />
-                                                                                        <Variable
-                                                                                            name="r" />
-                                                                                    </CheckRelationship>
-                                                                                </ExistenceQuantifier>
-                                                                            </LogicalOr>
-                                                                        </LogicalAnd>
-                                                                    </LogicalOr>
+                                                                    <Compare operator="EQ">
+                                                                        <GetPropertyValue propertyName="requiredFirstOperandValueToEvaluate">
+                                                                            <DecisionTreeVar name="T" />
+                                                                            <ParamsValues>
+                                                                                <GetRelationshipParamValue relationshipName="isInOperandOf" paramName="placement">
+                                                                                    <DecisionTreeVar name="X" />
+                                                                                    <DecisionTreeVar name="T" />
+                                                                                </GetRelationshipParamValue>
+                                                                            </ParamsValues>
+                                                                        </GetPropertyValue>
+                                                                        <Enum owner="ExpectedValue" value="true" />
+                                                                    </Compare>
                                                                 </Expression>
                                                                 <Outcome value="true"
                                                                     _RU_text="true"
@@ -2546,77 +2138,23 @@
                                                             Otherwise the right operand is omitted."
                                                                 />
                                                             </Part>
-                                                    <Part
+                                                            <Part
                                                                 _alias="Какое значение у первого"
                                                                 _RU_question="Какое значение имеет первый операнд ${val('T','р')} в данном случае?"
                                                                 _EN_question="What is the value of first operand of ${val('T','р')} in this case?"
                                                             >
                                                                 <Expression>
-                                                                    <IfThen>
-                                                                        <Compare operator="EQUAL">
-                                                                            <GetPropertyValue>
-                                                                                <DecisionTreeVar
-                                                                                    name="T" />
-                                                                                <Property
-                                                                                    name="firstOperandPosition" />
-                                                                            </GetPropertyValue>
-                                                                            <Enum
-                                                                                owner="OperandPosition"
-                                                                                value="left" />
-                                                                        </Compare>
-                                                                        <GetPropertyValue>
-                                                                            <GetByRelationship
-                                                                                varName="">
-                                                                                <DecisionTreeVar
-                                                                                    name="T" />
-                                                                                <Relationship
-                                                                                    name="hasLeftOperand" />
-                                                                            </GetByRelationship>
-                                                                            <Property
-                                                                                name="evaluatesTo" />
-                                                                        </GetPropertyValue>
-                                                                        <IfThen>
-                                                                            <Compare
-                                                                                operator="EQUAL">
-                                                                                <GetPropertyValue>
-                                                                                    <DecisionTreeVar
-                                                                                        name="T" />
-                                                                                    <Property
-                                                                                        name="firstOperandPosition" />
+                                                                    <GetPropertyValue>
+                                                                        <GetByRelationship relationshipName="hasOperand">
+                                                                            <DecisionTreeVar name="T" />
+                                                                            <ParamsValues>
+                                                                                <GetPropertyValue propertyName="firstOperandPlacement">
+                                                                                    <DecisionTreeVar name="T" />
                                                                                 </GetPropertyValue>
-                                                                                <Enum
-                                                                                    owner="OperandPosition"
-                                                                                    value="right" />
-                                                                            </Compare>
-                                                                            <GetPropertyValue>
-                                                                                <GetByRelationship
-                                                                                    varName="">
-                                                                                    <DecisionTreeVar
-                                                                                        name="T" />
-                                                                                    <Relationship
-                                                                                        name="hasRightOperand" />
-                                                                                </GetByRelationship>
-                                                                                <Property
-                                                                                    name="evaluatesTo" />
-                                                                            </GetPropertyValue>
-                                                                            <GetPropertyValue>
-                                                                                <GetByCondition
-                                                                                    type="operand"
-                                                                                    varName="c">
-                                                                                    <CheckRelationship>
-                                                                                        <Relationship
-                                                                                            name="hasCenterOperand" />
-                                                                                        <DecisionTreeVar
-                                                                                            name="T" />
-                                                                                        <Variable
-                                                                                            name="c" />
-                                                                                    </CheckRelationship>
-                                                                                </GetByCondition>
-                                                                                <Property
-                                                                                    name="evaluatesTo" />
-                                                                            </GetPropertyValue>
-                                                                        </IfThen>
-                                                                    </IfThen>
+                                                                            </ParamsValues>
+                                                                        </GetByRelationship>
+                                                                        <Property name="evaluatesTo" />
+                                                                    </GetPropertyValue>
                                                                 </Expression>
                                                                 <Outcome value="true"
                                                                     _RU_text="true"
@@ -2736,8 +2274,7 @@
                 </CycleAggregationNode>
             </ThoughtBranch>
             <Outcome value="true">
-                <BranchResultNode value="true"> <!-- X вычисляется, A, B, C становятся
-                    использованными-->
+                <BranchResultNode value="true"> <!-- X вычисляется, A, B, C становятся использованными-->
                     <Expression>
                         <Block>
                             <AssignToProperty>
@@ -2745,307 +2282,27 @@
                                 <Property name="state" />
                                 <Enum owner="state" value="evaluated" />
                             </AssignToProperty>
-                            <IfThen>
-                                <ExistenceQuantifier varName="a" type="operand">
-                                    <Compare operator="NOT_EQUAL">
-                                        <GetPropertyValue>
-                                            <Variable name="a" />
-                                            <Property name="state" />
-                                        </GetPropertyValue>
-                                        <Enum owner="state" value="omitted" />
-                                    </Compare>
-                                    <CheckRelationship>
-                                        <Relationship name="hasLeftOperand" />
-                                        <DecisionTreeVar name="X" />
-                                        <Variable name="a" />
-                                    </CheckRelationship>
-                                </ExistenceQuantifier>
-                                <AssignToProperty>
-                                    <GetByRelationship varName="a">
-                                        <DecisionTreeVar name="X" />
-                                        <Relationship name="hasLeftOperand" />
-                                    </GetByRelationship>
-                                    <Property name="state" />
-                                    <Enum owner="state" value="used" />
-                                </AssignToProperty>
-                            </IfThen>
-                            <IfThen>
-                                <ExistenceQuantifier varName="b" type="operand">
-                                    <Compare operator="NOT_EQUAL">
-                                        <GetPropertyValue>
-                                            <Variable name="b" />
-                                            <Property name="state" />
-                                        </GetPropertyValue>
-                                        <Enum owner="state" value="omitted" />
-                                    </Compare>
-                                    <CheckRelationship>
-                                        <Relationship name="hasRightOperand" />
-                                        <DecisionTreeVar name="X" />
-                                        <Variable name="b" />
-                                    </CheckRelationship>
-                                </ExistenceQuantifier>
-                                <AssignToProperty>
-                                    <GetByRelationship varName="b">
-                                        <DecisionTreeVar name="X" />
-                                        <Relationship name="hasRightOperand" />
-                                    </GetByRelationship>
-                                    <Property name="state" />
-                                    <Enum owner="state" value="used" />
-                                </AssignToProperty>
-                            </IfThen>
-                            <ForAllQuantifier varName="c" type="operand">
+                            <ForAllQuantifier varName="x_op" type="operand">
                                 <LogicalAnd>
-                                    <CheckRelationship>
-                                        <Relationship name="hasCenterOperand" />
+                                    <CheckRelationship relationshipName="isOperandOf">
+                                        <Variable name="x_op" />
                                         <DecisionTreeVar name="X" />
-                                        <Variable name="c" />
                                     </CheckRelationship>
                                     <Compare operator="NOT_EQUAL">
-                                        <GetPropertyValue>
-                                            <Variable name="c" />
-                                            <Property name="state" />
+                                        <GetPropertyValue propertyName="state">
+                                            <Variable name="x_op" />
                                         </GetPropertyValue>
                                         <Enum owner="state" value="omitted" />
                                     </Compare>
                                 </LogicalAnd>
                                 <AssignToProperty>
-                                    <Variable name="c" />
+                                    <Variable name="x_op" />
                                     <Property name="state" />
                                     <Enum owner="state" value="used" />
                                 </AssignToProperty>
                             </ForAllQuantifier>
                         </Block>
                     </Expression>
-                    <!-- <Expression>
-                        <Block>
-                            <IfThen>
-                                <GetPropertyValue>
-                                    <DecisionTreeVar name="X" />
-                                    <Property name="needsInnerOperand" />
-                                </GetPropertyValue>
-                                <With varName="c">
-                                    <GetByCondition varName="c">
-                                        <LogicalAnd>
-                                            <LogicalAnd>
-                                                <CheckClass>
-                                                    <Variable name="c" />
-                                                    <Class name="operand" />
-                                                </CheckClass>
-                                                <CheckRelationship>
-                                                    <Relationship name="isBetween" />
-                                                    <Variable name="c" />
-                                                    <DecisionTreeVar name="X1" />
-                                                    <GetByCondition varName="x2">
-                                                        <LogicalAnd>
-                                                            <LogicalAnd>
-                                                                <CheckClass>
-                                                                    <Variable name="x2" />
-                                                                    <Class name="token" />
-                                                                </CheckClass>
-                                                                <CheckRelationship>
-                                                                    <Relationship name="belongsTo" />
-                                                                    <Variable name="x2" />
-                                                                    <DecisionTreeVar name="X" />
-                                                                </CheckRelationship>
-                                                            </LogicalAnd>
-                                                            <CheckRelationship>
-                                                                <Relationship name="rightOf" />
-                                                                <Variable name="x2" />
-                                                                <DecisionTreeVar name="X1" />
-                                                            </CheckRelationship>
-                                                        </LogicalAnd>
-                                                    </GetByCondition>
-                                                </CheckRelationship>
-                                            </LogicalAnd>
-                                            <Compare operator="EQUAL">
-                                                <GetPropertyValue>
-                                                    <Variable name="c" />
-                                                    <Property name="state" />
-                                                </GetPropertyValue>
-                                                <Enum owner="state" value="evaluated" />
-                                            </Compare>
-                                        </LogicalAnd>
-                                    </GetByCondition>
-                                    <Block>
-                                        <AddRelationshipLink>
-                                            <Relationship name="isOperandOf" />
-                                            <Variable name="c" />
-                                            <DecisionTreeVar name="X" />
-                                        </AddRelationshipLink>
-                                        <AddRelationshipLink>
-                                            <Relationship name="isCenterOperandOf" />
-                                            <Variable name="c" />
-                                            <DecisionTreeVar name="X" />
-                                        </AddRelationshipLink>
-                                        <AssignToProperty>
-                                            <Variable name="c" />
-                                            <Property name="state" />
-                                            <Enum owner="state" value="used"/>
-                                        </AssignToProperty>
-                                    </Block>
-                                </With>
-                            </IfThen>
-                            <IfThen>
-                                <GetPropertyValue>
-                                    <DecisionTreeVar name="X" />
-                                    <Property name="needsLeftOperand" />
-                                </GetPropertyValue>
-                                <With varName="a">
-                                    <GetExtreme varName="a" extremeVarName="a_ex">
-                                        <LogicalNot>
-                                            <ExistenceQuantifier varName="a">
-                                                <LogicalAnd>
-                                                    <LogicalAnd>
-                                                        <CheckClass>
-                                                            <Variable name="a" />
-                                                            <Class name="operand" />
-                                                        </CheckClass>
-                                                        <Compare operator="EQUAL">
-                                                            <GetPropertyValue>
-                                                                <Variable name="a" />
-                                                                <Property name="state" />
-                                                            </GetPropertyValue>
-                                                            <Enum owner="state" value="evaluated" />
-                                                        </Compare>
-                                                    </LogicalAnd>
-                                                    <CheckRelationship>
-                                                        <Relationship name="leftOf" />
-                                                        <Variable name="a" />
-                                                        <DecisionTreeVar name="X" />
-                                                    </CheckRelationship>
-                                                </LogicalAnd>
-                                                <CheckRelationship>
-                                                    <Relationship name="isBetween" />
-                                                    <Variable name="a" />
-                                                    <Variable name="a_ex" />
-                                                    <DecisionTreeVar name="X" />
-                                                </CheckRelationship>
-                                            </ExistenceQuantifier>
-                                        </LogicalNot>
-                                        <LogicalAnd>
-                                            <LogicalAnd>
-                                                <CheckClass>
-                                                    <Variable name="a" />
-                                                    <Class name="operand" />
-                                                </CheckClass>
-                                                <Compare operator="EQUAL">
-                                                    <GetPropertyValue>
-                                                        <Variable name="a" />
-                                                        <Property name="state" />
-                                                    </GetPropertyValue>
-                                                    <Enum owner="state" value="evaluated" />
-                                                </Compare>
-                                            </LogicalAnd>
-                                            <CheckRelationship>
-                                                <Relationship name="leftOf" />
-                                                <Variable name="a" />
-                                                <DecisionTreeVar name="X" />
-                                            </CheckRelationship>
-                                        </LogicalAnd>
-                                    </GetExtreme>
-                                    <Block>
-                                        <AddRelationshipLink>
-                                            <Relationship name="isOperandOf" />
-                                            <Variable name="a" />
-                                            <DecisionTreeVar name="X" />
-                                        </AddRelationshipLink>
-                                        <AddRelationshipLink>
-                                            <Relationship name="isLeftOperandOf" />
-                                            <Variable name="a" />
-                                            <DecisionTreeVar name="X" />
-                                        </AddRelationshipLink>
-                                        <AssignToProperty>
-                                            <Variable name="a" />
-                                            <Property name="state" />
-                                            <Enum owner="state" value="used"/>
-                                        </AssignToProperty>
-                                    </Block>
-                                </With>
-                            </IfThen>
-                            <IfThen>
-                                <GetPropertyValue>
-                                    <DecisionTreeVar name="X" />
-                                    <Property name="needsRightOperand" />
-                                </GetPropertyValue>
-                                <With varName = "b">
-                                    <GetExtreme varName="b" extremeVarName="b_ex">
-                                        <LogicalNot>
-                                            <ExistenceQuantifier varName="b">
-                                                <LogicalAnd>
-                                                    <LogicalAnd>
-                                                        <CheckClass>
-                                                            <Variable name="b" />
-                                                            <Class name="operand" />
-                                                        </CheckClass>
-                                                        <Compare operator="EQUAL">
-                                                            <GetPropertyValue>
-                                                                <Variable name="b" />
-                                                                <Property name="state" />
-                                                            </GetPropertyValue>
-                                                            <Enum owner="state" value="evaluated" />
-                                                        </Compare>
-                                                    </LogicalAnd>
-                                                    <CheckRelationship>
-                                                        <Relationship name="rightOf" />
-                                                        <Variable name="b" />
-                                                        <DecisionTreeVar name="X" />
-                                                    </CheckRelationship>
-                                                </LogicalAnd>
-                                                <CheckRelationship>
-                                                    <Relationship name="isBetween" />
-                                                    <Variable name="b" />
-                                                    <Variable name="b_ex" />
-                                                    <DecisionTreeVar name="X" />
-                                                </CheckRelationship>
-                                            </ExistenceQuantifier>
-                                        </LogicalNot>
-                                        <LogicalAnd>
-                                            <LogicalAnd>
-                                                <CheckClass>
-                                                    <Variable name="b" />
-                                                    <Class name="operand" />
-                                                </CheckClass>
-                                                <Compare operator="EQUAL">
-                                                    <GetPropertyValue>
-                                                        <Variable name="b" />
-                                                        <Property name="state" />
-                                                    </GetPropertyValue>
-                                                    <Enum owner="state" value="evaluated" />
-                                                </Compare>
-                                            </LogicalAnd>
-                                            <CheckRelationship>
-                                                <Relationship name="rightOf" />
-                                                <Variable name="b" />
-                                                <DecisionTreeVar name="X" />
-                                            </CheckRelationship>
-                                        </LogicalAnd>
-                                    </GetExtreme>
-                                    <Block>
-                                        <AddRelationshipLink>
-                                            <Relationship name="isOperandOf" />
-                                            <Variable name="b" />
-                                            <DecisionTreeVar name="X" />
-                                        </AddRelationshipLink>
-                                        <AddRelationshipLink>
-                                            <Relationship name="isRightOperandOf" />
-                                            <Variable name="b" />
-                                            <DecisionTreeVar name="X" />
-                                        </AddRelationshipLink>
-                                        <AssignToProperty>
-                                            <Variable name="b" />
-                                            <Property name="state" />
-                                            <Enum owner="state" value="used"/>
-                                        </AssignToProperty>
-                                    </Block>
-                                </With>
-                            </IfThen>
-                            <AssignToProperty>
-                                <DecisionTreeVar name="X" />
-                                <Property name="state" />
-                                <Enum owner="state" value="evaluated"/>
-                            </AssignToProperty>
-                        </Block>
-                    </Expression> -->
                 </BranchResultNode>
             </Outcome>
             <Outcome value="false">
