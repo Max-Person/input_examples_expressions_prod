@@ -6,8 +6,7 @@ obj element_op_0 : operand {
 	evaluatesTo = true ;
 
 	has(token_0) ;
-	isOperandOf(element_op_1) ;
-	isLeftOperandOf(element_op_1) ;
+	isOperandOf<placement = OperandPlacement:left>(element_op_1) ;
 } [
 	RU.localizedName = "операнд a на позиции 1" ;
 	EN.localizedName = "variable a at position 1" ;
@@ -18,8 +17,7 @@ obj element_op_10 : operand {
 	evaluatesTo = true ;
 
 	has(token_10) ;
-	isOperandOf(element_op_9) ;
-	isRightOperandOf(element_op_9) ;
+	isOperandOf<placement = OperandPlacement:right>(element_op_9) ;
 } [
 	RU.localizedName = "операнд y на позиции 11" ;
 	EN.localizedName = "variable y at position 11" ;
@@ -30,8 +28,7 @@ obj element_op_12 : operand {
 	evaluatesTo = true ;
 
 	has(token_12) ;
-	isOperandOf(element_op_11) ;
-	isRightOperandOf(element_op_11) ;
+	isOperandOf<placement = OperandPlacement:right>(element_op_11) ;
 } [
 	RU.localizedName = "операнд z на позиции 13" ;
 	EN.localizedName = "variable z at position 13" ;
@@ -42,8 +39,7 @@ obj element_op_2 : operand {
 	evaluatesTo = true ;
 
 	has(token_2) ;
-	isOperandOf(element_op_1) ;
-	isRightOperandOf(element_op_1) ;
+	isOperandOf<placement = OperandPlacement:right>(element_op_1) ;
 } [
 	RU.localizedName = "операнд b на позиции 3" ;
 	EN.localizedName = "variable b at position 3" ;
@@ -54,8 +50,7 @@ obj element_op_4 : operand {
 	evaluatesTo = true ;
 
 	has(token_4) ;
-	isOperandOf(element_op_3) ;
-	isRightOperandOf(element_op_3) ;
+	isOperandOf<placement = OperandPlacement:right>(element_op_3) ;
 } [
 	RU.localizedName = "операнд c на позиции 5" ;
 	EN.localizedName = "variable c at position 5" ;
@@ -66,8 +61,7 @@ obj element_op_6 : operand {
 	evaluatesTo = true ;
 
 	has(token_6) ;
-	isOperandOf(element_op_5) ;
-	isCenterOperandOf(element_op_5) ;
+	isOperandOf<placement = OperandPlacement:center>(element_op_5) ;
 } [
 	RU.localizedName = "операнд condition на позиции 7" ;
 	EN.localizedName = "variable condition at position 7" ;
@@ -78,8 +72,7 @@ obj element_op_8 : operand {
 	evaluatesTo = true ;
 
 	has(token_8) ;
-	isOperandOf(element_op_9) ;
-	isLeftOperandOf(element_op_9) ;
+	isOperandOf<placement = OperandPlacement:left>(element_op_9) ;
 } [
 	RU.localizedName = "операнд x на позиции 9" ;
 	EN.localizedName = "variable x at position 9" ;
@@ -90,8 +83,7 @@ obj element_op_11 : `operator_+` {
 	state = state:omitted ;
 
 	has(token_11) ;
-	isOperandOf(element_op_5) ;
-	isRightOperandOf(element_op_5) ;
+	isOperandOf<placement = OperandPlacement:right>(element_op_5) ;
 } [
 	RU.localizedName = "оператор + на позиции 12" ;
 	EN.localizedName = "operator + at position 12" ;
@@ -102,8 +94,7 @@ obj element_op_3 : `operator_+` {
 	evaluatesTo = true ;
 
 	has(token_3) ;
-	isOperandOf(element_op_5) ;
-	isLeftOperandOf(element_op_5) ;
+	isOperandOf<placement = OperandPlacement:left>(element_op_5) ;
 } [
 	RU.localizedName = "оператор + на позиции 4" ;
 	EN.localizedName = "operator + at position 4" ;
@@ -114,8 +105,7 @@ obj element_op_1 : `operator_-` {
 	evaluatesTo = true ;
 
 	has(token_1) ;
-	isOperandOf(element_op_3) ;
-	isLeftOperandOf(element_op_3) ;
+	isOperandOf<placement = OperandPlacement:left>(element_op_3) ;
 } [
 	RU.localizedName = "оператор - на позиции 2" ;
 	EN.localizedName = "operator - at position 2" ;
@@ -126,8 +116,7 @@ obj element_op_9 : `operator_-` {
 	state = state:omitted ;
 
 	has(token_9) ;
-	isOperandOf(element_op_11) ;
-	isLeftOperandOf(element_op_11) ;
+	isOperandOf<placement = OperandPlacement:left>(element_op_11) ;
 } [
 	RU.localizedName = "оператор - на позиции 10" ;
 	EN.localizedName = "operator - at position 10" ;

@@ -6,8 +6,7 @@ obj element_op__0__1 : operand {
 	evaluatesTo = true ;
 
 	has(token_op__0__1) ;
-	isOperandOf(element_op__0__2) ;
-	isLeftOperandOf(element_op__0__2) ;
+	isOperandOf<placement = OperandPlacement:left>(element_op__0__2) ;
 } [
 	RU.localizedName = "операнд stbi__flip_vertically_on_write на позиции 1" ;
 	EN.localizedName = "variable stbi__flip_vertically_on_write at position 1" ;
@@ -18,8 +17,7 @@ obj element_op__0__3 : operand {
 	evaluatesTo = true ;
 
 	has(token_op__0__3) ;
-	isOperandOf(element_op__0__4) ;
-	isLeftOperandOf(element_op__0__4) ;
+	isOperandOf<placement = OperandPlacement:left>(element_op__0__4) ;
 } [
 	RU.localizedName = "операнд height на позиции 3" ;
 	EN.localizedName = "variable height at position 3" ;
@@ -30,8 +28,7 @@ obj element_op__0__5 : operand {
 	evaluatesTo = true ;
 
 	has(token_op__0__5) ;
-	isOperandOf(element_op__0__4) ;
-	isRightOperandOf(element_op__0__4) ;
+	isOperandOf<placement = OperandPlacement:right>(element_op__0__4) ;
 } [
 	RU.localizedName = "операнд 1 на позиции 5" ;
 	EN.localizedName = "variable 1 at position 5" ;
@@ -42,8 +39,7 @@ obj element_op__0__7 : operand {
 	evaluatesTo = true ;
 
 	has(token_op__0__7) ;
-	isOperandOf(element_op__0__6) ;
-	isRightOperandOf(element_op__0__6) ;
+	isOperandOf<placement = OperandPlacement:right>(element_op__0__6) ;
 } [
 	RU.localizedName = "операнд y на позиции 7" ;
 	EN.localizedName = "variable y at position 7" ;
@@ -54,8 +50,7 @@ obj element_op__0__9 : operand {
 	evaluatesTo = true ;
 
 	has(token_op__0__9) ;
-	isOperandOf(element_op__0__2) ;
-	isRightOperandOf(element_op__0__2) ;
+	isOperandOf<placement = OperandPlacement:right>(element_op__0__2) ;
 } [
 	RU.localizedName = "операнд y на позиции 9" ;
 	EN.localizedName = "variable y at position 9" ;
@@ -77,8 +72,7 @@ obj element_op__0__4 : `operator_binary_-` {
 	evaluatesTo = true ;
 
 	has(token_op__0__4) ;
-	isOperandOf(element_op__0__6) ;
-	isLeftOperandOf(element_op__0__6) ;
+	isOperandOf<placement = OperandPlacement:left>(element_op__0__6) ;
 } [
 	RU.localizedName = "оператор - на позиции 4" ;
 	EN.localizedName = "operator - at position 4" ;
@@ -89,8 +83,7 @@ obj element_op__0__6 : `operator_binary_-` {
 	evaluatesTo = true ;
 
 	has(token_op__0__6) ;
-	isOperandOf(element_op__0__2) ;
-	isCenterOperandOf(element_op__0__2) ;
+	isOperandOf<placement = OperandPlacement:center>(element_op__0__2) ;
 } [
 	RU.localizedName = "оператор - на позиции 6" ;
 	EN.localizedName = "operator - at position 6" ;

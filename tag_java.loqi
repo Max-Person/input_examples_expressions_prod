@@ -8,14 +8,14 @@ class `operator_&&` : StrictOrderOperator {
 	place = place:infix ;
 	precedence = 12 ;
 	associativity = associativity:left ;
-	needsLeftOperand = true ;
-	needsRightOperand = true ;
-	needsInnerOperand = false ;
+	needsOperand<OperandPlacement:left> = true ;
+	needsOperand<OperandPlacement:right> = true ;
+	needsOperand<OperandPlacement:center> = false ;
 	countOfTokens = 1 ;
 
 	isAnd = true;
-    firstOperandPosition = OperandPosition:left;
-    requiredFirstValForRight = ExpectedValue:`true` ;
+    firstOperandPlacement = OperandPlacement:left;
+    requiredFirstOperandValueToEvaluate<OperandPlacement:right> = ExpectedValue:`true` ;
 } [
 	text = "&&" ;
 	RU.localizedName = "оператор &&" ;
@@ -27,9 +27,9 @@ class operator_function_call : operator {
        place = place:infix ;
        precedence = 1 ;
        associativity = associativity:left ;
-       needsLeftOperand = false ;
-       needsRightOperand = false ;
-       needsInnerOperand = true ;
+       needsOperand<OperandPlacement:left> = false ;
+       needsOperand<OperandPlacement:right> = false ;
+       needsOperand<OperandPlacement:center> = true ;
        countOfTokens = 2 ;
        canHaveManyCentralOperands = true ;
  } [
@@ -45,9 +45,9 @@ class operator_method_call : operator {
     place = place:infix ;
     precedence = 1 ;
     associativity = associativity:left ;
-    needsLeftOperand = true ;
-    needsRightOperand = false ;
-    needsInnerOperand = true ;
+    needsOperand<OperandPlacement:left> = true ;
+    needsOperand<OperandPlacement:right> = false ;
+    needsOperand<OperandPlacement:center> = true ;
     countOfTokens = 2 ;
     canHaveManyCentralOperands = true ;
 } [
@@ -64,9 +64,9 @@ class operator_new : operator {
 	place = place:prefix ;
 	precedence = 1 ;
 	associativity = associativity:right ;
-	needsLeftOperand = false ;
-	needsRightOperand = false ;
-	needsInnerOperand = true ;
+	needsOperand<OperandPlacement:left> = false ;
+	needsOperand<OperandPlacement:right> = false ;
+	needsOperand<OperandPlacement:center> = true ;
 	countOfTokens = 1 ;
 } [
 	text = "new" ;
@@ -80,9 +80,9 @@ class operator_cast : operator {
 	place = place:prefix ;
 	precedence = 1 ;
 	associativity = associativity:right ;
-	needsLeftOperand = false ;
-	needsRightOperand = true ;
-	needsInnerOperand = false ;
+	needsOperand<OperandPlacement:left> = false ;
+	needsOperand<OperandPlacement:right> = true ;
+	needsOperand<OperandPlacement:center> = false ;
 	countOfTokens = 1 ;
 } [
 	text = "cast" ;
@@ -96,15 +96,15 @@ class `operator_?` : StrictOrderOperator {
 	place = place:infix ;
 	precedence = 14 ;
 	associativity = associativity:right ;
-	needsLeftOperand = true ;
-	needsRightOperand = true ;
-	needsInnerOperand = true ;
+	needsOperand<OperandPlacement:left> = true ;
+	needsOperand<OperandPlacement:right> = true ;
+	needsOperand<OperandPlacement:center> = true ;
 	countOfTokens = 2 ;
 
 	isTConditional = true;
-    firstOperandPosition = OperandPosition:left;
-    requiredFirstValForRight = ExpectedValue:`false` ;
-    requiredFirstValForCenter = ExpectedValue:`true` ;
+    firstOperandPlacement = OperandPlacement:left;
+    requiredFirstOperandValueToEvaluate<OperandPlacement:right> = ExpectedValue:`false` ;
+    requiredFirstOperandValueToEvaluate<OperandPlacement:center> = ExpectedValue:`true` ;
 } [
 	text = "?" ;
 	token2text = ":";
@@ -118,14 +118,14 @@ class `operator_||` : StrictOrderOperator {
 	place = place:infix ;
 	precedence = 13 ;
 	associativity = associativity:left ;
-	needsLeftOperand = true ;
-	needsRightOperand = true ;
-	needsInnerOperand = false ;
+	needsOperand<OperandPlacement:left> = true ;
+	needsOperand<OperandPlacement:right> = true ;
+	needsOperand<OperandPlacement:center> = false ;
 	countOfTokens = 1 ;
 
 	isOr = true;
-	firstOperandPosition = OperandPosition:left;
-    requiredFirstValForRight = ExpectedValue:`false` ;
+	firstOperandPlacement = OperandPlacement:left;
+    requiredFirstOperandValueToEvaluate<OperandPlacement:right> = ExpectedValue:`false` ;
 } [
 	text = "||" ;
 	RU.localizedName = "оператор ||" ;
@@ -138,9 +138,9 @@ class `operator_!` : operator {
 	place = place:prefix ;
 	precedence = 3 ;
 	associativity = associativity:right ;
-	needsLeftOperand = false ;
-	needsRightOperand = true ;
-	needsInnerOperand = false ;
+	needsOperand<OperandPlacement:left> = false ;
+	needsOperand<OperandPlacement:right> = true ;
+	needsOperand<OperandPlacement:center> = false ;
 	countOfTokens = 1 ;
 
 	isNot = true;
@@ -156,9 +156,9 @@ class `operator_!=` : operator {
 	place = place:infix ;
 	precedence = 8 ;
 	associativity = associativity:left ;
-	needsLeftOperand = true ;
-	needsRightOperand = true ;
-	needsInnerOperand = false ;
+	needsOperand<OperandPlacement:left> = true ;
+	needsOperand<OperandPlacement:right> = true ;
+	needsOperand<OperandPlacement:center> = false ;
 	countOfTokens = 1 ;
 } [
 	text = "!=" ;
@@ -172,9 +172,9 @@ class `operator_%` : operator {
 	place = place:infix ;
 	precedence = 4 ;
 	associativity = associativity:left ;
-	needsLeftOperand = true ;
-	needsRightOperand = true ;
-	needsInnerOperand = false ;
+	needsOperand<OperandPlacement:left> = true ;
+	needsOperand<OperandPlacement:right> = true ;
+	needsOperand<OperandPlacement:center> = false ;
 	countOfTokens = 1 ;
 } [
 	text = "%" ;
@@ -188,9 +188,9 @@ class `operator_%=` : operator {
 	place = place:infix ;
 	precedence = 15 ;
 	associativity = associativity:right ;
-	needsLeftOperand = true ;
-	needsRightOperand = true ;
-	needsInnerOperand = false ;
+	needsOperand<OperandPlacement:left> = true ;
+	needsOperand<OperandPlacement:right> = true ;
+	needsOperand<OperandPlacement:center> = false ;
 	countOfTokens = 1 ;
 } [
 	text = "%=" ;
@@ -204,9 +204,9 @@ class `operator_&=` : operator {
 	place = place:infix ;
 	precedence = 15 ;
 	associativity = associativity:right ;
-	needsLeftOperand = true ;
-	needsRightOperand = true ;
-	needsInnerOperand = false ;
+	needsOperand<OperandPlacement:left> = true ;
+	needsOperand<OperandPlacement:right> = true ;
+	needsOperand<OperandPlacement:center> = false ;
 	countOfTokens = 1 ;
 } [
 	text = "&=" ;
@@ -220,9 +220,9 @@ class `operator_*=` : operator {
 	place = place:infix ;
 	precedence = 15 ;
 	associativity = associativity:right ;
-	needsLeftOperand = true ;
-	needsRightOperand = true ;
-	needsInnerOperand = false ;
+	needsOperand<OperandPlacement:left> = true ;
+	needsOperand<OperandPlacement:right> = true ;
+	needsOperand<OperandPlacement:center> = false ;
 	countOfTokens = 1 ;
 } [
 	text = "*=" ;
@@ -236,9 +236,9 @@ class `operator_+=` : operator {
 	place = place:infix ;
 	precedence = 15 ;
 	associativity = associativity:right ;
-	needsLeftOperand = true ;
-	needsRightOperand = true ;
-	needsInnerOperand = false ;
+	needsOperand<OperandPlacement:left> = true ;
+	needsOperand<OperandPlacement:right> = true ;
+	needsOperand<OperandPlacement:center> = false ;
 	countOfTokens = 1 ;
 } [
 	text = "+=" ;
@@ -252,9 +252,9 @@ class `operator_-=` : operator {
 	place = place:infix ;
 	precedence = 15 ;
 	associativity = associativity:right ;
-	needsLeftOperand = true ;
-	needsRightOperand = true ;
-	needsInnerOperand = false ;
+	needsOperand<OperandPlacement:left> = true ;
+	needsOperand<OperandPlacement:right> = true ;
+	needsOperand<OperandPlacement:center> = false ;
 	countOfTokens = 1 ;
 } [
 	text = "-=" ;
@@ -268,9 +268,9 @@ class `operator_.` : operator {
 	place = place:infix ;
 	precedence = 1 ;
 	associativity = associativity:left ;
-	needsLeftOperand = true ;
-	needsRightOperand = true ;
-	needsInnerOperand = false ;
+	needsOperand<OperandPlacement:left> = true ;
+	needsOperand<OperandPlacement:right> = true ;
+	needsOperand<OperandPlacement:center> = false ;
 	countOfTokens = 1 ;
 } [
 	text = "." ;
@@ -284,9 +284,9 @@ class `operator_/` : operator {
 	place = place:infix ;
 	precedence = 4 ;
 	associativity = associativity:left ;
-	needsLeftOperand = true ;
-	needsRightOperand = true ;
-	needsInnerOperand = false ;
+	needsOperand<OperandPlacement:left> = true ;
+	needsOperand<OperandPlacement:right> = true ;
+	needsOperand<OperandPlacement:center> = false ;
 	countOfTokens = 1 ;
 } [
 	text = "/" ;
@@ -300,9 +300,9 @@ class `operator_/=` : operator {
 	place = place:infix ;
 	precedence = 15 ;
 	associativity = associativity:right ;
-	needsLeftOperand = true ;
-	needsRightOperand = true ;
-	needsInnerOperand = false ;
+	needsOperand<OperandPlacement:left> = true ;
+	needsOperand<OperandPlacement:right> = true ;
+	needsOperand<OperandPlacement:center> = false ;
 	countOfTokens = 1 ;
 } [
 	text = "/=" ;
@@ -316,9 +316,9 @@ class `operator_<` : operator {
 	place = place:infix ;
 	precedence = 7 ;
 	associativity = associativity:left ;
-	needsLeftOperand = true ;
-	needsRightOperand = true ;
-	needsInnerOperand = false ;
+	needsOperand<OperandPlacement:left> = true ;
+	needsOperand<OperandPlacement:right> = true ;
+	needsOperand<OperandPlacement:center> = false ;
 	countOfTokens = 1 ;
 } [
 	text = "<" ;
@@ -332,9 +332,9 @@ class `operator_<<` : operator {
 	place = place:infix ;
 	precedence = 6 ;
 	associativity = associativity:left ;
-	needsLeftOperand = true ;
-	needsRightOperand = true ;
-	needsInnerOperand = false ;
+	needsOperand<OperandPlacement:left> = true ;
+	needsOperand<OperandPlacement:right> = true ;
+	needsOperand<OperandPlacement:center> = false ;
 	countOfTokens = 1 ;
 } [
 	text = "<<" ;
@@ -348,9 +348,9 @@ class `operator_<<=` : operator {
 	place = place:infix ;
 	precedence = 15 ;
 	associativity = associativity:right ;
-	needsLeftOperand = true ;
-	needsRightOperand = true ;
-	needsInnerOperand = false ;
+	needsOperand<OperandPlacement:left> = true ;
+	needsOperand<OperandPlacement:right> = true ;
+	needsOperand<OperandPlacement:center> = false ;
 	countOfTokens = 1 ;
 } [
 	text = "<<=" ;
@@ -364,9 +364,9 @@ class `operator_<=` : operator {
 	place = place:infix ;
 	precedence = 7 ;
 	associativity = associativity:left ;
-	needsLeftOperand = true ;
-	needsRightOperand = true ;
-	needsInnerOperand = false ;
+	needsOperand<OperandPlacement:left> = true ;
+	needsOperand<OperandPlacement:right> = true ;
+	needsOperand<OperandPlacement:center> = false ;
 	countOfTokens = 1 ;
 } [
 	text = "<=" ;
@@ -380,9 +380,9 @@ class `operator_=` : operator {
 	place = place:infix ;
 	precedence = 15 ;
 	associativity = associativity:right ;
-	needsLeftOperand = true ;
-	needsRightOperand = true ;
-	needsInnerOperand = false ;
+	needsOperand<OperandPlacement:left> = true ;
+	needsOperand<OperandPlacement:right> = true ;
+	needsOperand<OperandPlacement:center> = false ;
 	countOfTokens = 1 ;
 } [
 	text = "=" ;
@@ -396,9 +396,9 @@ class `operator_==` : operator {
 	place = place:infix ;
 	precedence = 8 ;
 	associativity = associativity:left ;
-	needsLeftOperand = true ;
-	needsRightOperand = true ;
-	needsInnerOperand = false ;
+	needsOperand<OperandPlacement:left> = true ;
+	needsOperand<OperandPlacement:right> = true ;
+	needsOperand<OperandPlacement:center> = false ;
 	countOfTokens = 1 ;
 } [
 	text = "==" ;
@@ -412,9 +412,9 @@ class `operator_>` : operator {
 	place = place:infix ;
 	precedence = 7 ;
 	associativity = associativity:left ;
-	needsLeftOperand = true ;
-	needsRightOperand = true ;
-	needsInnerOperand = false ;
+	needsOperand<OperandPlacement:left> = true ;
+	needsOperand<OperandPlacement:right> = true ;
+	needsOperand<OperandPlacement:center> = false ;
 	countOfTokens = 1 ;
 } [
 	text = ">" ;
@@ -428,9 +428,9 @@ class `operator_>=` : operator {
 	place = place:infix ;
 	precedence = 7 ;
 	associativity = associativity:left ;
-	needsLeftOperand = true ;
-	needsRightOperand = true ;
-	needsInnerOperand = false ;
+	needsOperand<OperandPlacement:left> = true ;
+	needsOperand<OperandPlacement:right> = true ;
+	needsOperand<OperandPlacement:center> = false ;
 	countOfTokens = 1 ;
 } [
 	text = ">=" ;
@@ -444,9 +444,9 @@ class `operator_>>` : operator {
 	place = place:infix ;
 	precedence = 6 ;
 	associativity = associativity:left ;
-	needsLeftOperand = true ;
-	needsRightOperand = true ;
-	needsInnerOperand = false ;
+	needsOperand<OperandPlacement:left> = true ;
+	needsOperand<OperandPlacement:right> = true ;
+	needsOperand<OperandPlacement:center> = false ;
 	countOfTokens = 1 ;
 } [
 	text = ">>" ;
@@ -460,9 +460,9 @@ class `operator_>>>` : operator {
 	place = place:infix ;
 	precedence = 6 ;
 	associativity = associativity:left ;
-	needsLeftOperand = true ;
-	needsRightOperand = true ;
-	needsInnerOperand = false ;
+	needsOperand<OperandPlacement:left> = true ;
+	needsOperand<OperandPlacement:right> = true ;
+	needsOperand<OperandPlacement:center> = false ;
 	countOfTokens = 1 ;
 } [
 	text = ">>" ;
@@ -476,9 +476,9 @@ class `operator_>>=` : operator {
 	place = place:infix ;
 	precedence = 15 ;
 	associativity = associativity:right ;
-	needsLeftOperand = true ;
-	needsRightOperand = true ;
-	needsInnerOperand = false ;
+	needsOperand<OperandPlacement:left> = true ;
+	needsOperand<OperandPlacement:right> = true ;
+	needsOperand<OperandPlacement:center> = false ;
 	countOfTokens = 1 ;
 } [
 	text = ">>=" ;
@@ -492,9 +492,9 @@ class `operator_^` : operator {
 	place = place:infix ;
 	precedence = 10 ;
 	associativity = associativity:left ;
-	needsLeftOperand = true ;
-	needsRightOperand = true ;
-	needsInnerOperand = false ;
+	needsOperand<OperandPlacement:left> = true ;
+	needsOperand<OperandPlacement:right> = true ;
+	needsOperand<OperandPlacement:center> = false ;
 	countOfTokens = 1 ;
 } [
 	text = "^" ;
@@ -508,9 +508,9 @@ class `operator_^=` : operator {
 	place = place:infix ;
 	precedence = 15 ;
 	associativity = associativity:right ;
-	needsLeftOperand = true ;
-	needsRightOperand = true ;
-	needsInnerOperand = false ;
+	needsOperand<OperandPlacement:left> = true ;
+	needsOperand<OperandPlacement:right> = true ;
+	needsOperand<OperandPlacement:center> = false ;
 	countOfTokens = 1 ;
 } [
 	text = "^=" ;
@@ -524,9 +524,9 @@ class `operator_binary_&` : operator {
 	place = place:infix ;
 	precedence = 9 ;
 	associativity = associativity:left ;
-	needsLeftOperand = true ;
-	needsRightOperand = true ;
-	needsInnerOperand = false ;
+	needsOperand<OperandPlacement:left> = true ;
+	needsOperand<OperandPlacement:right> = true ;
+	needsOperand<OperandPlacement:center> = false ;
 	countOfTokens = 1 ;
 } [
 	text = "&" ;
@@ -540,9 +540,9 @@ class `operator_binary_*` : operator {
 	place = place:infix ;
 	precedence = 4 ;
 	associativity = associativity:left ;
-	needsLeftOperand = true ;
-	needsRightOperand = true ;
-	needsInnerOperand = false ;
+	needsOperand<OperandPlacement:left> = true ;
+	needsOperand<OperandPlacement:right> = true ;
+	needsOperand<OperandPlacement:center> = false ;
 	countOfTokens = 1 ;
 } [
 	text = "*" ;
@@ -556,9 +556,9 @@ class `operator_binary_+` : operator {
 	place = place:infix ;
 	precedence = 5 ;
 	associativity = associativity:left ;
-	needsLeftOperand = true ;
-	needsRightOperand = true ;
-	needsInnerOperand = false ;
+	needsOperand<OperandPlacement:left> = true ;
+	needsOperand<OperandPlacement:right> = true ;
+	needsOperand<OperandPlacement:center> = false ;
 	countOfTokens = 1 ;
 } [
 	text = "+" ;
@@ -572,9 +572,9 @@ class `operator_binary_-` : operator {
 	place = place:infix ;
 	precedence = 5 ;
 	associativity = associativity:left ;
-	needsLeftOperand = true ;
-	needsRightOperand = true ;
-	needsInnerOperand = false ;
+	needsOperand<OperandPlacement:left> = true ;
+	needsOperand<OperandPlacement:right> = true ;
+	needsOperand<OperandPlacement:center> = false ;
 	countOfTokens = 1 ;
 } [
 	text = "-" ;
@@ -588,9 +588,9 @@ class `operator_postfix_++` : operator {
 	place = place:postfix ;
 	precedence = 2 ;
 	associativity = associativity:left ;
-	needsLeftOperand = true ;
-	needsRightOperand = false ;
-	needsInnerOperand = false ;
+	needsOperand<OperandPlacement:left> = true ;
+	needsOperand<OperandPlacement:right> = false ;
+	needsOperand<OperandPlacement:center> = false ;
 	countOfTokens = 1 ;
 } [
 	text = "++" ;
@@ -604,9 +604,9 @@ class `operator_postfix_--` : operator {
 	place = place:postfix ;
 	precedence = 2 ;
 	associativity = associativity:left ;
-	needsLeftOperand = true ;
-	needsRightOperand = false ;
-	needsInnerOperand = false ;
+	needsOperand<OperandPlacement:left> = true ;
+	needsOperand<OperandPlacement:right> = false ;
+	needsOperand<OperandPlacement:center> = false ;
 	countOfTokens = 1 ;
 } [
 	text = "--" ;
@@ -620,9 +620,9 @@ class `operator_prefix_++` : operator {
 	place = place:prefix ;
 	precedence = 3 ;
 	associativity = associativity:right ;
-	needsLeftOperand = false ;
-	needsRightOperand = true ;
-	needsInnerOperand = false ;
+	needsOperand<OperandPlacement:left> = false ;
+	needsOperand<OperandPlacement:right> = true ;
+	needsOperand<OperandPlacement:center> = false ;
 	countOfTokens = 1 ;
 } [
 	text = "++" ;
@@ -636,9 +636,9 @@ class `operator_prefix_--` : operator {
 	place = place:prefix ;
 	precedence = 3 ;
 	associativity = associativity:right ;
-	needsLeftOperand = false ;
-	needsRightOperand = true ;
-	needsInnerOperand = false ;
+	needsOperand<OperandPlacement:left> = false ;
+	needsOperand<OperandPlacement:right> = true ;
+	needsOperand<OperandPlacement:center> = false ;
 	countOfTokens = 1 ;
 } [
 	text = "--" ;
@@ -652,9 +652,9 @@ class operator_subscript : operator {
 	place = place:infix ;
 	precedence = 1 ;
 	associativity = associativity:left ;
-	needsLeftOperand = true ;
-	needsRightOperand = false ;
-	needsInnerOperand = true ;
+	needsOperand<OperandPlacement:left> = true ;
+	needsOperand<OperandPlacement:right> = false ;
+	needsOperand<OperandPlacement:center> = true ;
 	countOfTokens = 2 ;
 } [
 	text = "[" ;
@@ -670,9 +670,9 @@ class `operator_unary_+` : operator {
 	place = place:prefix ;
 	precedence = 3 ;
 	associativity = associativity:right ;
-	needsLeftOperand = false ;
-	needsRightOperand = true ;
-	needsInnerOperand = false ;
+	needsOperand<OperandPlacement:left> = false ;
+	needsOperand<OperandPlacement:right> = true ;
+	needsOperand<OperandPlacement:center> = false ;
 	countOfTokens = 1 ;
 } [
 	text = "+" ;
@@ -686,9 +686,9 @@ class `operator_unary_-` : operator {
 	place = place:prefix ;
 	precedence = 3 ;
 	associativity = associativity:right ;
-	needsLeftOperand = false ;
-	needsRightOperand = true ;
-	needsInnerOperand = false ;
+	needsOperand<OperandPlacement:left> = false ;
+	needsOperand<OperandPlacement:right> = true ;
+	needsOperand<OperandPlacement:center> = false ;
 	countOfTokens = 1 ;
 } [
 	text = "-" ;
@@ -702,9 +702,9 @@ class `operator_|` : operator {
 	place = place:infix ;
 	precedence = 11 ;
 	associativity = associativity:left ;
-	needsLeftOperand = true ;
-	needsRightOperand = true ;
-	needsInnerOperand = false ;
+	needsOperand<OperandPlacement:left> = true ;
+	needsOperand<OperandPlacement:right> = true ;
+	needsOperand<OperandPlacement:center> = false ;
 	countOfTokens = 1 ;
 } [
 	text = "|" ;
@@ -718,9 +718,9 @@ class `operator_|=` : operator {
 	place = place:infix ;
 	precedence = 15 ;
 	associativity = associativity:right ;
-	needsLeftOperand = true ;
-	needsRightOperand = true ;
-	needsInnerOperand = false ;
+	needsOperand<OperandPlacement:left> = true ;
+	needsOperand<OperandPlacement:right> = true ;
+	needsOperand<OperandPlacement:center> = false ;
 	countOfTokens = 1 ;
 } [
 	text = "|=" ;
@@ -734,9 +734,9 @@ class `operator_~` : operator {
 	place = place:prefix ;
 	precedence = 3 ;
 	associativity = associativity:right ;
-	needsLeftOperand = false ;
-	needsRightOperand = true ;
-	needsInnerOperand = false ;
+	needsOperand<OperandPlacement:left> = false ;
+	needsOperand<OperandPlacement:right> = true ;
+	needsOperand<OperandPlacement:center> = false ;
 	countOfTokens = 1 ;
 } [
 	text = "~" ;
