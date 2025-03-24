@@ -767,6 +767,7 @@ class operator_function_call : operator {
  	needsRightOperand = false ;
  	needsInnerOperand = true ;
  	countOfTokens = 2 ;
+    canHaveManyCentralOperands = true ;
  } [
  	text = "(" ;
  	token2text = ")";
@@ -784,6 +785,7 @@ class operator_method_call : operator {
     needsRightOperand = false ;
     needsInnerOperand = true ;
     countOfTokens = 2 ;
+    canHaveManyCentralOperands = true ;
 } [
     text = "(" ;
     token2text = ")";
@@ -904,3 +906,9 @@ class `operator_~` : operator {
 	EN.localizedName = "operator ~" ;
 ]
 
+obj currentLanguage : language {
+    isStrictOrderCentralOperands = false ;
+} [
+    RU.localizedName = "язык С++" ;
+    EN.localizedName = "язык С++" ;
+]

@@ -83,6 +83,13 @@ enum state {
 
 //-------------------------КЛАССЫ-------------------------
 
+class language {
+    obj prop isStrictOrderCentralOperands: bool ;
+} [
+    RU.localizedName = "язык программирования" ;
+    EN.localizedName = "programming Language" ;
+]
+
 class element {
 	class prop countOfTokens: int[1,2] ;
 
@@ -164,6 +171,8 @@ class operator : operand {
 	class prop isOr: bool = false;
 	class prop isComma: bool = false;
 	class prop isTConditional: bool = false;
+    
+    class prop canHaveManyCentralOperands: bool = false ;
 
 	// rel isOperatorTo(operand) ;
 	rel hasLeftOperand(operand) : opposite to operand->isLeftOperandOf; //b4

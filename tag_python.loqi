@@ -734,6 +734,7 @@ class operator_call : operator {
 	needsRightOperand = false ;
 	needsInnerOperand = true ;
 	countOfTokens = 2 ;
+    canHaveManyCentralOperands = true ;
 } [
 	text = "(" ;
 	token2text = ")";
@@ -806,3 +807,9 @@ class `operator_~` : operator {
 	EN.localizedName = "operator ~" ;
 ]
 
+obj currentLanguage : language {
+    isStrictOrderCentralOperands = true ;
+} [
+    RU.localizedName = "язык Python" ;
+    EN.localizedName = "язык Python" ;
+]
