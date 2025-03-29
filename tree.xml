@@ -1,5 +1,5 @@
 <StartNode>
-    <!-- Данное дерево отличается тем, что имеет 4 ветки, использует и проставляет omitted,
+    <!-- Данное дерево отличается тем, что имеет 5 веток, использует и проставляет omitted,
      но не составляет дерево выражения (только использует его)-->
     <InputVariables>
         <DecisionTreeVarDecl name="X" type="operator" />
@@ -249,7 +249,8 @@
                                                         <DecisionTreeVar name="X" />
                                                         <Property name="needsOperand" />
                                                         <ParamsValues>
-                                                            <Enum owner="OperandPlacement" value="left"/>
+                                                            <Enum owner="OperandPlacement"
+                                                                value="left" />
                                                         </ParamsValues>
                                                     </GetPropertyValue>
                                                 </LogicalNot>
@@ -259,7 +260,8 @@
                                                             <GetByRelationship relationshipName="hasOperand">
                                                                 <DecisionTreeVar name="X" />
                                                                 <ParamsValues>
-                                                                    <Enum owner="OperandPlacement" value="left"/>
+                                                                    <Enum owner="OperandPlacement"
+                                                                        value="left" />
                                                                 </ParamsValues>
                                                             </GetByRelationship>
                                                             <Property name="state" />
@@ -348,7 +350,7 @@
                             <DecisionTreeVar name="X" />
                             <Property name="needsOperand" />
                             <ParamsValues>
-                                <Enum owner="OperandPlacement" value="left"/>
+                                <Enum owner="OperandPlacement" value="left" />
                             </ParamsValues>
                         </GetPropertyValue>
                     </Expression>
@@ -423,51 +425,53 @@
                                         <LogicalNot>
                                             <ExistenceQuantifier type="separator" varName="commaSep">
                                                 <CheckRelationship>
-                                                    <Relationship name="isBetween"/>
-                                                    <Variable name="commaSep"/>
-                                                    <Variable name="y1"/>
-                                                    <DecisionTreeVar name="X"/>
+                                                    <Relationship name="isBetween" />
+                                                    <Variable name="commaSep" />
+                                                    <Variable name="y1" />
+                                                    <DecisionTreeVar name="X" />
                                                 </CheckRelationship>
                                                 <LogicalNot>
                                                     <ExistenceQuantifier type="token" varName="f1">
                                                         <CheckClass>
                                                             <GetByRelationship varName="">
-                                                                <Variable name="f1"/>
-                                                                <Relationship name="belongsTo"/>
+                                                                <Variable name="f1" />
+                                                                <Relationship name="belongsTo" />
                                                             </GetByRelationship>
-                                                            <Class name="operator"/>
+                                                            <Class name="operator" />
                                                         </CheckClass>
                                                         <ExistenceQuantifier type="token" varName="f2">
                                                             <Compare operator="EQUAL">
                                                                 <GetByRelationship varName="">
-                                                                    <Variable name="f2"/>
-                                                                    <Relationship name="belongsTo"/>
+                                                                    <Variable name="f2" />
+                                                                    <Relationship name="belongsTo" />
                                                                 </GetByRelationship>
                                                                 <GetByRelationship varName="">
-                                                                    <Variable name="f1"/>
-                                                                    <Relationship name="belongsTo"/>
+                                                                    <Variable name="f1" />
+                                                                    <Relationship name="belongsTo" />
                                                                 </GetByRelationship>
                                                             </Compare>
                                                             <LogicalAnd>
                                                                 <LogicalAnd>
                                                                     <CheckRelationship>
-                                                                        <Relationship name="isBetween"/>
-                                                                        <Variable name="commaSep"/>
-                                                                        <Variable name="f1"/>
-                                                                        <Variable name="f2"/>
+                                                                        <Relationship
+                                                                            name="isBetween" />
+                                                                        <Variable name="commaSep" />
+                                                                        <Variable name="f1" />
+                                                                        <Variable name="f2" />
                                                                     </CheckRelationship>
                                                                     <CheckRelationship>
-                                                                        <Relationship name="isBetween"/>
-                                                                        <Variable name="f1"/>
-                                                                        <Variable name="y1"/>
-                                                                        <DecisionTreeVar name="X"/>
+                                                                        <Relationship
+                                                                            name="isBetween" />
+                                                                        <Variable name="f1" />
+                                                                        <Variable name="y1" />
+                                                                        <DecisionTreeVar name="X" />
                                                                     </CheckRelationship>
                                                                 </LogicalAnd>
                                                                 <CheckRelationship>
-                                                                    <Relationship name="isBetween"/>
-                                                                    <Variable name="f2"/>
-                                                                    <Variable name="y1"/>
-                                                                    <DecisionTreeVar name="X"/>
+                                                                    <Relationship name="isBetween" />
+                                                                    <Variable name="f2" />
+                                                                    <Variable name="y1" />
+                                                                    <DecisionTreeVar name="X" />
                                                                 </CheckRelationship>
                                                             </LogicalAnd>
                                                         </ExistenceQuantifier>
@@ -711,7 +715,8 @@
                                                     _RU_description="${$params.branchResult == BranchResult:CORRECT ? '${X}[case='и'] находится в скобках, а ${Y}[case='и'] - за их пределами' : 'не существует скобок, окружающих ${X}[case='и'], но не окружающих ${Y}[case='в']'}"
                                                     _EN_description="${$params.branchResult == BranchResult:CORRECT ? '${X} is inside of parenthesis, and ${Y} is ouside of them' : 'there are no parenthesis that enclose ${X} but not ${Y}'}"
                                                 >
-                                                    <!-- Вопросы не задаются, поскольку ветка тривиальна, так что формулировки не прописал-->
+                                                <!-- Вопросы не задаются, поскольку ветка
+                                                тривиальна, так что формулировки не прописал-->
                                                     <QuestionNode type="bool"
                                                         _alias="left.predetermining.2.isXinParenthesis"
                                                         _RU_asNextStep="Необходимо проверить, существуют ли скобки, окружающие ${X}[case='и'], но не ${Y}[case='и']"
@@ -724,48 +729,48 @@
                                                         <Expression>
                                                             <ExistenceQuantifier varName="p">
                                                                 <CheckClass>
-                                                                    <Variable name="p" />
-                                                                    <Class name="parenthesis" />
+                                                                <Variable name="p" />
+                                                                <Class name="parenthesis" />
                                                                 </CheckClass>
                                                                 <ExistenceQuantifier
                                                                     varName="p1"
                                                                     type="token">
                                                                     <CheckRelationship>
-                                                                        <Relationship
-                                                                            name="belongsTo" />
-                                                                        <Variable name="p1" />
-                                                                        <Variable name="p" />
+                                                                    <Relationship
+                                                                        name="belongsTo" />
+                                                                    <Variable name="p1" />
+                                                                    <Variable name="p" />
                                                                     </CheckRelationship>
                                                                     <ExistenceQuantifier
                                                                         varName="p2"
                                                                         type="token">
                                                                         <CheckRelationship>
-                                                                            <Relationship
-                                                                                name="belongsTo" />
-                                                                            <Variable name="p2" />
-                                                                            <Variable name="p" />
+                                                                        <Relationship
+                                                                            name="belongsTo" />
+                                                                        <Variable name="p2" />
+                                                                        <Variable name="p" />
                                                                         </CheckRelationship>
                                                                         <LogicalAnd>
                                                                             <CheckRelationship>
+                                                                            <Relationship
+                                                                                name="isBetween" />
+                                                                            <DecisionTreeVar
+                                                                                name="X" />
+                                                                            <Variable
+                                                                                name="p1" />
+                                                                            <Variable
+                                                                                name="p2" />
+                                                                            </CheckRelationship>
+                                                                            <LogicalNot>
+                                                                                <CheckRelationship>
                                                                                 <Relationship
                                                                                     name="isBetween" />
                                                                                 <DecisionTreeVar
-                                                                                    name="X" />
+                                                                                    name="Y" />
                                                                                 <Variable
                                                                                     name="p1" />
                                                                                 <Variable
                                                                                     name="p2" />
-                                                                            </CheckRelationship>
-                                                                            <LogicalNot>
-                                                                                <CheckRelationship>
-                                                                                    <Relationship
-                                                                                        name="isBetween" />
-                                                                                    <DecisionTreeVar
-                                                                                        name="Y" />
-                                                                                    <Variable
-                                                                                        name="p1" />
-                                                                                    <Variable
-                                                                                        name="p2" />
                                                                                 </CheckRelationship>
                                                                             </LogicalNot>
                                                                         </LogicalAnd>
@@ -774,10 +779,10 @@
                                                             </ExistenceQuantifier>
                                                         </Expression>
                                                         <Outcome value="false">
-                                                            <BranchResultNode value="null" />
+                                                        <BranchResultNode value="null" />
                                                         </Outcome>
                                                         <Outcome value="true">
-                                                            <BranchResultNode value="correct" />
+                                                        <BranchResultNode value="correct" />
                                                         </Outcome>
                                                     </QuestionNode>
                                                 </ThoughtBranch>
@@ -786,7 +791,7 @@
                                                     _RU_description="${$params.branchResult == BranchResult:CORRECT ? '${Y}[case='и'] находится в скобках, а ${X}[case='и'] - за их пределами' : 'не существует скобок, окружающих ${Y}[case='и'], но не окружающих ${X}[case='в']'}"
                                                     _EN_description="${$params.branchResult == BranchResult:CORRECT ? '${Y} is inside of parenthesis, and ${X} is ouside of them' : 'there are no parenthesis that enclose ${Y} but not ${X}'}"
                                                 >
-                                                    <!-- Вопросы не задаются, поскольку ветка
+                                                <!-- Вопросы не задаются, поскольку ветка
                                                     тривиальна,
                                             так что формулировки не прописал-->
                                                     <QuestionNode type="bool"
@@ -801,45 +806,45 @@
                                                         <Expression>
                                                             <ExistenceQuantifier varName="p">
                                                                 <CheckClass>
-                                                                    <Variable name="p" />
-                                                                    <Class name="parenthesis" />
+                                                                <Variable name="p" />
+                                                                <Class name="parenthesis" />
                                                                 </CheckClass>
                                                                 <ExistenceQuantifier varName="p1"
                                                                     type="token">
                                                                     <CheckRelationship>
-                                                                        <Relationship
-                                                                            name="belongsTo" />
-                                                                        <Variable name="p1" />
-                                                                        <Variable name="p" />
+                                                                    <Relationship
+                                                                        name="belongsTo" />
+                                                                    <Variable name="p1" />
+                                                                    <Variable name="p" />
                                                                     </CheckRelationship>
                                                                     <ExistenceQuantifier
                                                                         varName="p2"
                                                                         type="token">
                                                                         <CheckRelationship>
-                                                                            <Relationship
-                                                                                name="belongsTo" />
-                                                                            <Variable name="p2" />
-                                                                            <Variable name="p" />
+                                                                        <Relationship
+                                                                            name="belongsTo" />
+                                                                        <Variable name="p2" />
+                                                                        <Variable name="p" />
                                                                         </CheckRelationship>
                                                                         <LogicalAnd>
                                                                             <CheckRelationship>
-                                                                                <Relationship
-                                                                                    name="isBetween" />
-                                                                                <DecisionTreeVar
-                                                                                    name="Y" />
-                                                                                <Variable name="p1" />
-                                                                                <Variable name="p2" />
+                                                                            <Relationship
+                                                                                name="isBetween" />
+                                                                            <DecisionTreeVar
+                                                                                name="Y" />
+                                                                            <Variable name="p1" />
+                                                                            <Variable name="p2" />
                                                                             </CheckRelationship>
                                                                             <LogicalNot>
                                                                                 <CheckRelationship>
-                                                                                    <Relationship
-                                                                                        name="isBetween" />
-                                                                                    <DecisionTreeVar
-                                                                                        name="X" />
-                                                                                    <Variable
-                                                                                        name="p1" />
-                                                                                    <Variable
-                                                                                        name="p2" />
+                                                                                <Relationship
+                                                                                    name="isBetween" />
+                                                                                <DecisionTreeVar
+                                                                                    name="X" />
+                                                                                <Variable
+                                                                                    name="p1" />
+                                                                                <Variable
+                                                                                    name="p2" />
                                                                                 </CheckRelationship>
                                                                             </LogicalNot>
                                                                         </LogicalAnd>
@@ -848,10 +853,10 @@
                                                             </ExistenceQuantifier>
                                                         </Expression>
                                                         <Outcome value="false">
-                                                            <BranchResultNode value="null" />
+                                                        <BranchResultNode value="null" />
                                                         </Outcome>
                                                         <Outcome value="true">
-                                                            <BranchResultNode value="error" />
+                                                        <BranchResultNode value="error" />
                                                         </Outcome>
                                                     </QuestionNode>
                                                 </ThoughtBranch>
@@ -966,7 +971,9 @@
                                                                     <DecisionTreeVar name="X" />
                                                                     <Property name="needsOperand" />
                                                                     <ParamsValues>
-                                                                        <Enum owner="OperandPlacement" value="right"/>
+                                                                        <Enum
+                                                                            owner="OperandPlacement"
+                                                                            value="right" />
                                                                     </ParamsValues>
                                                                 </GetPropertyValue>
                                                             </Expression>
@@ -1087,7 +1094,7 @@
                             <DecisionTreeVar name="X" />
                             <Property name="needsOperand" />
                             <ParamsValues>
-                                <Enum owner="OperandPlacement" value="left"/>
+                                <Enum owner="OperandPlacement" value="left" />
                             </ParamsValues>
                         </GetPropertyValue>
                     </Expression>
@@ -1162,51 +1169,53 @@
                                         <LogicalNot>
                                             <ExistenceQuantifier type="separator" varName="commaSep">
                                                 <CheckRelationship>
-                                                    <Relationship name="isBetween"/>
-                                                    <Variable name="commaSep"/>
-                                                    <Variable name="z1"/>
-                                                    <DecisionTreeVar name="X"/>
+                                                    <Relationship name="isBetween" />
+                                                    <Variable name="commaSep" />
+                                                    <Variable name="z1" />
+                                                    <DecisionTreeVar name="X" />
                                                 </CheckRelationship>
                                                 <LogicalNot>
                                                     <ExistenceQuantifier type="token" varName="f1">
                                                         <CheckClass>
                                                             <GetByRelationship varName="">
-                                                                <Variable name="f1"/>
-                                                                <Relationship name="belongsTo"/>
+                                                                <Variable name="f1" />
+                                                                <Relationship name="belongsTo" />
                                                             </GetByRelationship>
-                                                            <Class name="operator"/>
+                                                            <Class name="operator" />
                                                         </CheckClass>
                                                         <ExistenceQuantifier type="token" varName="f2">
                                                             <Compare operator="EQUAL">
                                                                 <GetByRelationship varName="">
-                                                                    <Variable name="f2"/>
-                                                                    <Relationship name="belongsTo"/>
+                                                                    <Variable name="f2" />
+                                                                    <Relationship name="belongsTo" />
                                                                 </GetByRelationship>
                                                                 <GetByRelationship varName="">
-                                                                    <Variable name="f1"/>
-                                                                    <Relationship name="belongsTo"/>
+                                                                    <Variable name="f1" />
+                                                                    <Relationship name="belongsTo" />
                                                                 </GetByRelationship>
                                                             </Compare>
                                                             <LogicalAnd>
                                                                 <LogicalAnd>
                                                                     <CheckRelationship>
-                                                                        <Relationship name="isBetween"/>
-                                                                        <Variable name="commaSep"/>
-                                                                        <Variable name="f1"/>
-                                                                        <Variable name="f2"/>
+                                                                        <Relationship
+                                                                            name="isBetween" />
+                                                                        <Variable name="commaSep" />
+                                                                        <Variable name="f1" />
+                                                                        <Variable name="f2" />
                                                                     </CheckRelationship>
                                                                     <CheckRelationship>
-                                                                        <Relationship name="isBetween"/>
-                                                                        <Variable name="f1"/>
-                                                                        <Variable name="z1"/>
-                                                                        <DecisionTreeVar name="X"/>
+                                                                        <Relationship
+                                                                            name="isBetween" />
+                                                                        <Variable name="f1" />
+                                                                        <Variable name="z1" />
+                                                                        <DecisionTreeVar name="X" />
                                                                     </CheckRelationship>
                                                                 </LogicalAnd>
                                                                 <CheckRelationship>
-                                                                    <Relationship name="isBetween"/>
-                                                                    <Variable name="f2"/>
-                                                                    <Variable name="z1"/>
-                                                                    <DecisionTreeVar name="X"/>
+                                                                    <Relationship name="isBetween" />
+                                                                    <Variable name="f2" />
+                                                                    <Variable name="z1" />
+                                                                    <DecisionTreeVar name="X" />
                                                                 </CheckRelationship>
                                                             </LogicalAnd>
                                                         </ExistenceQuantifier>
@@ -1447,7 +1456,7 @@
                                                     _RU_description="${$params.branchResult == BranchResult:CORRECT ? '${X}[case='и'] находится в скобках, а ${Z}[case='и'] - за их пределами' : 'не существует скобок, окружающих ${X}[case='и'], но не окружающих ${Z}[case='в']'}"
                                                     _EN_description="${$params.branchResult == BranchResult:CORRECT ? '${X} is inside of parenthesis, and ${Z} is ouside of them' : 'there are no parenthesis that enclose ${X} but not ${Z}'}"
                                                 >
-                                                    <!-- Вопросы не задаются, поскольку ветка
+                                                <!-- Вопросы не задаются, поскольку ветка
                                                     тривиальна,
                                             так что формулировки не прописал-->
                                                     <QuestionNode type="bool"
@@ -1459,45 +1468,45 @@
                                                         <Expression>
                                                             <ExistenceQuantifier varName="p">
                                                                 <CheckClass>
-                                                                    <Variable name="p" />
-                                                                    <Class name="parenthesis" />
+                                                                <Variable name="p" />
+                                                                <Class name="parenthesis" />
                                                                 </CheckClass>
                                                                 <ExistenceQuantifier varName="p1"
                                                                     type="token">
                                                                     <CheckRelationship>
-                                                                        <Relationship
-                                                                            name="belongsTo" />
-                                                                        <Variable name="p1" />
-                                                                        <Variable name="p" />
+                                                                    <Relationship
+                                                                        name="belongsTo" />
+                                                                    <Variable name="p1" />
+                                                                    <Variable name="p" />
                                                                     </CheckRelationship>
                                                                     <ExistenceQuantifier
                                                                         varName="p2"
                                                                         type="token">
                                                                         <CheckRelationship>
-                                                                            <Relationship
-                                                                                name="belongsTo" />
-                                                                            <Variable name="p2" />
-                                                                            <Variable name="p" />
+                                                                        <Relationship
+                                                                            name="belongsTo" />
+                                                                        <Variable name="p2" />
+                                                                        <Variable name="p" />
                                                                         </CheckRelationship>
                                                                         <LogicalAnd>
                                                                             <CheckRelationship>
-                                                                                <Relationship
-                                                                                    name="isBetween" />
-                                                                                <DecisionTreeVar
-                                                                                    name="X" />
-                                                                                <Variable name="p1" />
-                                                                                <Variable name="p2" />
+                                                                            <Relationship
+                                                                                name="isBetween" />
+                                                                            <DecisionTreeVar
+                                                                                name="X" />
+                                                                            <Variable name="p1" />
+                                                                            <Variable name="p2" />
                                                                             </CheckRelationship>
                                                                             <LogicalNot>
                                                                                 <CheckRelationship>
-                                                                                    <Relationship
-                                                                                        name="isBetween" />
-                                                                                    <DecisionTreeVar
-                                                                                        name="Z" />
-                                                                                    <Variable
-                                                                                        name="p1" />
-                                                                                    <Variable
-                                                                                        name="p2" />
+                                                                                <Relationship
+                                                                                    name="isBetween" />
+                                                                                <DecisionTreeVar
+                                                                                    name="Z" />
+                                                                                <Variable
+                                                                                    name="p1" />
+                                                                                <Variable
+                                                                                    name="p2" />
                                                                                 </CheckRelationship>
                                                                             </LogicalNot>
                                                                         </LogicalAnd>
@@ -1506,10 +1515,10 @@
                                                             </ExistenceQuantifier>
                                                         </Expression>
                                                         <Outcome value="false">
-                                                            <BranchResultNode value="null" />
+                                                        <BranchResultNode value="null" />
                                                         </Outcome>
                                                         <Outcome value="true">
-                                                            <BranchResultNode value="true" />
+                                                        <BranchResultNode value="true" />
                                                         </Outcome>
                                                     </QuestionNode>
                                                 </ThoughtBranch>
@@ -1518,7 +1527,7 @@
                                                     _RU_description="${$params.branchResult == BranchResult:CORRECT ? '${Z}[case='и'] находится в скобках, а ${X}[case='и'] - за их пределами' : 'не существует скобок, окружающих ${Z}[case='и'], но не окружающих ${X}[case='в']'}"
                                                     _EN_description="${$params.branchResult == BranchResult:CORRECT ? '${Z} is inside of parenthesis, and ${X} is ouside of them' : 'there are no parenthesis that enclose ${Z} but not ${X}'}"
                                                 >
-                                                    <!-- Вопросы не задаются, поскольку ветка
+                                                <!-- Вопросы не задаются, поскольку ветка
                                                     тривиальна,
                                             так что формулировки не прописал-->
                                                     <QuestionNode type="bool"
@@ -1530,45 +1539,45 @@
                                                         <Expression>
                                                             <ExistenceQuantifier varName="p">
                                                                 <CheckClass>
-                                                                    <Variable name="p" />
-                                                                    <Class name="parenthesis" />
+                                                                <Variable name="p" />
+                                                                <Class name="parenthesis" />
                                                                 </CheckClass>
                                                                 <ExistenceQuantifier varName="p1"
                                                                     type="token">
                                                                     <CheckRelationship>
-                                                                        <Relationship
-                                                                            name="belongsTo" />
-                                                                        <Variable name="p1" />
-                                                                        <Variable name="p" />
+                                                                    <Relationship
+                                                                        name="belongsTo" />
+                                                                    <Variable name="p1" />
+                                                                    <Variable name="p" />
                                                                     </CheckRelationship>
                                                                     <ExistenceQuantifier
                                                                         varName="p2"
                                                                         type="token">
                                                                         <CheckRelationship>
-                                                                            <Relationship
-                                                                                name="belongsTo" />
-                                                                            <Variable name="p2" />
-                                                                            <Variable name="p" />
+                                                                        <Relationship
+                                                                            name="belongsTo" />
+                                                                        <Variable name="p2" />
+                                                                        <Variable name="p" />
                                                                         </CheckRelationship>
                                                                         <LogicalAnd>
                                                                             <CheckRelationship>
-                                                                                <Relationship
-                                                                                    name="isBetween" />
-                                                                                <DecisionTreeVar
-                                                                                    name="Z" />
-                                                                                <Variable name="p1" />
-                                                                                <Variable name="p2" />
+                                                                            <Relationship
+                                                                                name="isBetween" />
+                                                                            <DecisionTreeVar
+                                                                                name="Z" />
+                                                                            <Variable name="p1" />
+                                                                            <Variable name="p2" />
                                                                             </CheckRelationship>
                                                                             <LogicalNot>
                                                                                 <CheckRelationship>
-                                                                                    <Relationship
-                                                                                        name="isBetween" />
-                                                                                    <DecisionTreeVar
-                                                                                        name="X" />
-                                                                                    <Variable
-                                                                                        name="p1" />
-                                                                                    <Variable
-                                                                                        name="p2" />
+                                                                                <Relationship
+                                                                                    name="isBetween" />
+                                                                                <DecisionTreeVar
+                                                                                    name="X" />
+                                                                                <Variable
+                                                                                    name="p1" />
+                                                                                <Variable
+                                                                                    name="p2" />
                                                                                 </CheckRelationship>
                                                                             </LogicalNot>
                                                                         </LogicalAnd>
@@ -1577,10 +1586,10 @@
                                                             </ExistenceQuantifier>
                                                         </Expression>
                                                         <Outcome value="false">
-                                                            <BranchResultNode value="null" />
+                                                        <BranchResultNode value="null" />
                                                         </Outcome>
                                                         <Outcome value="true">
-                                                            <BranchResultNode value="error" />
+                                                        <BranchResultNode value="error" />
                                                         </Outcome>
                                                     </QuestionNode>
                                                 </ThoughtBranch>
@@ -1699,7 +1708,9 @@
                                                                     <DecisionTreeVar name="X" />
                                                                     <Property name="needsOperand" />
                                                                     <ParamsValues>
-                                                                        <Enum owner="OperandPlacement" value="left"/>
+                                                                        <Enum
+                                                                            owner="OperandPlacement"
+                                                                            value="left" />
                                                                     </ParamsValues>
                                                                 </GetPropertyValue>
                                                             </Expression>
@@ -1894,8 +1905,8 @@
                                     <Outcome value="True">
                                         <BranchResultNode value="true"
                                             _skill="strict_order_first_operand_to_be_evaluated_while_solving"
-                                            _RU_explanation="${X}[case='и'] должен быть вычислен первым в ${T}[case='п']."
-                                            _EN_explanation="${X} must be evaluated first in ${T}."
+                                            _RU_explanation="что он находится в ${X->isInOperandOf(T).placement}[case='р'] операнде ${$T}[case='р'], который вычисляется первым"
+                                            _EN_explanation="it belongs to the ${X->isInOperandOf(T).placement}[case='р'] operand of ${$T}[case='р'] that is evaluated first."
                                         />
                                     </Outcome>
                                     <Outcome value="False">
@@ -1949,8 +1960,8 @@
                                                     _skill="is_first_operand_of_strict_order_operator_fully_evaluated"
                                                     _law="error_base_student_error_strict_operands_order"
                                                     _error="strict.leftShouldBeEvaluatedFirst"
-                                                    _RU_explanation="сначала должен быть полностью вычислен левый операнд ${T}[case='р'] - потому что это оператор со строгим порядком операндов"
-                                                    _EN_explanation="left operand of ${T} should be fully evaluated first because ${T} is an operator with a strict operand order"
+                                                    _RU_explanation="${$U} стоящий в ${$U->isInOperandOf(T).placement}[case='р'] операнде ${$T}[case='р'] должен быть вычислен ранее"
+                                                    _EN_explanation="${$U} that belongs to ${$U->isInOperandOf(T).placement}[case='р'] operand ${$T}[case='р'] should be evaluated before it"
                                                 />
                                             </Outcome>
                                             <Outcome value="False"
@@ -1999,8 +2010,8 @@
                                                     >
                                                         <BranchResultNode value="true"
                                                             _skill="no_omitted_operands_despite_strict_order_while_solving"
-                                                            _RU_explanation="В ${T}[case='п'] нет операндов, вычисление которых можно было бы опустить."
-                                                            _EN_explanation="In ${T} there are no operands whose evaluation could be omitted."
+                                                            _RU_explanation="${T.firstOperandPlacement} операнд ${T}[case='р'] уже вычислен, и этот оператор всегда вычисляет все свои операнды"
+                                                            _EN_explanation="${T.firstOperandPlacement} operand ${T}[case='р'] had already been evaluated, and that operator always evaluates all its operands"
                                                         />
                                                     </Outcome>
                                                     <Outcome value="True"
@@ -2028,15 +2039,19 @@
                                                                 <Expression>
                                                                     <Compare operator="EQ">
                                                                         <GetPropertyValue propertyName="requiredFirstOperandValueToEvaluate">
-                                                                            <DecisionTreeVar name="T" />
+                                                                            <DecisionTreeVar
+                                                                                name="T" />
                                                                             <ParamsValues>
                                                                                 <GetRelationshipParamValue relationshipName="isInOperandOf" paramName="placement">
-                                                                                    <DecisionTreeVar name="X" />
-                                                                                    <DecisionTreeVar name="T" />
+                                                                                    <DecisionTreeVar
+                                                                                        name="X" />
+                                                                                    <DecisionTreeVar
+                                                                                        name="T" />
                                                                                 </GetRelationshipParamValue>
                                                                             </ParamsValues>
                                                                         </GetPropertyValue>
-                                                                        <Enum owner="ExpectedValue" value="true" />
+                                                                        <Enum owner="ExpectedValue"
+                                                                            value="true" />
                                                                     </Compare>
                                                                 </Expression>
                                                                 <Outcome value="true"
@@ -2064,10 +2079,12 @@
                                                                 <Expression>
                                                                     <GetPropertyValue>
                                                                         <GetByRelationship relationshipName="hasOperand">
-                                                                            <DecisionTreeVar name="T" />
+                                                                            <DecisionTreeVar
+                                                                                name="T" />
                                                                             <ParamsValues>
                                                                                 <GetPropertyValue propertyName="firstOperandPlacement">
-                                                                                    <DecisionTreeVar name="T" />
+                                                                                    <DecisionTreeVar
+                                                                                        name="T" />
                                                                                 </GetPropertyValue>
                                                                             </ParamsValues>
                                                                         </GetByRelationship>
@@ -2102,8 +2119,8 @@
                                                             >
                                                                 <BranchResultNode value="true"
                                                                     _skill="should_strict_order_current_operand_be_omitted_while_solving"
-                                                                    _RU_explanation="${X}[case='и'] не должен быть опущен в ${T}[case='п']."
-                                                                    _EN_explanation="${X} should not be omitted in ${T}."
+                                                                    _RU_explanation="он находится в ${X->isInOperandOf(T).placement} операнде ${T}[case='р'], чей ${T.firstOperandPlacement} операнд имеет значение ${T->hasOperand&lt;placement=T.firstOperandPlacement>.evaluatesTo}."
+                                                                    _EN_explanation="it belongs to ${X->isInOperandOf(T).placement} operand of ${T}[case='р'] whose ${T.firstOperandPlacement} operand evaluates to ${T->hasOperand&lt;placement=T.firstOperandPlacement>.evaluatesTo}."
                                                                 />
                                                             </Outcome>
                                                     <Outcome
@@ -2117,8 +2134,8 @@
                                                             >
                                                                 <BranchResultNode value="true"
                                                                     _skill="should_strict_order_current_operand_be_omitted_while_solving"
-                                                                    _RU_explanation="${X}[case='и'] не должен быть опущен в ${T}[case='п']."
-                                                                    _EN_explanation="${X} should not be omitted in ${T}."
+                                                                    _RU_explanation="он находится в ${X->isInOperandOf(T).placement} операнде ${T}[case='р'], чей ${T.firstOperandPlacement} операнд имеет значение ${T->hasOperand&lt;placement=T.firstOperandPlacement>.evaluatesTo}."
+                                                                    _EN_explanation="it belongs to ${X->isInOperandOf(T).placement} operand of ${T}[case='р'] whose ${T.firstOperandPlacement} operand evaluates to ${T->hasOperand&lt;placement=T.firstOperandPlacement>.evaluatesTo}."
                                                                 />
                                                             </Outcome>
                                                     <Outcome
@@ -2165,8 +2182,8 @@
                                                                     _skill="should_strict_order_current_operand_be_omitted_while_solving"
                                                                     _law="error_base_student_error_strict_operands_order"
                                                                     _error="strict.leftShouldBeFalse_omittedInRight"
-                                                                    _RU_explanation="${X}[case='и'] опускается оператором со строгим порядком операндов (${T}[case='и'])"
-                                                                    _EN_explanation="${X} is omitted by an operator with a strict operand order (${T})"
+                                                                    _RU_explanation="он находится в ${X->isInOperandOf(T).placement} операнде ${T}[case='р'], чей ${T.firstOperandPlacement} операнд имеет значение ${T->hasOperand&lt;placement=T.firstOperandPlacement>.evaluatesTo}, что блокирует вычисление ${X}[case='р']."
+                                                                    _EN_explanation="it belongs to ${X->isInOperandOf(T).placement} operand of ${T}[case='р'] whose ${T.firstOperandPlacement} operand evaluates to ${T->hasOperand&lt;placement=T.firstOperandPlacement>.evaluatesTo} which forbids evaluation of ${X}[case='р']."
                                                                 >
                                                                     <Expression>
                                                                         <AssignToProperty>
@@ -2190,6 +2207,301 @@
                         </QuestionNode>
                     </ThoughtBranch>
                 </CycleAggregationNode>
+            </ThoughtBranch>
+            <ThoughtBranch type="bool" _alias="strict_central">
+                <BranchAggregationNode _alias="AND" operator="and"
+                    _RU_description="${X} ${result ? '' : 'не'} может выполниться следующим"
+                    _RU_asNextStep="Необходимо проверить, может ли ${X} выполниться следующим."
+                    _RU_endingCause="потому что есть факторы, мешающие дальнейшему вычислению ${X}[case='р']"
+                    _EN_description="${X} ${result ? '' : 'not'} can be evaluated next"
+                    _EN_asNextStep="Need to check if ${X} can be evaluated next."
+                    _EN_endingCause="because there are factors preventing further evaluation of ${X}[case='р']"
+                >
+                    <Outcome value="Correct" _text="1" _explanation="2">
+                        <BranchResultNode value="correct" />
+                    </Outcome>
+                    <Outcome value="Error">
+                        <BranchResultNode value="error">
+                            <Expression>
+                                <DecisionTreeVar name="X" />
+                            </Expression>
+                        </BranchResultNode>
+                    </Outcome>
+                    <ThoughtBranch type="bool"
+                        _description="вычислению ${X}[case='р'] ${result ? 'не' : ''} мешают операторы вызова функций со строгим порядком вычисления аргументов"
+                        _nextStepQuestion="С чего надо начать при определении того, мешают ли вычислению ${X}[case='р'] операторы вызова функций со строгим порядком аргументов?"
+                        _nextStepExplanation="Это неверно. Прежде всего необходимо найти все вызовы функций с несколькими аргументами, которые могут помешать вычислению ${X}[case='р']">
+                        <QuestionNode
+                            _alias="Does the language have strict order of central operands?"
+                            type="bool" isSwitch="false"
+                            _EN_question="Does ${obj:currentLanguage} have a strict function call argument evaluation order?"
+                            _EN_asNextStep="We need to check if ${obj:currentLanguage} has a strict function call argument evaluation order"
+                            _EN_endingCause="because ${obj:currentLanguage} does not have a strict function evaluation order"
+                            _RU_question="Имеет ли ${obj:currentLanguage} строгий порядок вычисления аргументов вызовов функций?"
+                            _RU_asNextStep="Необходимо проверить, имеет ли ${obj:currentLanguage} строгий порядок вычисления аргументов вызовов функций"
+                            _RU_endingCause="потому что ${obj:currentLanguage} не имеет строгого порядка вычисления функций"
+                        >
+                            <Expression>
+                                <GetPropertyValue>
+                                    <Object name="currentLanguage" />
+                                    <Property name="isStrictOrderCentralOperands" />
+                                </GetPropertyValue>
+                            </Expression>
+                            <Outcome
+                                _RU_text="${obj:currentLanguage} не имеет строгого порядка аргументов в операторе вызова функций"
+                                _RU_explanation="${obj:currentLanguage} не поддерживает строгий порядок аргументов вызова функций"
+                                _RU_nextStepQuestion="Учитывая, что ${obj:currentLanguage} не поддерживает строгий порядок аргументов вызова функции, какой вывод нужно сделать?"
+                                _RU_nextStepExplanation="Это неверно. Язык ${obj:currentLanguage} не имеет строгого порядка аргументов в операторе вызова функций"
+                                _EN_text="${obj:currentLanguage} does not support strict ordering of arguments in the function call operator"
+                                _EN_explanation="${obj:currentLanguage} does not support strict ordering of arguments in the function call operator"
+                                _EN_nextStepQuestion="Given that ${obj:currentLanguage} does not support strict ordering of arguments in the function call operator, what conclusion should we draw?"
+                                _EN_nextStepExplanation="That is incorrect. The ${obj:currentLanguage} language does not support strict ordering of arguments in the function call operator"
+                                value="False">
+                                <BranchResultNode value="correct"
+                                    _skill="are_central_operands_strict_order"
+                                    _RU_explanation="${obj:currentLanguage} разрешает вычисление аргументов функции в любом порядке"
+                                    _EN_explanation="${obj:currentLanguage} allows evaluting of function arguments in any order"
+                                />
+                            </Outcome>
+                            <Outcome
+                                _RU_text="${obj:currentLanguage} поддерживает строгий порядок аргументов вызова функций"
+                                _RU_explanation="${obj:currentLanguage} по спецификации поддерживает строгий порядок аргументов вызова функций"
+                                _RU_nextStepQuestion="Учитывая строгий порядок аргументов вызова функций в ${obj:currentLanguage}[case='п'], что нужно сделать дальше?"
+                                _RU_nextStepExplanation="Это неверно. ${obj:currentLanguage} по спецификации поддерживает строгий порядок аргументов вызова функций"
+                                _EN_text="${obj:currentLanguage} supports strict function call argument ordering"
+                                _EN_explanation="${obj:currentLanguage} supports strict function call argument ordering by specification"
+                                _EN_nextStepQuestion="Given the strict function call argument ordering in ${obj:currentLanguage}[case='п'], what should be done next?"
+                                _EN_nextStepExplanation="That's incorrect. ${obj:currentLanguage} supports strict function call argument ordering by specification"
+                                value="True">
+                                <CycleAggregationNode operator="AND"
+                                    _RU_question="Найдите все такие операторы вызова функций, которые имеют несколько аргументов и ${X} между токенами этого оператора"
+                                    _RU_asNextStep="Необходимо проверить все такие операторы вызова функций, которые имеют несколько аргументов и ${X} между токенами этого оператора"
+                                    _RU_endingCause="потому что нет операторов вызова функций, которые имеют несколько аргументов и ${X} между токенами этого оператора"
+                                    _EN_question="Find all such function call operators that have multiple arguments and ${X} between tokens of this operator"
+                                    _EN_asNextStep="Need to check all such function call operators that have multiple arguments and ${X} between tokens of this operator"
+                                    _EN_endingCause="because there are no function call operators that have multiple arguments and ${X} between tokens of this operator"
+                                >
+                                    <SelectorExpression>
+                                        <LogicalAnd>
+                                            <LogicalAnd>
+                                                <GetPropertyValue>
+                                                    <Variable name="V" />
+                                                    <Property name="hasManyCentralOperands" />
+                                                </GetPropertyValue>
+                                                <ExistenceQuantifier type="token" varName="V1">
+                                                    <CheckRelationship>
+                                                        <Relationship name="belongsTo" />
+                                                        <Variable name="V1" />
+                                                        <Variable name="V" />
+                                                    </CheckRelationship>
+                                                    <CheckRelationship>
+                                                        <Relationship name="rightOf" />
+                                                        <DecisionTreeVar name="X1" />
+                                                        <Variable name="V1" />
+                                                    </CheckRelationship>
+                                                </ExistenceQuantifier>
+                                            </LogicalAnd>
+                                            <ExistenceQuantifier type="token" varName="V2">
+                                                <CheckRelationship>
+                                                    <Relationship name="belongsTo" />
+                                                    <Variable name="V2" />
+                                                    <Variable name="V" />
+                                                </CheckRelationship>
+                                                <CheckRelationship>
+                                                    <Relationship name="leftOf" />
+                                                    <DecisionTreeVar name="X1" />
+                                                    <Variable name="V2" />
+                                                </CheckRelationship>
+                                            </ExistenceQuantifier>
+                                        </LogicalAnd>
+                                    </SelectorExpression>
+                                    <DecisionTreeVarDecl name="V" type="operator" />
+                                    <Outcome value="Null"
+                                        _RU_text="Нет таких операторов вызова функций, в нескольких аргументах которого нет ${X}[case='р']"
+                                        _RU_explanation="Нет таких операторов вызова функций, в нескольких аргументах которого нет ${X}[case='р']"
+                                        _RU_nextStepQuestion="Учитывая, что нет таких операторов вызова функций, в нескольких аргументах которого нет ${X}[case='р'], что нужно делать дальше?"
+                                        _RU_nextStepExplanation="Это неверно. В выражении нет таких операторов вызова функций, в нескольких аргументах которого нет ${X}[case='р']"
+                                        _EN_text="There are no function call operators that do not have ${X}[case='p'] in multiple arguments"
+                                        _EN_explanation="There are no function call operators that do not have ${X}[case='p'] in multiple arguments"
+                                        _EN_nextStepQuestion="Given that there are no function call operators that do not have ${X}[case='p'] in multiple arguments, what should we do next?"
+                                        _EN_nextStepExplanation="This is incorrect. There are no function call operators in the expression that do not have ${X}[case='p'] in multiple arguments"
+                                    >
+                                        <BranchResultNode value="correct"
+                                            _skill="no_current_in_many_central_operands"
+                                            _RU_explanation="${obj:currentLanguage} вычисляет аргументы функций слева направо, но ${X} не находится внутри вызова функции"
+                                            _EN_explanation="${obj:currentLanguage} evaluates function arguments from left to right but ${X} is not inside any function argument"
+                                        />
+                                    </Outcome>
+                                    <ThoughtBranch type="bool" paramName="V"
+                                        _RU_nextStepQuestion="Учитывая, что найдены операторы вызова функций, в которых есть ${X}, что нужно делать дальше?"
+                                        _RU_nextStepExplanation="Это неверно. Прежде всего необходимо найти все вызовы функций, в аргументах которых есть ${X}"
+                                        _EN_nextStepQuestion="Given that function call operators have been found that contain ${X}, what should we do next?"
+                                        _EN_nextStepExplanation="That's incorrect. First, we need to find all function calls that contain ${X} in their arguments."
+                                    >
+                                        <FindActionNode
+                                            _RU_question="Найдите запятую, которая не является оператором, между ${$V}[case='т'] и ${X}[case='т']?"
+                                            _RU_asNextStep="Необходимо проверить, есть ли запятая, которая не является оператором, между ${$V}[case='т'] и ${X}[case='т']."
+                                            _RU_endingCause="потому что запятой между между ${$V}[case='т'] и ${X}[case='т'] нет."
+                                            _EN_question="Find a comma that is not an operator between ${$V}[case='т'] and ${X}[case='т']?"
+                                            _EN_asNextStep="We need to check if there is a comma that is not an operator between ${$V}[case='т'] and ${X}[case='т']."
+                                            _EN_endingCause="because there is no comma between ${$V}[case='т'] and ${X}[case='т']."
+                                        >
+                                            <Expression>
+                                                <LogicalAnd>
+                                                    <CheckRelationship>
+                                                        <Relationship name="isBetween" />
+                                                        <Variable name="W" />
+                                                        <GetByCondition type="token" varName="V1">
+                                                            <LogicalAnd>
+                                                                <CheckRelationship>
+                                                                    <Relationship name="belongsTo" />
+                                                                    <Variable name="V1" />
+                                                                    <Variable name="V" />
+                                                                </CheckRelationship>
+                                                                <CheckRelationship>
+                                                                    <Relationship name="rightOf" />
+                                                                    <DecisionTreeVar name="X1" />
+                                                                    <Variable name="V1" />
+                                                                </CheckRelationship>
+                                                            </LogicalAnd>
+                                                        </GetByCondition>
+                                                        <DecisionTreeVar name="X1" />
+                                                    </CheckRelationship>
+                                                    <LogicalNot>
+                                                        <ExistenceQuantifier type="token"
+                                                            varName="sep">
+                                                            <CheckClass>
+                                                                <GetByRelationship varName="">
+                                                                    <Variable name="sep" />
+                                                                    <Relationship name="belongsTo" />
+                                                                </GetByRelationship>
+                                                                <Class name="separator" />
+                                                            </CheckClass>
+                                                            <CheckRelationship>
+                                                                <Relationship name="isBetween" />
+                                                                <Variable name="sep" />
+                                                                <Variable name="W" />
+                                                                <Variable name="X" />
+                                                            </CheckRelationship>
+                                                        </ExistenceQuantifier>
+                                                    </LogicalNot>
+                                                </LogicalAnd>
+                                            </Expression>
+                                            <DecisionTreeVarDecl name="W" type="separator" />
+                                            <Outcome
+                                                _RU_text="Нет запятой между ${$V}[case='т'] и ${X}[case='т']."
+                                                _RU_explanation="${$V} не имеет нескольких аргументов"
+                                                _RU_nextStepQuestion="Учитывая что ${$V} не имеет нескольких аргументов, что нужно делать дальше?"
+                                                _RU_nextStepExplanation="Это неверно. Так как ${$V} не имеет несколько аргументов и вычислению ${X}[case='р'] не мешает"
+                                                _EN_text="There is no comma between ${$V}[case='т'] and ${X}[case='т']."
+                                                _EN_explanation="${$V} does not have multiple arguments"
+                                                _EN_nextStepQuestion="Given that ${$V} does not have multiple arguments, what should we do next?"
+                                                _EN_nextStepExplanation="That is incorrect. Since ${$V} does not have multiple arguments, it does not block the evaluation of ${X}[case='р']"
+                                                value="Not found">
+                                                <BranchResultNode value="correct"
+                                                    _skill="no_comma_in_central_operands"
+                                                    _RU_explanation="${obj:currentLanguage} вычисляет аргументы функций слева направо, но ${X} находится в первом аргументе функции ${$V}"
+                                                    _EN_explanation="${obj:currentLanguage} evaluates function arguments from left to right but ${X} is in the first argument of function ${$V}"
+                                                />
+                                            </Outcome>
+                                            <Outcome
+                                                _RU_text="Найдена запятая между левым токеном ${$V}[case='р'] и ${$W}[case='т']."
+                                                _RU_explanation="${$W} не является первым аргументом ${$V}[case='р']."
+                                                _RU_nextStepQuestion="Учитывая, что ${$W} не является первым аргументом ${$V}[case='р'], что нужно делать дальше?"
+                                                _RU_nextStepExplanation="Это неверно. ${$W} не является первым аргументом ${$V}[case='р']."
+                                                _EN_text="Found a comma between the left token ${$V}[case='р'] and ${$W}[case='т']."
+                                                _EN_explanation="${$W} is not the first argument of ${$V}[case='р']."
+                                                _EN_nextStepQuestion="Given that ${$W} is not the first argument of ${$V}[case='р'], what should we do next?"
+                                                _EN_nextStepExplanation="That's incorrect. ${$W} is not the first argument of ${$V}[case='р']."
+                                                value="Found">
+                                                <QuestionNode type="bool" isSwitch="false"
+                                                    _RU_question="Есть ли невычисленный оператор между ${V}[case='т'] и ${W}[case='т']"
+                                                    _RU_asNextStep="Необходимо проверить, есть ли невычисленный оператор между ${V}[case='т'] и ${W}[case='т']"
+                                                    _RU_endingCause="потому что ${res? 'есть' : 'нет'} невычисленного оператора между ${V}[case='т'] и ${W}[case='т']"
+                                                    _EN_question="Is there an unevaluated operator between ${V}[case='т'] and ${W}[case='т']"
+                                                    _EN_asNextStep="Need to check if there is an unevaluated operator between ${V}[case='т'] and ${W}[case='т']"
+                                                    _EN_endingCause="because ${res? 'there is' : 'no'} unevaluated operator between ${V}[case='т'] and ${W}[case='т']"
+                                                >
+                                                    <Expression>
+                                                        <ExistenceQuantifier type="operator"
+                                                            varName="R">
+                                                            <Compare operator="EQUAL">
+                                                                <GetPropertyValue>
+                                                                    <Variable name="R" />
+                                                                    <Property name="state" />
+                                                                </GetPropertyValue>
+                                                                <Enum owner="state"
+                                                                    value="unevaluated" />
+                                                            </Compare>
+                                                            <CheckRelationship>
+                                                                <Relationship name="isBetween" />
+                                                                <Variable name="R" />
+                                                                <GetByCondition type="token"
+                                                                    varName="V1">
+                                                                    <LogicalAnd>
+                                                                        <CheckRelationship>
+                                                                            <Relationship
+                                                                                name="belongsTo" />
+                                                                            <Variable name="V1" />
+                                                                            <Variable name="V" />
+                                                                        </CheckRelationship>
+                                                                        <CheckRelationship>
+                                                                            <Relationship
+                                                                                name="rightOf" />
+                                                                            <DecisionTreeVar
+                                                                                name="X1" />
+                                                                            <Variable name="V1" />
+                                                                        </CheckRelationship>
+                                                                    </LogicalAnd>
+                                                                </GetByCondition>
+                                                                <Variable name="W" />
+                                                            </CheckRelationship>
+                                                        </ExistenceQuantifier>
+                                                    </Expression>
+                                                    <Outcome
+                                                        _RU_text="Нет невычисленного оператора между ${$V}[case='т'] и ${$W}[case='т']"
+                                                        _RU_explanation="Все операторы вычислены между ${$V}[case='т'] и ${$W}[case='т']"
+                                                        _RU_nextStepQuestion="Учитывая, что нет невычисленного оператора между ${$V}[case='т'] и ${$W}[case='т'], что делать дальше?"
+                                                        _RU_nextStepExplanation="Это неверно. Все операторы вычислены между ${$V}[case='т'] и ${$W}[case='т']"
+                                                        _EN_text="No unevaluated operator between ${$V}[case='т'] and ${$W}[case='т']"
+                                                        _EN_explanation="All operators evaluated between ${$V}[case='т'] and ${$W}[case='т']"
+                                                        _EN_nextStepQuestion="Given that there is no unevaluated operator between ${$V}[case='т'] and ${$W}[case='т'], what to do next?"
+                                                        _EN_nextStepExplanation="That is incorrect. All operators evaluated between ${$V}[case='т'] and ${$W}[case='т']"
+                                                        value="True">
+                                                        <BranchResultNode value="error"
+                                                            _skill="previous_central_operands_are_unevaluated"
+                                                            _RU_explanation="${obj:currentLanguage} вычисляет аргументы функций слева направо, но не все аргументы функции ${$V} слева от ${X}[case='р'] вычислены"
+                                                            _EN_explanation="${obj:currentLanguage} evaluates function arguments from left to right but at least one argument of ${$V} to the left of ${X} is not evaluated"
+                                                        />
+                                                    </Outcome>
+                                                    <Outcome
+                                                        _RU_text="Найден невычисленный ${$R} между ${$V}[case='т'] и ${$W}[case='т']."
+                                                        _RU_explanation="В выражении не вычислен ${$R} между ${$V}[case='т'] и ${$W}[case='т']."
+                                                        _RU_nextStepQuestion="Учитывая, что в выражении не вычислен ${$R} между ${$V}[case='т'] и ${$W}[case='т'], что необходимо сделать дальше?"
+                                                        _RU_nextStepExplanation="Это неверно. Найден невычисленный ${$R} между ${$V}[case='т'] и ${$W}[case='т']."
+                                                        _EN_text="Found an unevaluated ${$R} between ${$V}[case='т'] and ${$W}[case='т']."
+                                                        _EN_explanation="The expression did not evaluate ${$R} between ${$V}[case='т'] and ${$W}[case='т']."
+                                                        _EN_nextStepQuestion="Given that the expression did not evaluate ${$R} between ${$V}[case='т'] and ${$W}[case='т'], what should be done next?"
+                                                        _EN_nextStepExplanation="That is incorrect. Found an unevaluated ${$R} between ${$V}[case='т'] and ${$W}[case='т']."
+                                                        value="False">
+                                                        <BranchResultNode value="correct"
+                                                            _skill="previous_central_operands_are_unevaluated"
+                                                            _RU_explanation="${obj:currentLanguage} вычисляет аргументы функций слева направо, но все аргументы функции ${$V} слева от аргумента содержащего ${X}[case='в'] вычислены"
+                                                            _EN_explanation="${obj:currentLanguage} evaluates function arguments from left to right but all arguments of ${$V} to the left of the argument containing ${X} are evaluated"
+                                                        />
+                                                    </Outcome>
+                                                </QuestionNode>
+                                            </Outcome>
+                                        </FindActionNode>
+                                    </ThoughtBranch>
+                                </CycleAggregationNode>
+                            </Outcome>
+                        </QuestionNode>
+                    </ThoughtBranch>
+                    <ThoughtBranch type="bool">
+                        <BranchResultNode value="correct" />
+                    </ThoughtBranch>
+                </BranchAggregationNode>
             </ThoughtBranch>
             <Outcome value="true">
                 <BranchResultNode value="true"> <!-- X вычисляется, A, B, C становятся использованными-->

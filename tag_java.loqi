@@ -748,5 +748,5 @@ obj currentLanguage : language {
     isStrictOrderCentralOperands = true ;
 } [
     RU.localizedName = "язык Java" ;
-    EN.localizedName = "язык Java" ;
+    EN.localizedName = "Java language" ;
 ]

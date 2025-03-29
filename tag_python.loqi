@@ -811,5 +811,5 @@ obj currentLanguage : language {
     isStrictOrderCentralOperands = true ;
 } [
     RU.localizedName = "язык Python" ;
-    EN.localizedName = "язык Python" ;
+    EN.localizedName = "Python language" ;
 ]
