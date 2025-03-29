@@ -782,7 +782,11 @@
                                                         <BranchResultNode value="null" />
                                                         </Outcome>
                                                         <Outcome value="true">
-                                                        <BranchResultNode value="correct" />
+                                                        <BranchResultNode value="correct"
+                                                            _skill="is_current_parenthesized_left_not"
+                                                            _RU_explanation="он находится в скобках, в которых нет ближайшего слева к нему ${Y}[case='р']"
+                                                            _EN_explanation="it is in parentheses, which do not contain the ${Y}[case='р'] closest to it"
+                                                        />
                                                         </Outcome>
                                                     </QuestionNode>
                                                 </ThoughtBranch>
@@ -856,7 +860,13 @@
                                                         <BranchResultNode value="null" />
                                                         </Outcome>
                                                         <Outcome value="true">
-                                                        <BranchResultNode value="error" />
+                                                        <BranchResultNode value="error"
+                                                            _law="error_base_student_error_in_complex;error_base_parenthesized_operators"
+                                                            _skill="is_left_parenthesized_current_not"
+                                                            _error="left.parenthesis"
+                                                            _RU_explanation="сначала должен быть вычислен ${Y} слева от него, так как ${Y} окружен круглыми скобками."
+                                                            _EN_explanation="${Y} on its left must be evaluated first because ${Y} is in parentheses."
+                                                        />
                                                         </Outcome>
                                                     </QuestionNode>
                                                 </ThoughtBranch>
@@ -1372,8 +1382,8 @@
                             >
                                 <BranchResultNode value="true"
                                     skill="right_competing_operator_present"
-                                    _RU_explanation="Все операторы справа от него уже вычислены."
-                                    _EN_explanation="All operators to the right of it have been already evaluated."
+                                    _RU_explanation="все операторы справа от него уже вычислены."
+                                    _EN_explanation="all operators to the right of it have been already evaluated."
                                 />
                             </Outcome>
                             <Outcome value="found"
@@ -1433,8 +1443,8 @@
                                     >
                                         <BranchResultNode value="true"
                                             _skill="right_operator_enclosed"
-                                            _RU_explanation="он заключен в ближайший оператор справа к нему ${Y}[case='и']"
-                                            _EN_explanation="it is enclosed in the ${Y}, which is closest to it from the right"
+                                            _RU_explanation="он заключен в ближайший оператор справа к нему ${Z}[case='и']"
+                                            _EN_explanation="it is enclosed in the ${Z}, which is closest to it from the right"
                                         />
                                     </Outcome>
                                     <Outcome value="false"
@@ -1518,7 +1528,11 @@
                                                         <BranchResultNode value="null" />
                                                         </Outcome>
                                                         <Outcome value="true">
-                                                        <BranchResultNode value="true" />
+                                                        <BranchResultNode value="true"
+                                                            _skill="is_current_parenthesized_right_not"
+                                                            _RU_explanation="он находится в скобках, в которых нет ближайшего справа к нему ${Z}[case='р']"
+                                                            _EN_explanation="it is in parentheses, which do not contain the ${Z}[case='р'] closest to it"
+                                                        />
                                                         </Outcome>
                                                     </QuestionNode>
                                                 </ThoughtBranch>
@@ -1589,7 +1603,12 @@
                                                         <BranchResultNode value="null" />
                                                         </Outcome>
                                                         <Outcome value="true">
-                                                        <BranchResultNode value="error" />
+                                                        <BranchResultNode value="error"
+                                                            _RU_explanation="сначала должен быть вычислен ${X} справа от него, так как ${Z} окружен круглыми скобками."
+                                                            _EN_explanation="${X} on its left must be evaluated first because ${Z} is in parentheses."
+                                                            _skill="is_right_parenthesized_current_not"
+                                                            _law="error_base_parenthesized_operators;error_base_student_error_in_complex"
+                                                        />
                                                         </Outcome>
                                                     </QuestionNode>
                                                 </ThoughtBranch>
@@ -1658,8 +1677,8 @@
                                                     >
                                                         <BranchResultNode value="true"
                                                             _skill="left_competing_to_right_precedence"
-                                                            _RU_explanation="он имеет приоритет выше, чем ${Y}[case='в']."
-                                                            _EN_explanation="it has a higher priority than ${Y}."
+                                                            _RU_explanation="он имеет приоритет выше, чем ${Z}[case='в']."
+                                                            _EN_explanation="it has a higher priority than ${Z}."
                                                         />
                                                     </Outcome>
                                                     <Outcome value="Comparison:greater"
@@ -1678,8 +1697,8 @@
                                                             _law="error_base_higher_precedence_right"
                                                             _skill="left_competing_to_right_precedence"
                                                             _error="right.precedence"
-                                                            _RU_explanation="сначала должен быть вычислен ${Y}[case='и'] справа от него, который имеет более высокий приоритет."
-                                                            _EN_explanation="${Y} on its right must be evaluated first because it has a higher precedence."
+                                                            _RU_explanation="сначала должен быть вычислен ${Z}[case='и'] справа от него, который имеет более высокий приоритет."
+                                                            _EN_explanation="${Z} on its right must be evaluated first because it has a higher precedence."
                                                         />
                                                     </Outcome>
                                                     <Outcome value="Comparison:equal"
@@ -1724,8 +1743,8 @@
                                                             >
                                                                 <BranchResultNode value="false"
                                                                     _skill="associativity_without_left_opposing_operand"
-                                                                    _RU_explanation="сначала должен быть вычислен ${Y}[case='и'] справа от него: эти операторы имеют одинаковый приоритет, и вычисляются справа налево (правоассоциативны)."
-                                                                    _EN_explanation=" ${Y} on its right must be evaluated first - these operators have the same precedence, but are evaluated from right to left (have right associativity)."
+                                                                    _RU_explanation="сначала должен быть вычислен ${Z}[case='и'] справа от него: эти операторы имеют одинаковый приоритет, и вычисляются справа налево (правоассоциативны)."
+                                                                    _EN_explanation=" ${Z} on its right must be evaluated first - these operators have the same precedence, but are evaluated from right to left (have right associativity)."
                                                                 />
                                                             </Outcome>
                                                             <Outcome value="true"
@@ -1772,8 +1791,8 @@
                                                                             _law="error_base_same_precedence_right_associativity_right"
                                                                             _skill="left_competing_to_right_associativity"
                                                                             _error="right.associativity"
-                                                                            _RU_explanation="сначала должен быть вычислен ${Y}[case='и'] справа от него: эти операторы имеют одинаковый приоритет, и вычисляются справа налево (правоассоциативны)."
-                                                                            _EN_explanation=" ${Y} on its right must be evaluated first - these operators have the same precedence, but are evaluated from right to left (have right associativity)."
+                                                                            _RU_explanation="сначала должен быть вычислен ${Z}[case='и'] справа от него: эти операторы имеют одинаковый приоритет, и вычисляются справа налево (правоассоциативны)."
+                                                                            _EN_explanation=" ${Z} on its right must be evaluated first - these operators have the same precedence, but are evaluated from right to left (have right associativity)."
                                                                         />
                                                                     </Outcome>
                                                                     <Outcome
@@ -1792,8 +1811,8 @@
                                                                         <BranchResultNode
                                                                             value="true"
                                                                             _skill="left_competing_to_right_associativity"
-                                                                            _RU_explanation=" имеет одинаковый приоритет с ${Y}[case='р'] и левую ассоциативность (вычисляются слева направо) ."
-                                                                            _EN_explanation="it has the same precedence as ${Y} and left associativity."
+                                                                            _RU_explanation=" имеет одинаковый приоритет с ${Z}[case='р'] и левую ассоциативность (вычисляются слева направо) ."
+                                                                            _EN_explanation="it has the same precedence as ${Z} and left associativity."
                                                                         />
                                                                     </Outcome>
                                                                 </QuestionNode>
@@ -1805,7 +1824,6 @@
                                         </BranchAggregationNode>
                                     </Outcome>
                                 </QuestionNode>
-
                             </Outcome>
                         </FindActionNode>
                     </Outcome>
@@ -1905,8 +1923,8 @@
                                     <Outcome value="True">
                                         <BranchResultNode value="true"
                                             _skill="strict_order_first_operand_to_be_evaluated_while_solving"
-                                            _RU_explanation="что он находится в ${X->isInOperandOf(T).placement}[case='р'] операнде ${$T}[case='р'], который вычисляется первым"
-                                            _EN_explanation="it belongs to the ${X->isInOperandOf(T).placement}[case='р'] operand of ${$T}[case='р'] that is evaluated first."
+                                            _RU_explanation="что он находится в ${X->isInOperandOf(T).placement}[case='р'] операнде ${T}[case='р'], который вычисляется первым"
+                                            _EN_explanation="it belongs to the ${X->isInOperandOf(T).placement}[case='р'] operand of ${T}[case='р'] that is evaluated first."
                                         />
                                     </Outcome>
                                     <Outcome value="False">
@@ -1960,8 +1978,8 @@
                                                     _skill="is_first_operand_of_strict_order_operator_fully_evaluated"
                                                     _law="error_base_student_error_strict_operands_order"
                                                     _error="strict.leftShouldBeEvaluatedFirst"
-                                                    _RU_explanation="${$U} стоящий в ${$U->isInOperandOf(T).placement}[case='р'] операнде ${$T}[case='р'] должен быть вычислен ранее"
-                                                    _EN_explanation="${$U} that belongs to ${$U->isInOperandOf(T).placement}[case='р'] operand ${$T}[case='р'] should be evaluated before it"
+                                                    _RU_explanation="${U} стоящий в ${$U->isInOperandOf(T).placement}[case='р'] операнде ${T}[case='р'] должен быть вычислен ранее"
+                                                    _EN_explanation="${U} that belongs to ${$U->isInOperandOf(T).placement}[case='р'] operand ${T}[case='р'] should be evaluated before it"
                                                 />
                                             </Outcome>
                                             <Outcome value="False"
@@ -2274,19 +2292,19 @@
                                 _EN_nextStepExplanation="That's incorrect. ${obj:currentLanguage} supports strict function call argument ordering by specification"
                                 value="True">
                                 <CycleAggregationNode operator="AND"
-                                    _RU_question="Найдите все такие операторы вызова функций, которые имеют несколько аргументов и ${X} между токенами этого оператора"
-                                    _RU_asNextStep="Необходимо проверить все такие операторы вызова функций, которые имеют несколько аргументов и ${X} между токенами этого оператора"
-                                    _RU_endingCause="потому что нет операторов вызова функций, которые имеют несколько аргументов и ${X} между токенами этого оператора"
-                                    _EN_question="Find all such function call operators that have multiple arguments and ${X} between tokens of this operator"
-                                    _EN_asNextStep="Need to check all such function call operators that have multiple arguments and ${X} between tokens of this operator"
-                                    _EN_endingCause="because there are no function call operators that have multiple arguments and ${X} between tokens of this operator"
+                                    _RU_question="Найдите все такие операторы вызова функций, которые могут иметь несколько аргументов и ${X} между токенами этого оператора"
+                                    _RU_asNextStep="Необходимо проверить все такие операторы вызова функций, которые могут иметь несколько аргументов и ${X} между токенами этого оператора"
+                                    _RU_endingCause="потому что нет операторов вызова функций, которые могут иметь несколько аргументов и ${X} между токенами этого оператора"
+                                    _EN_question="Find all such function call operators that can have multiple arguments and ${X} between tokens of this operator"
+                                    _EN_asNextStep="Need to check all such function call operators that can have multiple arguments and ${X} between tokens of this operator"
+                                    _EN_endingCause="because there are no function call operators that can have multiple arguments and ${X} between tokens of this operator"
                                 >
                                     <SelectorExpression>
                                         <LogicalAnd>
                                             <LogicalAnd>
                                                 <GetPropertyValue>
                                                     <Variable name="V" />
-                                                    <Property name="hasManyCentralOperands" />
+                                                    <Property name="canHaveManyCentralOperands" />
                                                 </GetPropertyValue>
                                                 <ExistenceQuantifier type="token" varName="V1">
                                                     <CheckRelationship>
@@ -2339,85 +2357,103 @@
                                         _EN_nextStepExplanation="That's incorrect. First, we need to find all function calls that contain ${X} in their arguments."
                                     >
                                         <FindActionNode
-                                            _RU_question="Найдите запятую, которая не является оператором, между ${$V}[case='т'] и ${X}[case='т']?"
-                                            _RU_asNextStep="Необходимо проверить, есть ли запятая, которая не является оператором, между ${$V}[case='т'] и ${X}[case='т']."
-                                            _RU_endingCause="потому что запятой между между ${$V}[case='т'] и ${X}[case='т'] нет."
-                                            _EN_question="Find a comma that is not an operator between ${$V}[case='т'] and ${X}[case='т']?"
-                                            _EN_asNextStep="We need to check if there is a comma that is not an operator between ${$V}[case='т'] and ${X}[case='т']."
-                                            _EN_endingCause="because there is no comma between ${$V}[case='т'] and ${X}[case='т']."
+                                            _RU_question="Найдите запятую, которая не является оператором, между ${V}[case='т'] и ${X}[case='т']?"
+                                            _RU_asNextStep="Необходимо проверить, есть ли запятая, которая не является оператором, между ${V}[case='т'] и ${X}[case='т']."
+                                            _RU_endingCause="потому что запятой между между ${V}[case='т'] и ${X}[case='т'] нет."
+                                            _EN_question="Find a comma that is not an operator between ${V}[case='т'] and ${X}[case='т']?"
+                                            _EN_asNextStep="We need to check if there is a comma that is not an operator between ${V}[case='т'] and ${X}[case='т']."
+                                            _EN_endingCause="because there is no comma between ${V}[case='т'] and ${X}[case='т']."
                                         >
-                                            <Expression>
-                                                <LogicalAnd>
-                                                    <CheckRelationship>
-                                                        <Relationship name="isBetween" />
-                                                        <Variable name="W" />
-                                                        <GetByCondition type="token" varName="V1">
-                                                            <LogicalAnd>
-                                                                <CheckRelationship>
-                                                                    <Relationship name="belongsTo" />
-                                                                    <Variable name="V1" />
-                                                                    <Variable name="V" />
-                                                                </CheckRelationship>
-                                                                <CheckRelationship>
-                                                                    <Relationship name="rightOf" />
-                                                                    <DecisionTreeVar name="X1" />
-                                                                    <Variable name="V1" />
-                                                                </CheckRelationship>
-                                                            </LogicalAnd>
-                                                        </GetByCondition>
-                                                        <DecisionTreeVar name="X1" />
-                                                    </CheckRelationship>
-                                                    <LogicalNot>
-                                                        <ExistenceQuantifier type="token"
-                                                            varName="sep">
-                                                            <CheckClass>
-                                                                <GetByRelationship varName="">
-                                                                    <Variable name="sep" />
-                                                                    <Relationship name="belongsTo" />
-                                                                </GetByRelationship>
-                                                                <Class name="separator" />
-                                                            </CheckClass>
-                                                            <CheckRelationship>
-                                                                <Relationship name="isBetween" />
-                                                                <Variable name="sep" />
-                                                                <Variable name="W" />
-                                                                <Variable name="X" />
-                                                            </CheckRelationship>
-                                                        </ExistenceQuantifier>
-                                                    </LogicalNot>
-                                                </LogicalAnd>
-                                            </Expression>
                                             <DecisionTreeVarDecl name="W" type="separator" />
+                                            <Expression>
+                                                <GetByCondition varName="w" type="separator">
+                                                    <LogicalAnd>
+                                                        <CheckRelationship>
+                                                            <Relationship name="isBetween" />
+                                                            <GetByCondition varName="t" type="token">
+                                                                <CheckRelationship>
+                                                                    <Relationship name="has" />
+                                                                    <Variable name="w"/>
+                                                                    <Variable name="t" />
+                                                                </CheckRelationship>
+                                                            </GetByCondition>
+                                                            <GetByCondition type="token"
+                                                                varName="V1">
+                                                                <LogicalAnd>
+                                                                    <CheckRelationship>
+                                                                        <Relationship
+                                                                            name="belongsTo" />
+                                                                        <Variable name="V1" />
+                                                                        <DecisionTreeVar name="V" />
+                                                                    </CheckRelationship>
+                                                                    <CheckRelationship>
+                                                                        <Relationship name="rightOf" />
+                                                                        <DecisionTreeVar name="X1" />
+                                                                        <Variable name="V1" />
+                                                                    </CheckRelationship>
+                                                                </LogicalAnd>
+                                                            </GetByCondition>
+                                                            <DecisionTreeVar name="X1" />
+                                                        </CheckRelationship>
+                                                        <LogicalNot>
+                                                            <ExistenceQuantifier type="token"
+                                                                varName="sep">
+                                                                <CheckClass>
+                                                                    <GetByRelationship varName="">
+                                                                        <Variable name="sep" />
+                                                                        <Relationship
+                                                                            name="belongsTo" />
+                                                                    </GetByRelationship>
+                                                                    <Class name="separator" />
+                                                                </CheckClass>
+                                                                <CheckRelationship>
+                                                                    <Relationship name="isBetween" />
+                                                                    <Variable name="sep" />
+                                                                    <GetByCondition varName="t"
+                                                                        type="token">
+                                                                        <CheckRelationship>
+                                                                            <Relationship name="has" />
+                                                                            <Variable name="w" />
+                                                                            <Variable name="t" />
+                                                                        </CheckRelationship>
+                                                                    </GetByCondition>
+                                                                    <DecisionTreeVar name="X" />
+                                                                </CheckRelationship>
+                                                            </ExistenceQuantifier>
+                                                        </LogicalNot>
+                                                    </LogicalAnd>
+                                                </GetByCondition>
+                                            </Expression>
                                             <Outcome
-                                                _RU_text="Нет запятой между ${$V}[case='т'] и ${X}[case='т']."
-                                                _RU_explanation="${$V} не имеет нескольких аргументов"
-                                                _RU_nextStepQuestion="Учитывая что ${$V} не имеет нескольких аргументов, что нужно делать дальше?"
-                                                _RU_nextStepExplanation="Это неверно. Так как ${$V} не имеет несколько аргументов и вычислению ${X}[case='р'] не мешает"
-                                                _EN_text="There is no comma between ${$V}[case='т'] and ${X}[case='т']."
-                                                _EN_explanation="${$V} does not have multiple arguments"
-                                                _EN_nextStepQuestion="Given that ${$V} does not have multiple arguments, what should we do next?"
-                                                _EN_nextStepExplanation="That is incorrect. Since ${$V} does not have multiple arguments, it does not block the evaluation of ${X}[case='р']"
+                                                _RU_text="Нет запятой между ${V}[case='т'] и ${X}[case='т']."
+                                                _RU_explanation="${V} не имеет нескольких аргументов"
+                                                _RU_nextStepQuestion="Учитывая что ${V} не имеет нескольких аргументов, что нужно делать дальше?"
+                                                _RU_nextStepExplanation="Это неверно. Так как ${V} не имеет несколько аргументов и вычислению ${X}[case='р'] не мешает"
+                                                _EN_text="There is no comma between ${V}[case='т'] and ${X}[case='т']."
+                                                _EN_explanation="${V} does not have multiple arguments"
+                                                _EN_nextStepQuestion="Given that ${V} does not have multiple arguments, what should we do next?"
+                                                _EN_nextStepExplanation="That is incorrect. Since ${V} does not have multiple arguments, it does not block the evaluation of ${X}[case='р']"
                                                 value="Not found">
                                                 <BranchResultNode value="correct"
                                                     _skill="no_comma_in_central_operands"
-                                                    _RU_explanation="${obj:currentLanguage} вычисляет аргументы функций слева направо, но ${X} находится в первом аргументе функции ${$V}"
-                                                    _EN_explanation="${obj:currentLanguage} evaluates function arguments from left to right but ${X} is in the first argument of function ${$V}"
+                                                    _RU_explanation="${obj:currentLanguage} вычисляет аргументы функций слева направо, но ${X} находится в первом аргументе функции ${V}"
+                                                    _EN_explanation="${obj:currentLanguage} evaluates function arguments from left to right but ${X} is in the first argument of function ${V}"
                                                 />
                                             </Outcome>
                                             <Outcome
-                                                _RU_text="Найдена запятая между левым токеном ${$V}[case='р'] и ${$W}[case='т']."
-                                                _RU_explanation="${$W} не является первым аргументом ${$V}[case='р']."
-                                                _RU_nextStepQuestion="Учитывая, что ${$W} не является первым аргументом ${$V}[case='р'], что нужно делать дальше?"
-                                                _RU_nextStepExplanation="Это неверно. ${$W} не является первым аргументом ${$V}[case='р']."
-                                                _EN_text="Found a comma between the left token ${$V}[case='р'] and ${$W}[case='т']."
-                                                _EN_explanation="${$W} is not the first argument of ${$V}[case='р']."
-                                                _EN_nextStepQuestion="Given that ${$W} is not the first argument of ${$V}[case='р'], what should we do next?"
-                                                _EN_nextStepExplanation="That's incorrect. ${$W} is not the first argument of ${$V}[case='р']."
+                                                _RU_text="Найдена запятая между левым токеном ${V}[case='р'] и ${W}[case='т']."
+                                                _RU_explanation="${W} не является первым аргументом ${V}[case='р']."
+                                                _RU_nextStepQuestion="Учитывая, что ${W} не является первым аргументом ${V}[case='р'], что нужно делать дальше?"
+                                                _RU_nextStepExplanation="Это неверно. ${W} не является первым аргументом ${V}[case='р']."
+                                                _EN_text="Found a comma between the left token ${V}[case='р'] and ${W}[case='т']."
+                                                _EN_explanation="${W} is not the first argument of ${V}[case='р']."
+                                                _EN_nextStepQuestion="Given that ${W} is not the first argument of ${V}[case='р'], what should we do next?"
+                                                _EN_nextStepExplanation="That's incorrect. ${W} is not the first argument of ${V}[case='р']."
                                                 value="Found">
                                                 <QuestionNode type="bool" isSwitch="false"
                                                     _RU_question="Есть ли невычисленный оператор между ${V}[case='т'] и ${W}[case='т']"
                                                     _RU_asNextStep="Необходимо проверить, есть ли невычисленный оператор между ${V}[case='т'] и ${W}[case='т']"
-                                                    _RU_endingCause="потому что ${res? 'есть' : 'нет'} невычисленного оператора между ${V}[case='т'] и ${W}[case='т']"
+                                                    _RU_endingCause="потому что ${res ? 'есть' : 'нет'} невычисленного оператора между ${V}[case='т'] и ${W}[case='т']"
                                                     _EN_question="Is there an unevaluated operator between ${V}[case='т'] and ${W}[case='т']"
                                                     _EN_asNextStep="Need to check if there is an unevaluated operator between ${V}[case='т'] and ${W}[case='т']"
                                                     _EN_endingCause="because ${res? 'there is' : 'no'} unevaluated operator between ${V}[case='т'] and ${W}[case='т']"
@@ -2443,7 +2479,7 @@
                                                                             <Relationship
                                                                                 name="belongsTo" />
                                                                             <Variable name="V1" />
-                                                                            <Variable name="V" />
+                                                                            <DecisionTreeVar name="V" />
                                                                         </CheckRelationship>
                                                                         <CheckRelationship>
                                                                             <Relationship
@@ -2454,40 +2490,40 @@
                                                                         </CheckRelationship>
                                                                     </LogicalAnd>
                                                                 </GetByCondition>
-                                                                <Variable name="W" />
+                                                                <DecisionTreeVar name="W" />
                                                             </CheckRelationship>
                                                         </ExistenceQuantifier>
                                                     </Expression>
                                                     <Outcome
-                                                        _RU_text="Нет невычисленного оператора между ${$V}[case='т'] и ${$W}[case='т']"
-                                                        _RU_explanation="Все операторы вычислены между ${$V}[case='т'] и ${$W}[case='т']"
-                                                        _RU_nextStepQuestion="Учитывая, что нет невычисленного оператора между ${$V}[case='т'] и ${$W}[case='т'], что делать дальше?"
-                                                        _RU_nextStepExplanation="Это неверно. Все операторы вычислены между ${$V}[case='т'] и ${$W}[case='т']"
-                                                        _EN_text="No unevaluated operator between ${$V}[case='т'] and ${$W}[case='т']"
-                                                        _EN_explanation="All operators evaluated between ${$V}[case='т'] and ${$W}[case='т']"
-                                                        _EN_nextStepQuestion="Given that there is no unevaluated operator between ${$V}[case='т'] and ${$W}[case='т'], what to do next?"
-                                                        _EN_nextStepExplanation="That is incorrect. All operators evaluated between ${$V}[case='т'] and ${$W}[case='т']"
+                                                        _RU_text="Нет невычисленного оператора между ${V}[case='т'] и ${W}[case='т']"
+                                                        _RU_explanation="Все операторы вычислены между ${V}[case='т'] и ${W}[case='т']"
+                                                        _RU_nextStepQuestion="Учитывая, что нет невычисленного оператора между ${V}[case='т'] и ${W}[case='т'], что делать дальше?"
+                                                        _RU_nextStepExplanation="Это неверно. Все операторы вычислены между ${V}[case='т'] и ${W}[case='т']"
+                                                        _EN_text="No unevaluated operator between ${V}[case='т'] and ${W}[case='т']"
+                                                        _EN_explanation="All operators evaluated between ${V}[case='т'] and ${W}[case='т']"
+                                                        _EN_nextStepQuestion="Given that there is no unevaluated operator between ${V}[case='т'] and ${W}[case='т'], what to do next?"
+                                                        _EN_nextStepExplanation="That is incorrect. All operators evaluated between ${V}[case='т'] and ${W}[case='т']"
                                                         value="True">
                                                         <BranchResultNode value="error"
                                                             _skill="previous_central_operands_are_unevaluated"
-                                                            _RU_explanation="${obj:currentLanguage} вычисляет аргументы функций слева направо, но не все аргументы функции ${$V} слева от ${X}[case='р'] вычислены"
-                                                            _EN_explanation="${obj:currentLanguage} evaluates function arguments from left to right but at least one argument of ${$V} to the left of ${X} is not evaluated"
+                                                            _RU_explanation="${obj:currentLanguage} вычисляет аргументы функций слева направо, но не все аргументы функции ${V} слева от ${X}[case='р'] вычислены"
+                                                            _EN_explanation="${obj:currentLanguage} evaluates function arguments from left to right but at least one argument of ${V} to the left of ${X} is not evaluated"
                                                         />
                                                     </Outcome>
                                                     <Outcome
-                                                        _RU_text="Найден невычисленный ${$R} между ${$V}[case='т'] и ${$W}[case='т']."
-                                                        _RU_explanation="В выражении не вычислен ${$R} между ${$V}[case='т'] и ${$W}[case='т']."
-                                                        _RU_nextStepQuestion="Учитывая, что в выражении не вычислен ${$R} между ${$V}[case='т'] и ${$W}[case='т'], что необходимо сделать дальше?"
-                                                        _RU_nextStepExplanation="Это неверно. Найден невычисленный ${$R} между ${$V}[case='т'] и ${$W}[case='т']."
-                                                        _EN_text="Found an unevaluated ${$R} between ${$V}[case='т'] and ${$W}[case='т']."
-                                                        _EN_explanation="The expression did not evaluate ${$R} between ${$V}[case='т'] and ${$W}[case='т']."
-                                                        _EN_nextStepQuestion="Given that the expression did not evaluate ${$R} between ${$V}[case='т'] and ${$W}[case='т'], what should be done next?"
-                                                        _EN_nextStepExplanation="That is incorrect. Found an unevaluated ${$R} between ${$V}[case='т'] and ${$W}[case='т']."
+                                                        _RU_text="Найден невычисленный оператор между ${V}[case='т'] и ${W}[case='т']."
+                                                        _RU_explanation="В выражении не вычислен оператор между ${V}[case='т'] и ${W}[case='т']."
+                                                        _RU_nextStepQuestion="Учитывая, что в выражении не вычислен оператор между ${V}[case='т'] и ${W}[case='т'], что необходимо сделать дальше?"
+                                                        _RU_nextStepExplanation="Это неверно. Найден невычисленный оператор между ${V}[case='т'] и ${W}[case='т']."
+                                                        _EN_text="Found an unevaluated operator between ${V}[case='т'] and ${W}[case='т']."
+                                                        _EN_explanation="The expression did not evaluate the operator between ${V}[case='т'] and ${W}[case='т']."
+                                                        _EN_nextStepQuestion="Given that the expression did not evaluate the operator between ${V}[case='т'] and ${W}[case='т'], what should be done next?"
+                                                        _EN_nextStepExplanation="That is incorrect. Found an unevaluated the operator between ${V}[case='т'] and ${W}[case='т']."
                                                         value="False">
                                                         <BranchResultNode value="correct"
                                                             _skill="previous_central_operands_are_unevaluated"
-                                                            _RU_explanation="${obj:currentLanguage} вычисляет аргументы функций слева направо, но все аргументы функции ${$V} слева от аргумента содержащего ${X}[case='в'] вычислены"
-                                                            _EN_explanation="${obj:currentLanguage} evaluates function arguments from left to right but all arguments of ${$V} to the left of the argument containing ${X} are evaluated"
+                                                            _RU_explanation="${obj:currentLanguage} вычисляет аргументы функций слева направо, но все аргументы функции ${V} слева от аргумента содержащего ${X}[case='в'] вычислены"
+                                                            _EN_explanation="${obj:currentLanguage} evaluates function arguments from left to right but all arguments of ${V} to the left of the argument containing ${X} are evaluated"
                                                         />
                                                     </Outcome>
                                                 </QuestionNode>
