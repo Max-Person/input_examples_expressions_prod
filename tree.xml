@@ -1530,8 +1530,8 @@
                                                         <Outcome value="true">
                                                         <BranchResultNode value="true"
                                                             _skill="is_current_parenthesized_right_not"
-                                                            _RU_explanation="он находится в скобках, а ближайший справа к нему ${Z} находится за их пределами."
-                                                            _EN_explanation="it is in parentheses, which do not contain the ${Z} closest to it"
+                                                            _RU_explanation="он находится в скобках, а ближайший к нему справа ${Z} находится за их пределами."
+                                                            _EN_explanation="it is inside parentheses, while the closest ${Z} to its right lies outside them."
                                                         />
                                                         </Outcome>
                                                     </QuestionNode>
@@ -1845,9 +1845,23 @@
                     _EN_question="Choose all operators with strict operand order that can influence the evaluation of ${X}"
                 >
                     <SelectorExpression>
-                        <!-- Patch: операторы строгого порядка не обязательно должны быть
-                        невычисленными-->
-                        <Boolean value="true" />
+                        <LogicalOr>
+                            <Compare operator="EQUAL">
+                                <GetPropertyValue>
+                                    <Variable name="T" />
+                                    <Property name="state" />
+                                </GetPropertyValue>
+                                <Enum owner="state" value="unevaluated" />
+                            </Compare>
+                            <!-- Чтобы в некоторых ситуациях не блокировался выбор опущенных операторов -->
+                            <Compare operator="EQUAL">
+                                <GetPropertyValue>
+                                    <Variable name="T" />
+                                    <Property name="state" />
+                                </GetPropertyValue>
+                                <Enum owner="state" value="omitted" />
+                            </Compare>
+                        </LogicalOr>
                     </SelectorExpression>
                     <FindError priority="1" type="operator" _alias="T_notStrict"
                         _RU_explanation="${$checked}[case='и'] не является оператором со строгим порядком операндов"
@@ -1869,12 +1883,15 @@
                         </Expression>
                     </FindError>
                     <DecisionTreeVarDecl name="T" type="StrictOrderOperator" />
-                    <Outcome value="True">
+                    <Outcome value="Null">
                         <BranchResultNode value="true"
                             _skill="expression_strict_order_operators_present"
                             _RU_explanation="в выражении нет операторов со строгим порядком вычисления операндов."
                             _EN_explanation="the expression does not contain operators with strict order of operand evaluation."
                         />
+                    </Outcome>
+                    <Outcome value="True">
+                        <BranchResultNode value="true" />
                     </Outcome>
                     <Outcome value="False">
                         <BranchResultNode value="false" />
@@ -1900,11 +1917,27 @@
                                 </LogicalNot>
                             </Expression>
                             <Outcome value="True">
-                                <BranchResultNode value="true"
-                                    _skill="is_current_operator_strict_order"
-                                    _RU_explanation="он не находится в ${T}[case='п'], который имеет строгий порядок вычисления операндов."
-                                    _EN_explanation="it is not a part of any operand of ${T} which has a strict order of operand evaluation"
-                                />
+                                <!-- Нужно для отображения этой подсказки в интерфейсе-->
+                                <QuestionNode _alias="X - это не T" type="bool" isSwitch="false">
+                                    <Expression>
+                                        <Compare operator="NOT_EQUAL">
+                                            <DecisionTreeVar name="X" />
+                                            <DecisionTreeVar name="T" />
+                                        </Compare>
+                                    </Expression>
+                                    <Outcome value="True">
+                                        <BranchResultNode value="true"
+                                            _skill="is_current_operator_strict_order"
+                                            _RU_explanation="он не находится в ${T}[case='п'], который имеет строгий порядок вычисления операндов."
+                                            _EN_explanation="it is not a part of any operand of ${T} which has a strict order of operand evaluation"
+                                        />
+                                    </Outcome>
+                                    <Outcome value="False">
+                                        <BranchResultNode value="true"
+                                            _skill="is_current_operator_strict_order" /> 
+                                    </Outcome>
+                                </QuestionNode>
+                                
                             </Outcome>
                             <Outcome value="False">
                                 <QuestionNode _alias="X в его первом операнде"
@@ -1923,8 +1956,8 @@
                                     <Outcome value="True">
                                         <BranchResultNode value="true"
                                             _skill="strict_order_first_operand_to_be_evaluated_while_solving"
-                                            _RU_explanation="что он находится в ${X->isInOperandOf(T).placement}[case='п'] операнде ${T}[case='р'], который вычисляется первым"
-                                            _EN_explanation="it belongs to the ${X->isInOperandOf(T).placement}[case='п'] operand of ${T}[case='р'] that is evaluated first."
+                                            _RU_explanation="он находится в ${X->isInOperandOf(T).placement}[case='п'] операнде ${T}[case='р'], а этот операнд вычисляется раньше остальных."
+                                            _EN_explanation="it belongs to the ${X->isInOperandOf(T).placement}[case='п'] operand of ${T}[case='р'], which is evaluated before the other operands of the latter."
                                         />
                                     </Outcome>
                                     <Outcome value="False">
@@ -2253,8 +2286,8 @@
                         value="False">
                         <BranchResultNode value="correct"
                             _skill="are_central_operands_strict_order"
-                            _RU_explanation="${obj:currentLanguage} разрешает вычисление аргументов функции в любом порядке"
-                            _EN_explanation="${obj:currentLanguage} allows evaluating of function arguments in any order"
+                            _RU_explanation="${obj:currentLanguage} разрешает вычисление аргументов функции в любом порядке."
+                            _EN_explanation="${obj:currentLanguage} allows evaluating of function arguments in any order."
                         />
                     </Outcome>
                     <Outcome
