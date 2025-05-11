@@ -1943,8 +1943,8 @@
                                     <Outcome value="True">
                                         <BranchResultNode value="true"
                                             _skill="strict_order_first_operand_to_be_evaluated_while_solving"
-                                            _RU_explanation="он находится в ${X->isInOperandOf(T).placement}[case='п'] операнде ${T}[case='р'], а этот операнд вычисляется раньше остальных."
-                                            _EN_explanation="it belongs to the ${X->isInOperandOf(T).placement}[case='п'] operand of ${T}[case='р'], which is evaluated before the other operands of the latter."
+                                            _RU_explanation="он находится в ${X=>isInOperandOf(T).placement}[case='п'] операнде ${T}[case='р'], а этот операнд вычисляется раньше остальных."
+                                            _EN_explanation="it belongs to the ${X=>isInOperandOf(T).placement}[case='п'] operand of ${T}[case='р'], which is evaluated before the other operands of the latter."
                                         />
                                     </Outcome>
                                     <Outcome value="False">
@@ -2135,8 +2135,8 @@
                                                             >
                                                                 <BranchResultNode value="true"
                                                                     _skill="should_strict_order_current_operand_be_omitted_while_solving"
-                                                                    _RU_explanation="он находится в ${X->isInOperandOf(T).placement}[case='п'] операнде ${T}[case='р'], чей ${T.firstOperandPlacement} операнд имеет значение ${T->hasOperand&lt;placement=T.firstOperandPlacement>.evaluatesTo}."
-                                                                    _EN_explanation="it belongs to ${X->isInOperandOf(T).placement}[case='п'] operand of ${T}[case='р'] whose ${T.firstOperandPlacement} operand evaluates to ${T->hasOperand&lt;placement=T.firstOperandPlacement>.evaluatesTo}."
+                                                                    _RU_explanation="он находится в ${X=>isInOperandOf(T).placement}[case='п'] операнде ${T}[case='р'], чей ${T.firstOperandPlacement} операнд имеет значение ${T->hasOperand&lt;placement=T.firstOperandPlacement>.evaluatesTo}."
+                                                                    _EN_explanation="it belongs to ${X=>isInOperandOf(T).placement}[case='п'] operand of ${T}[case='р'] whose ${T.firstOperandPlacement} operand evaluates to ${T->hasOperand&lt;placement=T.firstOperandPlacement>.evaluatesTo}."
                                                                 />
                                                             </Outcome>
                                                     <Outcome
@@ -2150,8 +2150,8 @@
                                                             >
                                                                 <BranchResultNode value="true"
                                                                     _skill="should_strict_order_current_operand_be_omitted_while_solving"
-                                                                    _RU_explanation="он находится в ${X->isInOperandOf(T).placement}[case='п'] операнде ${T}[case='р'], чей ${T.firstOperandPlacement} операнд имеет значение ${T->hasOperand&lt;placement=T.firstOperandPlacement>.evaluatesTo}."
-                                                                    _EN_explanation="it belongs to ${X->isInOperandOf(T).placement}[case='п'] operand of ${T}[case='р'] whose ${T.firstOperandPlacement} operand evaluates to ${T->hasOperand&lt;placement=T.firstOperandPlacement>.evaluatesTo}."
+                                                                    _RU_explanation="он находится в ${X=>isInOperandOf(T).placement}[case='п'] операнде ${T}[case='р'], чей ${T.firstOperandPlacement} операнд имеет значение ${T->hasOperand&lt;placement=T.firstOperandPlacement>.evaluatesTo}."
+                                                                    _EN_explanation="it belongs to ${X=>isInOperandOf(T).placement}[case='п'] operand of ${T}[case='р'] whose ${T.firstOperandPlacement} operand evaluates to ${T->hasOperand&lt;placement=T.firstOperandPlacement>.evaluatesTo}."
                                                                 />
                                                             </Outcome>
                                                     <Outcome
@@ -2169,8 +2169,8 @@
                                                                     _law="error_base_student_error_strict_operands_order"
                                                                     value="false"
                                                                     _error="strict.leftShouldBeTrue_omittedInRight"
-                                                                    _RU_explanation="он находится в ${X->isInOperandOf(T).placement}[case='п'] операнде ${T}[case='р'], чей ${T.firstOperandPlacement} операнд имеет значение ${T->hasOperand&lt;placement=T.firstOperandPlacement>.evaluatesTo}, что блокирует вычисление ${X}[case='р']."
-                                                                    _EN_explanation="it belongs to ${X->isInOperandOf(T).placement}[case='п'] operand of ${T}[case='р'] whose ${T.firstOperandPlacement} operand evaluates to ${T->hasOperand&lt;placement=T.firstOperandPlacement>.evaluatesTo} which forbids evaluation of ${X}[case='р']."
+                                                                    _RU_explanation="он находится в ${X=>isInOperandOf(T).placement}[case='п'] операнде ${T}[case='р'], чей ${T.firstOperandPlacement} операнд имеет значение ${T->hasOperand&lt;placement=T.firstOperandPlacement>.evaluatesTo}, что блокирует вычисление ${X}[case='р']."
+                                                                    _EN_explanation="it belongs to ${X=>isInOperandOf(T).placement}[case='п'] operand of ${T}[case='р'] whose ${T.firstOperandPlacement} operand evaluates to ${T->hasOperand&lt;placement=T.firstOperandPlacement>.evaluatesTo} which forbids evaluation of ${X}[case='р']."
                                                                 >
                                                                     <Expression>
                                                                         <AssignToProperty>
@@ -2198,8 +2198,8 @@
                                                                     _skill="should_strict_order_current_operand_be_omitted_while_solving"
                                                                     _law="error_base_student_error_strict_operands_order"
                                                                     _error="strict.leftShouldBeFalse_omittedInRight"
-                                                                    _RU_explanation="он находится в ${X->isInOperandOf(T).placement}[case='п'] операнде ${T}[case='р'], чей ${T.firstOperandPlacement} операнд имеет значение ${T->hasOperand&lt;placement=T.firstOperandPlacement>.evaluatesTo}, что блокирует вычисление ${X}[case='р']."
-                                                                    _EN_explanation="it belongs to ${X->isInOperandOf(T).placement}[case='п'] operand of ${T}[case='р'] whose ${T.firstOperandPlacement} operand evaluates to ${T->hasOperand&lt;placement=T.firstOperandPlacement>.evaluatesTo} which forbids evaluation of ${X}[case='р']."
+                                                                    _RU_explanation="он находится в ${X=>isInOperandOf(T).placement}[case='п'] операнде ${T}[case='р'], чей ${T.firstOperandPlacement} операнд имеет значение ${T->hasOperand&lt;placement=T.firstOperandPlacement>.evaluatesTo}, что блокирует вычисление ${X}[case='р']."
+                                                                    _EN_explanation="it belongs to ${X=>isInOperandOf(T).placement}[case='п'] operand of ${T}[case='р'] whose ${T.firstOperandPlacement} operand evaluates to ${T->hasOperand&lt;placement=T.firstOperandPlacement>.evaluatesTo} which forbids evaluation of ${X}[case='р']."
                                                                 >
                                                                     <Expression>
                                                                         <AssignToProperty>
@@ -2228,8 +2228,8 @@
                                                     _skill="is_first_operand_of_strict_order_operator_fully_evaluated"
                                                     _law="error_base_student_error_strict_operands_order"
                                                     _error="strict.leftShouldBeEvaluatedFirst"
-                                                    _RU_explanation="${U}, стоящий в ${U->isInOperandOf(T).placement}[case='п'] операнде ${T}[case='р'], должен быть вычислен ранее"
-                                                    _EN_explanation="${U} that belongs to ${U->isInOperandOf(T).placement}[case='п'] operand ${T}[case='р'] should be evaluated before it"
+                                                    _RU_explanation="${U}, стоящий в ${U=>isInOperandOf(T).placement}[case='п'] операнде ${T}[case='р'], должен быть вычислен ранее"
+                                                    _EN_explanation="${U} that belongs to ${U=>isInOperandOf(T).placement}[case='п'] operand ${T}[case='р'] should be evaluated before it"
                                                 />
                                             </ThoughtBranch>
                                         </CycleAggregationNode>
