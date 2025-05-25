@@ -252,6 +252,7 @@ class `operator_list` : operator {
     needsOperand<OperandPlacement:right> = false ;
     needsOperand<OperandPlacement:center> = true ;
     countOfTokens = 2 ;
+    canHaveManyCentralOperands = true ;
 } [
 	text = "{" ;
 	token2text = "}" ;
