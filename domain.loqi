@@ -165,7 +165,7 @@ class operator : operand {
 	class prop isOr: bool = false;
 	class prop isComma: bool = false;
 	class prop isTConditional: bool = false;
-	class prop canHaveManyCentralOperands: bool = false;
+	class prop canHaveManyCentralOperands: bool = false ;
 } [
 	RU.localizedName = "оператор" ;
 	EN.localizedName = "operator" ;
